@@ -1,7 +1,9 @@
 extends Camera3D
 
 @onready var camera = $"."
-@onready var cameraVel = 0
+@onready var cameraAcc = 0.001
+@onready var cameraXVel = 0
+@onready var cameraYVel = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,13 +13,20 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var cameraPos = get_viewport().get_mouse_position()
-	camera.global_rotation.y += cameraVel
+	camera.global_rotation.y += cameraXVel
+	camera.global_rotation.x += cameraYVel
 	
-	print(camera.global_rotation.y)
-	if cameraPos.x < 100 && camera.global_rotation.y < PI / 4:
-		cameraVel = 0.01
-	elif cameraPos.x > 1000 && camera.global_rotation.y > -PI / 4:
-		cameraVel = -0.01
+	if cameraPos.y < 100 && camera.global_rotation.x < PI / 16:
+		cameraYVel += cameraAcc
+	elif cameraPos.y > 500 && camera.global_rotation.x > -PI / 16:
+		cameraYVel -= cameraAcc
 	else:
-		cameraVel = 0
+		cameraYVel = 0
+	
+	if cameraPos.x < 200 && camera.global_rotation.y < PI / 16:
+		cameraXVel += cameraAcc
+	elif cameraPos.x > 900 && camera.global_rotation.y > -PI / 16:
+		cameraXVel -= cameraAcc
+	else:
+		cameraXVel = 0
 	

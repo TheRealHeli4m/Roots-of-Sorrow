@@ -1,7 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1787873054
+::res://::1787881496
 icon.svg::CompressedTexture2D::6988031295847126034::1787872057::1787873054::1::::<><><>0<>0<>a65a091b273ac8ce1e2f592e71271721<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-root.tscn::PackedScene::1852963270115518050::1787872506::0::1::::<><><>0<>0<><>::
 ::res://Assets/::1787872631
-::res://Scripts/::1787872648
-camera_rotation.gd::GDScript::3826581424502748295::1787872626::0::1::::<>Camera3D<><>0<>0<><>::
+::res://Scenes/::1787881641
+game_boy.tscn::PackedScene::8899809473382144013::1787881285::0::1::::<><><>0<>0<><>::uid://c6tb4b1ok10ws::::res://icon.svg
+root.tscn::PackedScene::1852963270115518050::1787881606::0::1::::<><><>0<>0<><>::uid://dl5rcxjspxv4n::::res://Scripts/root.gd<>uid://burvib7xvmgr4::::res://Scripts/camera_rotation.gd<>uid://cj4al11ahj8on::::res://Scripts/screen_white_flasher.gd
+::res://Scripts/::1787881606
+camera_rotation.gd::GDScript::3826581424502748295::1787876935::0::1::::<>Camera3D<><>0<>0<><>::
+white_flasher.gd::GDScript::4538901266209711483::1787881641::0::1::::<>ColorRect<><>0<>0<><>::
+root.gd::GDScript::7994307646963397347::1787881377::0::1::::<>Node3D<><>0<>0<><>::
