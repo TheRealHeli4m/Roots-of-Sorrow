@@ -1,9 +1,8 @@
-res://root.tscn
-res://Scripts/camera_rotation.gd
-res://Scenes/root.tscn
-res://game_boy.tscn
 res://Scenes/game_boy.tscn
+res://Scripts/game_boy.gd
 res://Scripts/root.gd
-res://Scripts/screen_white_flasher.gd
 res://Scripts/white_flasher.gd
-res://Scenes/color_rect.gd
+res://Scripts/color_rect.gd
+res://Scenes/gameboy_player.gd
+res://Scenes/gameboy_player.tscn
+res://Scripts/gb_player_movement.gd
