@@ -6,3 +6,6 @@ res://Scripts/color_rect.gd
 res://Scenes/gameboy_player.gd
 res://Scenes/gameboy_player.tscn
 res://Scripts/gb_player_movement.gd
+res://Scenes/root.tscn
+res://Scenes/gameboy.tscn
+res://Scenes/3d_room.tscn

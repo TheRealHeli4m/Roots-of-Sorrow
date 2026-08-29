@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Roots of Sorrow"
-run/main_scene="res://Scenes/root.tscn"
+run/main_scene="uid://vo0o8mi3rxyo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

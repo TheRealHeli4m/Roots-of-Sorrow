@@ -1,43 +1,28 @@
-[gd_scene format=3 uid="uid://1nubfxun847w"]
+[gd_scene format=3 uid="uid://vo0o8mi3rxyo"]
 
-[ext_resource type="Script" uid="uid://dl5rcxjspxv4n" path="res://Scripts/root.gd" id="1_8pvmw"]
-[ext_resource type="Script" uid="uid://burvib7xvmgr4" path="res://Scripts/camera_rotation.gd" id="1_i04dx"]
-[ext_resource type="Script" uid="uid://b5wxbncf31lmh" path="res://Scripts/white_flasher.gd" id="3_vnucn"]
+[ext_resource type="Script" uid="uid://dw4hbfnw1e8bl" path="res://Scripts/root.gd" id="1_8pvmw"]
+[ext_resource type="PackedScene" uid="uid://1nubfxun847w" path="res://Scenes/3d_room.tscn" id="2_c3mwy"]
+[ext_resource type="PackedScene" uid="uid://dy2etdm7ke30l" path="res://Scenes/gameboy.tscn" id="2_vnucn"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho56"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_pq8q7"]
-sky_material = SubResource("ProceduralSkyMaterial_vho56")
-
-[sub_resource type="Environment" id="Environment_pyidc"]
-background_mode = 2
-sky = SubResource("Sky_pq8q7")
-tonemap_mode = 2
-glow_enabled = true
-
-[node name="root" type="Node3D" unique_id=478958863]
+[node name="root" type="Node" unique_id=302705000]
 script = ExtResource("1_8pvmw")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=991268967]
-environment = SubResource("Environment_pyidc")
+[node name="3d_room" parent="." unique_id=478958863 instance=ExtResource("2_c3mwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00189659, 8.428097e-05, -6.133318e-05)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1812162148]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="GameboyCanvas" type="CanvasLayer" parent="." unique_id=1424451375]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1716697587]
-transform = Transform3D(2.796422, 0, 0, 0, 0.0871276, 0, 0, 0, 1, 0, 0, 0)
-size = Vector3(1, 1, 3.65625)
+[node name="ColorRect" type="ColorRect" parent="GameboyCanvas" unique_id=862236935]
+offset_left = -4.0
+offset_right = 1157.0
+offset_bottom = 665.0
+color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=360904116]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1992706, 0.12904382)
-script = ExtResource("1_i04dx")
+[node name="gameboy" parent="GameboyCanvas" unique_id=53405422 instance=ExtResource("2_vnucn")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=6028388]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1481271743]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=50931290]
-offset_right = 1152.0
-offset_bottom = 647.0
-script = ExtResource("3_vnucn")
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=198255796]
+offset_left = -4.0
+offset_right = 1157.0
+offset_bottom = 665.0

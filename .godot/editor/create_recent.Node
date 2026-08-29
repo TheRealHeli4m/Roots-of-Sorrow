@@ -1,3 +1,6 @@
+CanvasLayer
+ColorRect
+Node
 CollisionShape2D
 StaticBody2D
 Area2D
@@ -6,7 +9,5 @@ AnimatedSprite2D
 SubViewport
 SubViewportContainer
 Timer
-ColorRect
-CanvasLayer
 Sprite2D
 Polygon2D
