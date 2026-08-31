@@ -23,14 +23,10 @@ func _input(event: InputEvent) -> void:
 		flash()
 		
 func flash():
-	print(colorRect.modulate.a)
-	colorRect.modulate.a = 1.0
+	colorRect.modulate.a = 1.0 
 	colorRect.move_to_front()
 	var tween = create_tween()
 	tween.tween_property(colorRect, "modulate:a", 0.0, 0.75)
-	if tween.is_valid() && tween.is_running():
-		print(colorRect.modulate.a)
-		print("run")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

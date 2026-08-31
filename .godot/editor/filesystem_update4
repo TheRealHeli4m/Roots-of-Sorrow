@@ -9,3 +9,4 @@ res://Scripts/gb_player_movement.gd
 res://Scenes/root.tscn
 res://Scenes/gameboy.tscn
 res://Scenes/3d_room.tscn
+res://Scripts/animated_sprite_2d.gd

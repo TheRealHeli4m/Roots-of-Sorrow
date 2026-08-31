@@ -18,7 +18,7 @@ offset_right = 1157.0
 offset_bottom = 665.0
 color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 
-[node name="gameboy" parent="GameboyCanvas" unique_id=53405422 instance=ExtResource("2_vnucn")]
+[node name="root" parent="GameboyCanvas" unique_id=53405422 instance=ExtResource("2_vnucn")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1481271743]
 
