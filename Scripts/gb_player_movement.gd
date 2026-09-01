@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@onready var animatedSprite = $AnimatedSprite2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
+@onready var was_on_floor = true
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -18,4 +18,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		
+	was_on_floor = is_on_floor()
 	move_and_slide()
