@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 @onready var player = $".."
 @onready var aTree = $"../AnimationTree"
+@onready var jBuffTimer = $"../JumpBufferingTimer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,10 +33,10 @@ func _process(delta: float) -> void:
 			aTree["parameters/conditions/is_running"] = false
 			aTree["parameters/conditions/is_idle"] = false
 			aTree["parameters/conditions/is_landing"] = false
-		elif player.was_on_floor:
-			aTree["parameters/conditions/is_landing"] = true
-			aTree["parameters/conditions/is_jumping"] = false
-		else:
-			aTree["parameters/conditions/is_jumping"] = false
-			aTree["parameters/conditions/is_landing"] = false
+		
+	if player.is_on_floor() and not player.was_on_floor:
+		aTree["parameters/conditions/is_landing"] = true
+		aTree["parameters/conditions/is_jumping"] = false
+		
+
 	

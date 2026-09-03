@@ -509,7 +509,7 @@ parameters/Landing/TimeScale/scale = 0.3999999999999986
 parameters/Run/TimeScale/scale = 0.3999999999999986
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=975124437]
-wait_time = 0.15
+wait_time = 0.1
 one_shot = true
 
 [node name="JumpBufferingTimer" type="Timer" parent="." unique_id=1148601792]
