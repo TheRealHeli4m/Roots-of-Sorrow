@@ -27,16 +27,14 @@ func _process(delta: float) -> void:
 		aTree["parameters/conditions/is_landing"] = false
 		self.flip_h = false
 		
-	if player.is_on_floor:
-		if Input.is_action_just_pressed("jump"):
-			aTree["parameters/conditions/is_jumping"] = true
-			aTree["parameters/conditions/is_running"] = false
-			aTree["parameters/conditions/is_idle"] = false
-			aTree["parameters/conditions/is_landing"] = false
-		
 	if player.is_on_floor() and not player.was_on_floor:
 		aTree["parameters/conditions/is_landing"] = true
 		aTree["parameters/conditions/is_jumping"] = false
 		
+	if not player.is_on_floor() and player.was_on_floor:
+		aTree["parameters/conditions/is_jumping"] = true
+		aTree["parameters/conditions/is_running"] = false
+		aTree["parameters/conditions/is_idle"] = false
+		aTree["parameters/conditions/is_landing"] = false
 
 	
