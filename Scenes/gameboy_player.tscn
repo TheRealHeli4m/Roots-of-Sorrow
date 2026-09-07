@@ -212,7 +212,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wri8"]
-size = Vector2(30, 55)
+size = Vector2(5.75, 8.75)
 
 [sub_resource type="Animation" id="Animation_5wri8"]
 length = 0.001
@@ -336,10 +336,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0030078124),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_bnqme"]
@@ -483,18 +483,18 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-170.10017, -79.34228)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366060401]
+scale = Vector2(4, 4)
 script = ExtResource("1_fex8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=427905482]
-position = Vector2(566.00006, 343)
-scale = Vector2(5.843749, 5.843749)
+position = Vector2(144, 134.75)
 sprite_frames = SubResource("SpriteFrames_yy4o6")
-animation = &"run"
+animation = &"idle"
 frame = 1
 script = ExtResource("5_5wri8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575619970]
-position = Vector2(566, 354.5)
+position = Vector2(144.125, 137.375)
 shape = SubResource("RectangleShape2D_5wri8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=64308523]
@@ -521,7 +521,6 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1057305851]
-position = Vector2(566, 291)
-zoom = Vector2(0.75, 0.75)
+position = Vector2(143.99994, 82.75)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_animation_finished"]
