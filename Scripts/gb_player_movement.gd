@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 	# if pressed jump or jump buffering is still running, and can jump and coyotetimer is still running
 	if (Input.is_action_pressed("jump") or not jBuffTimer.is_stopped()) and (canJump or not coyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
-		print(velocity.y)
 	elif Input.is_action_pressed("jump") and not canJump:
 		jBuffTimer.start()
 		

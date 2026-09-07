@@ -1,4 +1,8 @@
+ColorRect
+CanvasLayer
 TileMapLayer
+Parallax2D
+ParallaxBackground
 Camera2D
 Sprite2D
 CollisionShape2D
@@ -6,10 +10,5 @@ StaticBody2D
 Timer
 AnimationTree
 AnimationPlayer
-CanvasLayer
-ColorRect
 Node
 Area2D
-CharacterBody2D
-AnimatedSprite2D
-SubViewport
