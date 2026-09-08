@@ -4,3 +4,10 @@ res://Scenes/gameboy.gd
 res://Scenes/select_overlay.gd
 res://Scripts/banner_overlay.gd
 res://Scenes/gameboy_player.tscn
+res://banner_game.tscn
+res://Scenes/f_button.gd
+res://sewing_box.gd
+res://Scenes/banner_game.tscn
+res://Scenes/sewing.gd
+res://Scripts/sewing.gd
+res://Scenes/root.tscn
