@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mousePos = get_viewport().get_mouse_position()
 	var centerPos = get_viewport().size / 2
 	self.global_rotation.y += cameraXVel

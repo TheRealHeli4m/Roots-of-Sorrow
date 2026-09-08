@@ -3,30 +3,36 @@
 [ext_resource type="Script" uid="uid://dw4hbfnw1e8bl" path="res://Scripts/root.gd" id="1_8pvmw"]
 [ext_resource type="PackedScene" uid="uid://1nubfxun847w" path="res://Scenes/3d_room.tscn" id="2_c3mwy"]
 [ext_resource type="PackedScene" uid="uid://dy2etdm7ke30l" path="res://Scenes/gameboy.tscn" id="2_vnucn"]
+[ext_resource type="Shader" uid="uid://dswi7ojqcl0ua" path="res://Scripts/vignette.gdshader" id="4_c3mwy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4g5cr"]
+shader = ExtResource("4_c3mwy")
+shader_parameter/alpha = 0.8
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [node name="root" type="Node" unique_id=302705000]
 script = ExtResource("1_8pvmw")
 
+[node name="gameboy" parent="." unique_id=53405422 instance=ExtResource("2_vnucn")]
+
 [node name="3d_room" parent="." unique_id=478958863 instance=ExtResource("2_c3mwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00189659, 8.428097e-05, -6.133318e-05)
 
-[node name="GameboyCanvas" type="CanvasLayer" parent="." unique_id=1424451375]
-follow_viewport_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="GameboyCanvas" unique_id=862236935]
-offset_left = -132100.0
-offset_top = -41727.0
-offset_right = -130939.0
-offset_bottom = -41062.0
-scale = Vector2(272.567, 117.402756)
-color = Color(0.17254902, 0.17254902, 0.17254902, 1)
-
-[node name="root" parent="GameboyCanvas" unique_id=53405422 instance=ExtResource("2_vnucn")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1481271743]
+[node name="Flash" type="CanvasLayer" parent="." unique_id=1481271743]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=198255796]
+[node name="ColorRect" type="ColorRect" parent="Flash" unique_id=198255796]
 offset_left = -4.0
 offset_right = 1157.0
 offset_bottom = 665.0
+
+[node name="Vignette" type="CanvasLayer" parent="." unique_id=251754462]
+
+[node name="ColorRect" type="ColorRect" parent="Vignette" unique_id=1134118528]
+material = SubResource("ShaderMaterial_4g5cr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,8 +1,6 @@
-res://Scenes/3d_room.tscn
-res://Scripts/camera_rotation.gd
-res://Scripts/root.gd
-res://Scenes/root.tscn
-res://Scenes/gameboy_player.tscn
 res://Scenes/gameboy.tscn
-res://Scripts/gb_player_movement.gd
 res://Scripts/vignette.gdshader
+res://Scenes/gameboy.gd
+res://Scenes/select_overlay.gd
+res://Scripts/banner_overlay.gd
+res://Scenes/gameboy_player.tscn
