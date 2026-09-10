@@ -4,6 +4,7 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 @onready var was_on_floor = true
 @onready var canJump = true
+@onready var canMove = true
 @onready var animSprite = $AnimatedSprite2D
 @onready var coyoteTimer = $CoyoteTimer
 @onready var jBuffTimer = $JumpBufferingTimer
@@ -33,4 +34,5 @@ func _physics_process(delta: float) -> void:
 		
 	canJump = true # reset canjump at the end of every frame
 	was_on_floor = is_on_floor()
-	move_and_slide()
+	if canMove:
+		move_and_slide()

@@ -1,7 +1,7 @@
 Sprite2D
-TextureButton
 Control
 Node2D
+TextureButton
 Button
 CanvasLayer
 Area2D

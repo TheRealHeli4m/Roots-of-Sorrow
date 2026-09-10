@@ -11,3 +11,6 @@ res://Scenes/banner_game.tscn
 res://Scenes/sewing.gd
 res://Scripts/sewing.gd
 res://Scenes/root.tscn
+res://Scripts/gb_player_movement.gd
+res://Scripts/animated_sprite_2d.gd
+res://Scenes/banner_game.gd

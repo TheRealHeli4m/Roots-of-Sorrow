@@ -2,28 +2,52 @@ extends Area2D
 
 @onready var overlay = $"../SelectOverlay"
 @onready var UIcanvaslayer = $"../../UI"
+@onready var player = $"../../Player"
 @onready var isPlayerIn = false
+@onready var isSewing = false
+var bannergame: Node2D
 const sewing = preload("res://Scenes/banner_game.tscn")
+
+var tween: Tween
+
+signal onBannerTaskClose
+signal onBannerTaskOpen
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	overlay.modulate.a = 0
+	bannergame = sewing.instantiate()
+	self.onBannerTaskClose.connect(bannergame.playClosingAnim)
+	self.onBannerTaskOpen.connect(bannergame.playOpeningAnim)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isPlayerIn and Input.is_action_just_pressed("interact"):
-		var sewing_inst = sewing.instantiate()
-		UIcanvaslayer.add_child(sewing_inst)
+	if Input.is_action_just_pressed("escape"):		
+		self.onBannerTaskClose.emit()
+		isSewing = false
+		player.canMove = true
+	
+	if Input.is_action_just_pressed("interact") and isPlayerIn:
+		if tween and tween.is_running():
+			tween.kill()
+			
+		self.onBannerTaskOpen.emit()
+		player.canMove = false
+		isSewing = true
+		
+		if UIcanvaslayer.get_child_count() <= 0:
+			UIcanvaslayer.add_child(bannergame)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	isPlayerIn = true
 	overlay.move_to_front()
-	var tween = create_tween()
+	tween = create_tween()
 	tween.tween_property(overlay, "modulate:a", 1.0, 0.25)
 
 func _on_body_exited(body: Node2D) -> void:
 	isPlayerIn = false
 	overlay.move_to_front()
-	var tween = create_tween()
+	tween = create_tween()
 	tween.tween_property(overlay, "modulate:a", 0.0, 0.25)
 	

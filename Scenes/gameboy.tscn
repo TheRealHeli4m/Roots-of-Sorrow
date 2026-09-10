@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ch2448s5ybqny" path="res://Assets/foreground_tiles.png" id="3_yyghm"]
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/gameplay_tiles.png" id="5_ebx30"]
 [ext_resource type="Script" uid="uid://cr7s80p54pkw8" path="res://Scripts/banner_overlay.gd" id="5_u7xv5"]
-[ext_resource type="PackedScene" uid="uid://cnohqtj0em2cp" path="res://Scenes/banner_game.tscn" id="7_dm50p"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jaegf"]
 tile_data = PackedInt32Array(0, 1, 1, 65536, 1, 2, 1, 65537, 1, 65537, 65537, 2, 2, 131073, 1, 65538, 131073, 2)
@@ -222,8 +221,6 @@ tile_set = SubResource("TileSet_700v2")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=920005565]
 layer = 10
-
-[node name="Control" parent="UI" unique_id=961010532 instance=ExtResource("7_dm50p")]
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="body_entered" from="Walls/Area2D" to="Walls/Area2D" method="_on_body_entered"]

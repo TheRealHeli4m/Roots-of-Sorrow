@@ -11,6 +11,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
+	if not player.canMove:
+		aTree["parameters/conditions/is_idle"] = true
+		aTree["parameters/conditions/is_running"] = false
+		aTree["parameters/conditions/is_landing"] = false
+		aTree["parameters/conditions/is_jumping"] = false
+		return
+	
 	if player.velocity == Vector2.ZERO:
 		aTree["parameters/conditions/is_idle"] = true
 		aTree["parameters/conditions/is_running"] = false

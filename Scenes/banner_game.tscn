@@ -1,16 +1,36 @@
 [gd_scene format=3 uid="uid://cnohqtj0em2cp"]
 
+[ext_resource type="Script" uid="uid://bvtehjvbocvd4" path="res://Scenes/banner_game.gd" id="1_0t2ny"]
 [ext_resource type="Texture2D" uid="uid://bticf7m3iwqtv" path="res://Assets/Sewing/hightlighted_sewing_box.png" id="1_41hb5"]
+[ext_resource type="Texture2D" uid="uid://cql25b6op7e3j" path="res://Assets/Sewing/table.png" id="1_slxmv"]
 [ext_resource type="Texture2D" uid="uid://crq5vh31s4h22" path="res://Assets/Sewing/sewing_box.png" id="3_175qw"]
 [ext_resource type="Script" uid="uid://d24oj7ackavh" path="res://Scripts/sewing.gd" id="3_slxmv"]
+[ext_resource type="Texture2D" uid="uid://d0gi4bkwyyk8o" path="res://Assets/Sewing/sewing_box_pad.png" id="6_f2g3y"]
 
-[node name="Control" type="Control" unique_id=961010532]
+[node name="Banner" type="Node2D" unique_id=1286072771]
+script = ExtResource("1_0t2ny")
+
+[node name="Table" type="Sprite2D" parent="." unique_id=155290186]
+position = Vector2(575, 299)
+scale = Vector2(8, 8)
+texture = ExtResource("1_slxmv")
+
+[node name="Control" type="Control" parent="." unique_id=1936898934]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 56.0
+offset_top = -1.0
+offset_right = 96.0
+offset_bottom = 39.0
 mouse_filter = 2
 script = ExtResource("3_slxmv")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=624127622]
+[node name="Padder" type="Sprite2D" parent="Control" unique_id=1515296676]
+position = Vector2(260, 548)
+scale = Vector2(8, 8)
+texture = ExtResource("6_f2g3y")
+
+[node name="TextureButton" type="TextureButton" parent="Control" unique_id=624127622]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 420.0
@@ -19,10 +39,11 @@ offset_bottom = 676.0
 texture_normal = ExtResource("3_175qw")
 stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=66054178]
+[node name="HighlightOverlay" type="Sprite2D" parent="Control" unique_id=66054178]
 position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
 
-[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="mouse_entered" from="Control/TextureButton" to="Control" method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureButton" to="Control" method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="Control/TextureButton" to="Control" method="_on_texture_button_pressed"]

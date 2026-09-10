@@ -10,7 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_visibility_changed() -> void:
 	if UIcanvaslayer:
 		UIcanvaslayer.visible = self.visible
