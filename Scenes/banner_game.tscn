@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bticf7m3iwqtv" path="res://Assets/Sewing/hightlighted_sewing_box.png" id="1_41hb5"]
 [ext_resource type="Texture2D" uid="uid://cql25b6op7e3j" path="res://Assets/Sewing/table.png" id="1_slxmv"]
 [ext_resource type="Texture2D" uid="uid://crq5vh31s4h22" path="res://Assets/Sewing/sewing_box.png" id="3_175qw"]
+[ext_resource type="Texture2D" uid="uid://bhysbwcvp1xo3" path="res://Assets/Sewing/scissors.png" id="3_f5sax"]
 [ext_resource type="Script" uid="uid://d24oj7ackavh" path="res://Scripts/sewing.gd" id="3_slxmv"]
 [ext_resource type="Texture2D" uid="uid://d0gi4bkwyyk8o" path="res://Assets/Sewing/sewing_box_pad.png" id="6_f2g3y"]
+[ext_resource type="Script" uid="uid://dctddinc1ge30" path="res://Scenes/scissors.gd" id="7_2rtjw"]
+[ext_resource type="Texture2D" uid="uid://br8mf3c11klxx" path="res://Assets/Sewing/scissors_overlay.png" id="8_vvrrx"]
 
 [node name="Banner" type="Node2D" unique_id=1286072771]
 script = ExtResource("1_0t2ny")
@@ -15,7 +18,7 @@ position = Vector2(575, 299)
 scale = Vector2(8, 8)
 texture = ExtResource("1_slxmv")
 
-[node name="Control" type="Control" parent="." unique_id=1936898934]
+[node name="SewBox" type="Control" parent="." unique_id=1936898934]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 56.0
@@ -25,12 +28,12 @@ offset_bottom = 39.0
 mouse_filter = 2
 script = ExtResource("3_slxmv")
 
-[node name="Padder" type="Sprite2D" parent="Control" unique_id=1515296676]
+[node name="Padder" type="Sprite2D" parent="SewBox" unique_id=1515296676]
 position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("6_f2g3y")
 
-[node name="TextureButton" type="TextureButton" parent="Control" unique_id=624127622]
+[node name="TextureButton" type="TextureButton" parent="SewBox" unique_id=624127622]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 420.0
@@ -39,11 +42,30 @@ offset_bottom = 676.0
 texture_normal = ExtResource("3_175qw")
 stretch_mode = 0
 
-[node name="HighlightOverlay" type="Sprite2D" parent="Control" unique_id=66054178]
+[node name="HighlightOverlay" type="Sprite2D" parent="SewBox" unique_id=66054178]
 position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
 
-[connection signal="mouse_entered" from="Control/TextureButton" to="Control" method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="Control/TextureButton" to="Control" method="_on_texture_button_mouse_exited"]
-[connection signal="pressed" from="Control/TextureButton" to="Control" method="_on_texture_button_pressed"]
+[node name="Scissors" type="Node2D" parent="." unique_id=1165311485]
+position = Vector2(2, -7)
+script = ExtResource("7_2rtjw")
+
+[node name="TextureButton" type="TextureButton" parent="Scissors" unique_id=1086429934]
+offset_left = 189.0
+offset_top = 416.0
+offset_right = 221.0
+offset_bottom = 448.0
+scale = Vector2(8, 8)
+texture_normal = ExtResource("3_f5sax")
+
+[node name="ScissorsOverlay" type="Sprite2D" parent="Scissors" unique_id=1705241615]
+position = Vector2(317, 544)
+scale = Vector2(8, 8)
+texture = ExtResource("8_vvrrx")
+
+[connection signal="mouse_entered" from="SewBox/TextureButton" to="SewBox" method="onMouseEnterSewbox"]
+[connection signal="mouse_exited" from="SewBox/TextureButton" to="SewBox" method="onMouseExitSewbox"]
+[connection signal="pressed" from="SewBox/TextureButton" to="SewBox" method="onSewBoxPressed"]
+[connection signal="mouse_entered" from="Scissors/TextureButton" to="Scissors" method="onMouseEnterScissors"]
+[connection signal="mouse_exited" from="Scissors/TextureButton" to="Scissors" method="onMouseExitScissors"]

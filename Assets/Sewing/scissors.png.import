@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://845j461vjpf3"
-path="res://.godot/imported/player_jump.png-fe60a7da65929dace05721c703779587.ctex"
+uid="uid://bhysbwcvp1xo3"
+path="res://.godot/imported/scissors.png-9834435a0db2c839a67ba2239eec5478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/player_jump.png"
-dest_files=["res://.godot/imported/player_jump.png-fe60a7da65929dace05721c703779587.ctex"]
+source_file="res://Assets/Sewing/scissors.png"
+dest_files=["res://.godot/imported/scissors.png-9834435a0db2c839a67ba2239eec5478.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bhxye5gp1ys04"]
 
 [ext_resource type="Script" uid="uid://b4ywu5stomp4k" path="res://Scripts/gb_player_movement.gd" id="1_fex8b"]
-[ext_resource type="Texture2D" uid="uid://dc6apd60u1d1f" path="res://Assets/player_idle.png" id="1_r12em"]
-[ext_resource type="Texture2D" uid="uid://845j461vjpf3" path="res://Assets/player_jump.png" id="3_5wri8"]
+[ext_resource type="Texture2D" uid="uid://dc6apd60u1d1f" path="res://Assets/Player/player_idle.png" id="1_r12em"]
+[ext_resource type="Texture2D" uid="uid://845j461vjpf3" path="res://Assets/Player/player_jump.png" id="3_5wri8"]
 [ext_resource type="Script" uid="uid://c4os2yehfvhmk" path="res://Scripts/animated_sprite_2d.gd" id="5_5wri8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuq0i"]

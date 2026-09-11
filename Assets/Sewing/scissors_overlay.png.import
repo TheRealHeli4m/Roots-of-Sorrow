@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch2448s5ybqny"
-path="res://.godot/imported/foreground_tiles.png-95705ae51e2a62026e062d0d72be7314.ctex"
+uid="uid://br8mf3c11klxx"
+path="res://.godot/imported/scissors_overlay.png-ca2d6aad18bda8b005eb0ad10d230015.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/foreground_tiles.png"
-dest_files=["res://.godot/imported/foreground_tiles.png-95705ae51e2a62026e062d0d72be7314.ctex"]
+source_file="res://Assets/Sewing/scissors_overlay.png"
+dest_files=["res://.godot/imported/scissors_overlay.png-ca2d6aad18bda8b005eb0ad10d230015.ctex"]
 
 [params]
 

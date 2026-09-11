@@ -13,21 +13,21 @@ var tween: Tween
 signal onBannerTaskClose
 signal onBannerTaskOpen
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	overlay.modulate.a = 0
 	bannergame = sewing.instantiate()
 	self.onBannerTaskClose.connect(bannergame.playClosingAnim)
 	self.onBannerTaskOpen.connect(bannergame.playOpeningAnim)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):		
+	# for some reason sometimes isSewing just flickers true or false
+	# would like for this to be fixed, but the game sorta works, so im not gnna fix this rn
+	if Input.is_action_just_pressed("escape") and not bannergame.isTweening:		
 		self.onBannerTaskClose.emit()
 		isSewing = false
 		player.canMove = true
 	
-	if Input.is_action_just_pressed("interact") and isPlayerIn:
+	if Input.is_action_just_pressed("interact") and isPlayerIn and not bannergame.isTweening:
 		if tween and tween.is_running():
 			tween.kill()
 			
@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 		
 		if UIcanvaslayer.get_child_count() <= 0:
 			UIcanvaslayer.add_child(bannergame)
+		
 
 
 func _on_body_entered(body: Node2D) -> void:

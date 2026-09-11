@@ -1,7 +1,9 @@
-Sprite2D
-Control
-Node2D
 TextureButton
+Sprite2D
+Node2D
+CanvasModulate
+Node
+Control
 Button
 CanvasLayer
 Area2D
@@ -10,5 +12,3 @@ AnimatedSprite2D
 TileMapLayer
 Parallax2D
 ColorRect
-ParallaxBackground
-Camera2D

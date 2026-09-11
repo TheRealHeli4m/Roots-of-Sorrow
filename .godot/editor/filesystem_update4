@@ -14,3 +14,4 @@ res://Scenes/root.tscn
 res://Scripts/gb_player_movement.gd
 res://Scripts/animated_sprite_2d.gd
 res://Scenes/banner_game.gd
+res://Scenes/scissors.gd

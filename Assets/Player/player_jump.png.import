@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pfx6igq41amu"
-path="res://.godot/imported/transparent_cloud_tiles.png-3005c16e3772e395d61e9024395e3951.ctex"
+uid="uid://845j461vjpf3"
+path="res://.godot/imported/player_jump.png-0cca36a22cf9704862719bd17b5c51f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/transparent_cloud_tiles.png"
-dest_files=["res://.godot/imported/transparent_cloud_tiles.png-3005c16e3772e395d61e9024395e3951.ctex"]
+source_file="res://Assets/Player/player_jump.png"
+dest_files=["res://.godot/imported/player_jump.png-0cca36a22cf9704862719bd17b5c51f1.ctex"]
 
 [params]
 
