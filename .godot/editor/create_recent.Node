@@ -1,5 +1,6 @@
-TextureButton
+AnimatedSprite2D
 Sprite2D
+TextureButton
 Node2D
 CanvasModulate
 Node
@@ -8,7 +9,6 @@ Button
 CanvasLayer
 Area2D
 CollisionShape2D
-AnimatedSprite2D
 TileMapLayer
 Parallax2D
 ColorRect

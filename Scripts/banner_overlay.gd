@@ -37,8 +37,7 @@ func _process(delta: float) -> void:
 		
 		if UIcanvaslayer.get_child_count() <= 0:
 			UIcanvaslayer.add_child(bannergame)
-		
-
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	isPlayerIn = true
