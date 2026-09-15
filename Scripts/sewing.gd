@@ -1,25 +1,23 @@
 extends Control
 
 @onready var hoverSprite = $HighlightOverlay
-@onready var texture = $TextureButton
-@onready var animatedSewboxLid = $TextureButton/AnimatedSprite2D
-@onready var scissors = $"../Scissors"
+@onready var sewboxLid = $SewBoxLid
+@onready var animatedSewboxLid = $SewBoxLid/AnimatedSprite2D
+@onready var scissors = $Scissors
 var isFlipped: bool
-
-const scissorsOffset = 52 # scissors texture was off by a bit so i had to brute forcee it
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animatedSewboxLid.stop()
-	animatedSewboxLid.frame = 1
+	animatedSewboxLid.frame = 0
 	hoverSprite.modulate.a = 0
 	scissors.visible = false
 	isFlipped = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var scipos = self.position - Vector2(scissorsOffset, 0)
-	scissors.position = scipos
+	if isFlipped:
+		sewboxLid.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func onSewBoxPressed() -> void:
 	if isFlipped: return
@@ -27,9 +25,10 @@ func onSewBoxPressed() -> void:
 	isFlipped = true
 	hoverSprite.visible = false
 	animatedSewboxLid.play("default")
+	scissors.visible = true
 	
 	await animatedSewboxLid.animation_finished
-	scissors.visible = true
+	move_child(scissors, get_child_count() - 1)
 	
 func onMouseEnterSewbox() -> void:
 	if isFlipped: return

@@ -11,11 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func onMouseEnterScissors() -> void:
 	var tween = create_tween()
 	tween.tween_property(scissorsOverlay, "modulate:a", 1.0, 0.25)
-
 
 func onMouseExitScissors() -> void:
 	var tween = create_tween()

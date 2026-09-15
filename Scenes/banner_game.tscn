@@ -11,33 +11,36 @@
 [ext_resource type="Script" uid="uid://dctddinc1ge30" path="res://Scenes/scissors.gd" id="7_2rtjw"]
 [ext_resource type="Texture2D" uid="uid://br8mf3c11klxx" path="res://Assets/Sewing/scissors_overlay.png" id="8_vvrrx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4t37s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsrkm"]
 atlas = ExtResource("6_dsrkm")
 region = Rect2(0, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8isq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t37s"]
 atlas = ExtResource("6_dsrkm")
 region = Rect2(48, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0f2c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8isq"]
 atlas = ExtResource("6_dsrkm")
 region = Rect2(96, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdryc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0f2c"]
 atlas = ExtResource("6_dsrkm")
 region = Rect2(144, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ce8fg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdryc"]
 atlas = ExtResource("6_dsrkm")
-region = Rect2(240, 0, 48, 64)
+region = Rect2(192, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6klv7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce8fg"]
 atlas = ExtResource("6_dsrkm")
 region = Rect2(288, 0, 48, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wj8u2"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsrkm")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4t37s")
 }, {
@@ -52,13 +55,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ce8fg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6klv7")
 }],
 "loop": false,
 "name": &"default",
-"speed": 12.0
+"speed": 15.0
 }]
 
 [node name="Banner" type="Node2D" unique_id=1286072771]
@@ -89,7 +89,26 @@ position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("3_0t2ny")
 
-[node name="TextureButton" type="TextureButton" parent="SewBox" unique_id=624127622]
+[node name="Scissors" type="Node2D" parent="SewBox" unique_id=1165311485]
+position = Vector2(71, 19)
+script = ExtResource("7_2rtjw")
+
+[node name="TextureButton" type="TextureButton" parent="SewBox/Scissors" unique_id=1086429934]
+offset_left = 269.0
+offset_top = 416.0
+offset_right = 280.875
+offset_bottom = 448.0
+scale = Vector2(8, 8)
+texture_normal = ExtResource("3_f5sax")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ScissorsOverlay" type="Sprite2D" parent="SewBox/Scissors" unique_id=1705241615]
+position = Vector2(317, 544)
+scale = Vector2(8, 8)
+texture = ExtResource("8_vvrrx")
+
+[node name="SewBoxLid" type="TextureButton" parent="SewBox" unique_id=624127622]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 420.0
@@ -97,7 +116,7 @@ offset_right = 452.0
 offset_bottom = 676.0
 stretch_mode = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SewBox/TextureButton" unique_id=1348818271]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SewBox/SewBoxLid" unique_id=1348818271]
 position = Vector2(192, 0)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_wj8u2")
@@ -109,25 +128,8 @@ position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
 
-[node name="Scissors" type="Node2D" parent="." unique_id=1165311485]
-position = Vector2(2, -7)
-script = ExtResource("7_2rtjw")
-
-[node name="TextureButton" type="TextureButton" parent="Scissors" unique_id=1086429934]
-offset_left = 189.0
-offset_top = 416.0
-offset_right = 221.0
-offset_bottom = 448.0
-scale = Vector2(8, 8)
-texture_normal = ExtResource("3_f5sax")
-
-[node name="ScissorsOverlay" type="Sprite2D" parent="Scissors" unique_id=1705241615]
-position = Vector2(317, 544)
-scale = Vector2(8, 8)
-texture = ExtResource("8_vvrrx")
-
-[connection signal="mouse_entered" from="SewBox/TextureButton" to="SewBox" method="onMouseEnterSewbox"]
-[connection signal="mouse_exited" from="SewBox/TextureButton" to="SewBox" method="onMouseExitSewbox"]
-[connection signal="pressed" from="SewBox/TextureButton" to="SewBox" method="onSewBoxPressed"]
-[connection signal="mouse_entered" from="Scissors/TextureButton" to="Scissors" method="onMouseEnterScissors"]
-[connection signal="mouse_exited" from="Scissors/TextureButton" to="Scissors" method="onMouseExitScissors"]
+[connection signal="mouse_entered" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseEnterScissors"]
+[connection signal="mouse_exited" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseExitScissors"]
+[connection signal="mouse_entered" from="SewBox/SewBoxLid" to="SewBox" method="onMouseEnterSewbox"]
+[connection signal="mouse_exited" from="SewBox/SewBoxLid" to="SewBox" method="onMouseExitSewbox"]
+[connection signal="pressed" from="SewBox/SewBoxLid" to="SewBox" method="onSewBoxPressed"]

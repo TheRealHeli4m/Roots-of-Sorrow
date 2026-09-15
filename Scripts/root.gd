@@ -6,6 +6,9 @@ extends Node
 @onready var gameboyScene = $gameboy
 @onready var currentScene = "room"
 
+@onready var gameboyCursor = load("res://Assets/Sewing/gameboy_mouse_cursor.png")
+@onready var scissorsCursor = load("res://Assets/Sewing/gameboy_scissors_cursor.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	gameboyScene.hide()
@@ -32,4 +35,7 @@ func flash():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if currentScene == "room":
+		Input.set_custom_mouse_cursor(null)
+	if currentScene == "gameboy":
+		Input.set_custom_mouse_cursor(scissorsCursor)

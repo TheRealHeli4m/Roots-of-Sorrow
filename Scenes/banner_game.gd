@@ -22,9 +22,9 @@ func playOpeningAnim() -> void:
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
-	$SewBox.position.y = 400
+	$SewBox.position.y = 800
 	var sewtween = create_tween()
-	sewtween.tween_property($SewBox, "position:y", -50, 1.0)\
+	sewtween.tween_property($SewBox, "position:y", -50, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
@@ -43,7 +43,7 @@ func playClosingAnim() -> void:
 		.set_ease(Tween.EASE_OUT)
 		
 	var sewtween = create_tween()
-	sewtween.tween_property($SewBox, "position:y", 400, 1.0)\
+	sewtween.tween_property($SewBox, "position:y", 800, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 	
