@@ -16,3 +16,7 @@ res://Scripts/animated_sprite_2d.gd
 res://Scenes/banner_game.gd
 res://Scenes/scissors.gd
 res://Scripts/root.gd
+res://Scripts/global.gd
+res://Scripts/gameboy.gd
+res://Scripts/scissors.gd
+res://Scripts/banner_game.gd

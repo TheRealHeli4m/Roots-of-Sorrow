@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dw4hbfnw1e8bl" path="res://Scripts/root.gd" id="1_8pvmw"]
 [ext_resource type="PackedScene" uid="uid://1nubfxun847w" path="res://Scenes/3d_room.tscn" id="2_c3mwy"]
 [ext_resource type="PackedScene" uid="uid://dy2etdm7ke30l" path="res://Scenes/gameboy.tscn" id="2_vnucn"]
-[ext_resource type="Shader" uid="uid://dswi7ojqcl0ua" path="res://Scripts/vignette.gdshader" id="4_c3mwy"]
+[ext_resource type="Shader" uid="uid://dswi7ojqcl0ua" path="res://Effects/Shaders/vignette.gdshader" id="4_c3mwy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4g5cr"]
 shader = ExtResource("4_c3mwy")

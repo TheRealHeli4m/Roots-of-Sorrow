@@ -2,6 +2,10 @@ extends Node2D
 
 @onready var scissorsOverlay = $ScissorsOverlay
 
+enum tools {SCISSORS, NEEDLE, NONE}
+
+@onready var currentTool = tools.NONE
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scissorsOverlay.modulate.a = 0
@@ -18,3 +22,7 @@ func onMouseEnterScissors() -> void:
 func onMouseExitScissors() -> void:
 	var tween = create_tween()
 	tween.tween_property(scissorsOverlay, "modulate:a", 0.0, 0.25)
+
+
+func onScissorsSelected() -> void:
+	currentTool = tools.SCISSORS

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohqtj0em2cp"]
 
-[ext_resource type="Script" uid="uid://bvtehjvbocvd4" path="res://Scenes/banner_game.gd" id="1_0t2ny"]
+[ext_resource type="Script" uid="uid://bvtehjvbocvd4" path="res://Scripts/banner_game.gd" id="1_0t2ny"]
 [ext_resource type="Texture2D" uid="uid://bticf7m3iwqtv" path="res://Assets/Sewing/hightlighted_sewing_box.png" id="1_41hb5"]
 [ext_resource type="Texture2D" uid="uid://cql25b6op7e3j" path="res://Assets/Sewing/table.png" id="1_slxmv"]
 [ext_resource type="Texture2D" uid="uid://ds1ntdxausbg6" path="res://Assets/Sewing/open_sewing_box.png" id="3_0t2ny"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d24oj7ackavh" path="res://Scripts/sewing.gd" id="3_slxmv"]
 [ext_resource type="Texture2D" uid="uid://csu8pu4hpcy2o" path="res://Assets/Sewing/sewbox_lid_flipping.png" id="6_dsrkm"]
 [ext_resource type="Texture2D" uid="uid://d0gi4bkwyyk8o" path="res://Assets/Sewing/sewing_box_pad.png" id="6_f2g3y"]
-[ext_resource type="Script" uid="uid://dctddinc1ge30" path="res://Scenes/scissors.gd" id="7_2rtjw"]
+[ext_resource type="Script" uid="uid://dctddinc1ge30" path="res://Scripts/scissors.gd" id="7_2rtjw"]
 [ext_resource type="Texture2D" uid="uid://br8mf3c11klxx" path="res://Assets/Sewing/scissors_overlay.png" id="8_vvrrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsrkm"]
@@ -130,6 +130,7 @@ texture = ExtResource("1_41hb5")
 
 [connection signal="mouse_entered" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseEnterScissors"]
 [connection signal="mouse_exited" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseExitScissors"]
+[connection signal="pressed" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onScissorsSelected"]
 [connection signal="mouse_entered" from="SewBox/SewBoxLid" to="SewBox" method="onMouseEnterSewbox"]
 [connection signal="mouse_exited" from="SewBox/SewBoxLid" to="SewBox" method="onMouseExitSewbox"]
 [connection signal="pressed" from="SewBox/SewBoxLid" to="SewBox" method="onSewBoxPressed"]
