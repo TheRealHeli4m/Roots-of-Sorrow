@@ -1,10 +1,10 @@
-Button
 Sprite2D
+TextureButton
+Node2D
+Button
 CollisionShape2D
 Area2D
-TextureButton
 AnimatedSprite2D
-Node2D
 CanvasModulate
 Node
 Control

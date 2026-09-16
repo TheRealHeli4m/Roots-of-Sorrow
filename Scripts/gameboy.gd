@@ -3,8 +3,8 @@ extends Node2D
 @onready var UIcanvaslayer = $UI
 @onready var bannerGameInteraction = $Walls/BannerMinigameInteractionArea
 
-@onready var gameboyCursor = load("res://Assets/Sewing/gameboy_mouse_cursor.png")
-@onready var scissorsCursor = load("res://Assets/Sewing/gameboy_scissors_cursor.png")
+@onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
+@onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

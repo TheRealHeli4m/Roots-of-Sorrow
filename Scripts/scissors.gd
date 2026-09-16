@@ -1,10 +1,7 @@
 extends Node2D
 
 @onready var scissorsOverlay = $ScissorsOverlay
-
-enum tools {SCISSORS, NEEDLE, NONE}
-
-@onready var currentTool = tools.NONE
+@onready var root = $"../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,4 +22,4 @@ func onMouseExitScissors() -> void:
 
 
 func onScissorsSelected() -> void:
-	currentTool = tools.SCISSORS
+	root.currentTool = root.tools.SCISSORS

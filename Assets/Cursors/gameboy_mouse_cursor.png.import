@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfsx3q8a05gak"
-path="res://.godot/imported/gameboy_mouse_cursor.png-bac5cc1e65080b5fee6220d3e2460e2d.ctex"
+path="res://.godot/imported/gameboy_mouse_cursor.png-83d08f3f027196b2db01431532d47814.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sewing/gameboy_mouse_cursor.png"
-dest_files=["res://.godot/imported/gameboy_mouse_cursor.png-bac5cc1e65080b5fee6220d3e2460e2d.ctex"]
+source_file="res://Assets/Cursors/gameboy_mouse_cursor.png"
+dest_files=["res://.godot/imported/gameboy_mouse_cursor.png-83d08f3f027196b2db01431532d47814.ctex"]
 
 [params]
 

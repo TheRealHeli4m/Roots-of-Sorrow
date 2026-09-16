@@ -4,6 +4,7 @@ extends Control
 @onready var sewboxLid = $SewBoxLid
 @onready var animatedSewboxLid = $SewBoxLid/AnimatedSprite2D
 @onready var scissors = $Scissors
+@onready var needle = $Needle
 var isFlipped: bool
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +30,7 @@ func onSewBoxPressed() -> void:
 	
 	await animatedSewboxLid.animation_finished
 	move_child(scissors, get_child_count() - 1)
+	move_child(needle, get_child_count() - 1)
 	
 func onMouseEnterSewbox() -> void:
 	if isFlipped: return

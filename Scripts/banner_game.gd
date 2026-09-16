@@ -5,8 +5,13 @@ extends Node2D
 @onready var player = get_node("/root/root/gameboy/Player")
 @onready var scissors = $SewBox/Scissors
 
-@onready var gameboyCursor = load("res://Assets/Sewing/gameboy_mouse_cursor.png")
-@onready var scissorsCursor = load("res://Assets/Sewing/gameboy_scissors_cursor.png")
+enum tools {SCISSORS, NEEDLE, NONE}
+
+@onready var currentTool = tools.NONE
+
+@onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
+@onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
+@onready var needleCursor = load("res://Assets/Cursors/gameboy_needle.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,10 +24,13 @@ func determineCursor() -> void:
 	if Global.currentScene == "room": return
 	if not isPlaying: return
 	
-	if scissors.currentTool == scissors.tools.SCISSORS:
-		Input.set_custom_mouse_cursor(scissorsCursor)
-	elif scissors.currentTool == scissors.tools.NONE:
-		Input.set_custom_mouse_cursor(gameboyCursor)
+	match currentTool:
+		tools.NONE:
+			Input.set_custom_mouse_cursor(gameboyCursor)
+		tools.NEEDLE:
+			Input.set_custom_mouse_cursor(needleCursor)
+		tools.SCISSORS:
+			Input.set_custom_mouse_cursor(scissorsCursor)
 	
 func playOpeningAnim() -> void:
 	if isTweening:

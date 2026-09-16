@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmhfyr6lu22cu"
-path="res://.godot/imported/gameboy_scissors_cursor.png-398de512ead5520f81d9a8d1b43ee0f0.ctex"
+uid="uid://b4pa12l7vusiw"
+path="res://.godot/imported/needle.png-fdc87947dac3028c2388ebc6d52f9850.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sewing/gameboy_scissors_cursor.png"
-dest_files=["res://.godot/imported/gameboy_scissors_cursor.png-398de512ead5520f81d9a8d1b43ee0f0.ctex"]
+source_file="res://Assets/Sewing/needle.png"
+dest_files=["res://.godot/imported/needle.png-fdc87947dac3028c2388ebc6d52f9850.ctex"]
 
 [params]
 
