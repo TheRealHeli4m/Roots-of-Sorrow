@@ -3,3 +3,6 @@ res://Effects/Shaders/vignette.gdshader
 res://Scenes/needle.gd
 res://Scripts/sewing.gd
 res://Scripts/banner_game.gd
+res://Scenes/gameboy.tscn
+res://Scripts/banner_overlay.gd
+res://Scripts/banner.gd

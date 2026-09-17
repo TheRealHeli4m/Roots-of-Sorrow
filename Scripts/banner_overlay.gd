@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 		player.canMove = true
 	
 	if Input.is_action_just_pressed("interact") and isPlayerIn and not bannergame.isTweening:
+		if isSewing: return 
 		if tween and tween.is_running():
 			tween.kill()
 			

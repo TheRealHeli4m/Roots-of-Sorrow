@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var isTweening = false
-@onready var isPlaying: bool
+@onready var isPlayingBannerGame: bool
 @onready var player = get_node("/root/root/gameboy/Player")
 @onready var scissors = $SewBox/Scissors
 
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		
 func determineCursor() -> void:
 	if Global.currentScene == "room": return
-	if not isPlaying: return
+	if not isPlayingBannerGame: return
 	
 	match currentTool:
 		tools.NONE:
@@ -36,9 +36,10 @@ func playOpeningAnim() -> void:
 	if isTweening:
 		return
 	
-	isPlaying = true
+	isPlayingBannerGame = true
 	$Table.visible = true
-	$SewBox.visible = true	
+	$SewBox.visible = true
+	$BannerNode.visible = true
 	isTweening = true
 	
 	$Table.position.y = 1200
@@ -53,6 +54,12 @@ func playOpeningAnim() -> void:
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
+	$BannerNode.position.y = 1500
+	var bannertween = create_tween()
+	bannertween.tween_property($BannerNode, "position:y", -50, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+		
 	await sewtween.finished
 	isTweening = false
 		
@@ -61,7 +68,7 @@ func playClosingAnim() -> void:
 	if isTweening:
 		return
 	
-	isPlaying = false
+	isPlayingBannerGame = false
 	isTweening = true
 	var tabletween = create_tween()
 	tabletween.tween_property($Table, "position:y", 1200, 1.0)\
@@ -70,6 +77,11 @@ func playClosingAnim() -> void:
 		
 	var sewtween = create_tween()
 	sewtween.tween_property($SewBox, "position:y", 800, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+	
+	var bannertween = create_tween()
+	bannertween.tween_property($BannerNode, "position:y", 1500, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 	

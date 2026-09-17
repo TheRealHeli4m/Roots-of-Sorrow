@@ -1,6 +1,6 @@
 Sprite2D
-TextureButton
 Node2D
+TextureButton
 Button
 CollisionShape2D
 Area2D
