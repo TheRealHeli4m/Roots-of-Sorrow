@@ -6,3 +6,9 @@ res://Scripts/banner_game.gd
 res://Scenes/gameboy.tscn
 res://Scripts/banner_overlay.gd
 res://Scripts/banner.gd
+res://Scenes/banner.gdshader
+res://Effects/Shaders/banner.gdshader
+res://addons/FastNoiseLiteRuntimeShader/FastNoiseLiteBase.gdshaderinc
+res://addons/FastNoiseLiteRuntimeShader/FastNoiseLiteLib.gdshaderinc
+res://Scenes/threads.gd
+res://Scripts/Threads/redthread.gd

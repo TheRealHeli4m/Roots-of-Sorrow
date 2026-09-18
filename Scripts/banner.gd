@@ -1,7 +1,10 @@
 extends Node2D
 
 @onready var root = $".."
-@onready var sprite = $BannerSprite
+@onready var modelBannerSprite = $ModelBannerSprite
+@onready var emptyBanner = $EmptyBannerSprite
+
+
 @onready var redbanner = load("res://Assets/Sewing/red_banner.png")
 @onready var bluebanner = load("res://Assets/Sewing/blue_banner.png")
 @onready var greenbanner = load("res://Assets/Sewing/green_banner.png")
@@ -16,10 +19,12 @@ func _ready() -> void:
 	velo = 0.0
 	acc = 0.0
 	var randomBannerTexture = bannerlist.pick_random()
-	sprite.texture = randomBannerTexture
+	modelBannerSprite.texture = randomBannerTexture
+	self.modulate.a = 0.5
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	emptyBanner.position = modelBannerSprite.position
 	if not root.isPlayingBannerGame: return
 
 	if Input.is_action_pressed("scroll_banner_up") and self.position.y > -300:

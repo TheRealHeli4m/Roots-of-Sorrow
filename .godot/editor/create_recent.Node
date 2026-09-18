@@ -1,6 +1,7 @@
-Sprite2D
-Node2D
 TextureButton
+Node2D
+Sprite2D
+SpringBoneCollisionPlane3D
 Button
 CollisionShape2D
 Area2D
@@ -11,4 +12,3 @@ Control
 CanvasLayer
 TileMapLayer
 Parallax2D
-ColorRect
