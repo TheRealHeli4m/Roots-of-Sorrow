@@ -1,10 +1,11 @@
 extends Control
 
-const gridSize = 32
+const gridSize = 48
 var activeColor = Color(1, 0, 0)
 var isPainting = false
 
 @onready var grid = $GridContainer
+@onready var modelSprite = $ModelBannerSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,16 +14,13 @@ func _ready() -> void:
 func generateGrid() -> void:
 	grid.columns = gridSize
 	
-	for i in range(gridSize * gridSize): # square
+	for i in range(gridSize * 120):
 		var cell = TextureButton.new()
 		
-		cell.custom_minimum_size = Vector2(16, 16)
+		cell.custom_minimum_size = Vector2(8, 8)
 		cell.stretch_mode = TextureButton.STRETCH_SCALE
 		cell.ignore_texture_size = true
 		cell.texture_normal = load("res://Assets/Sewing/white_cell.png")
-		
-		var cellScale = Vector2(8, 8)
-		cell.scale = cellScale
 		
 		grid.add_child(cell)
 		
@@ -35,7 +33,7 @@ func _input(event: InputEvent) -> void:
 			isPainting = false
 			
 	if isPainting:
-		var cellUnderMouse = getCellUnderMouse(event.position)
+		var cellUnderMouse = getCellUnderMouse(get_viewport().get_mouse_position())
 		if cellUnderMouse:
 			cellUnderMouse.modulate = activeColor
 		
@@ -53,4 +51,7 @@ func getCellUnderMouse(mousePos: Vector2) -> TextureButton:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_pressed("scroll_banner_down"):
+		self.position.y -= 5
+	if Input.is_action_pressed("scroll_banner_up"):
+		self.position.y += 5

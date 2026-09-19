@@ -1,3 +1,5 @@
 res://banner.tscn
 res://Effects/Shaders/vignette.gdshader
 res://banner.gd
+res://Scenes/banner_game.tscn
+res://Scripts/banner_game.gd

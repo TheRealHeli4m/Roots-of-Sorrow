@@ -39,7 +39,6 @@ func playOpeningAnim() -> void:
 	isPlayingBannerGame = true
 	$Table.visible = true
 	$SewBox.visible = true
-	$BannerNode.visible = true
 	isTweening = true
 	
 	$Table.position.y = 1200
@@ -51,12 +50,6 @@ func playOpeningAnim() -> void:
 	$SewBox.position.y = 800
 	var sewtween = create_tween()
 	sewtween.tween_property($SewBox, "position:y", -50, 1.25)\
-		.set_trans(Tween.TRANS_CUBIC)\
-		.set_ease(Tween.EASE_OUT)
-		
-	$BannerNode.position.y = 1500
-	var bannertween = create_tween()
-	bannertween.tween_property($BannerNode, "position:y", -50, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
@@ -77,11 +70,6 @@ func playClosingAnim() -> void:
 		
 	var sewtween = create_tween()
 	sewtween.tween_property($SewBox, "position:y", 800, 1.25)\
-		.set_trans(Tween.TRANS_CUBIC)\
-		.set_ease(Tween.EASE_OUT)
-	
-	var bannertween = create_tween()
-	bannertween.tween_property($BannerNode, "position:y", 1500, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 	
