@@ -19,9 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://qkhidr2oeu81" path="res://Assets/Sewing/white_thread.png" id="10_5dgcm"]
 [ext_resource type="Texture2D" uid="uid://dng37jpvqwb5g" path="res://Assets/Sewing/needle_overlay.png" id="10_l8isq"]
 [ext_resource type="Texture2D" uid="uid://djtcpmgk7yx72" path="res://Assets/Sewing/golden_thread.png" id="11_hf5j2"]
-[ext_resource type="Script" uid="uid://6lnom4virhtt" path="res://Scripts/banner.gd" id="14_ff33i"]
-[ext_resource type="Texture2D" uid="uid://bo4eoxn3tyla0" path="res://Assets/Sewing/red_banner.png" id="14_wdryc"]
-[ext_resource type="Texture2D" uid="uid://brtxjs7us710x" path="res://Assets/Sewing/empty_banner.png" id="16_ce8fg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsrkm"]
 atlas = ExtResource("6_dsrkm")
@@ -217,20 +214,6 @@ visible = false
 position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
-
-[node name="BannerNode" type="Node2D" parent="." unique_id=1645342238]
-script = ExtResource("14_ff33i")
-
-[node name="EmptyBannerSprite" type="Sprite2D" parent="BannerNode" unique_id=1551918805]
-position = Vector2(810, 408)
-scale = Vector2(8, 8)
-texture = ExtResource("16_ce8fg")
-
-[node name="ModelBannerSprite" type="Sprite2D" parent="BannerNode" unique_id=501142411]
-modulate = Color(1, 1, 1, 0.47843137)
-position = Vector2(810, 408)
-scale = Vector2(8, 8)
-texture = ExtResource("14_wdryc")
 
 [connection signal="mouse_entered" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_exited"]

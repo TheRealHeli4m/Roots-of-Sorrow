@@ -20,7 +20,7 @@ func _ready() -> void:
 	acc = 0.0
 	var randomBannerTexture = bannerlist.pick_random()
 	modelBannerSprite.texture = randomBannerTexture
-	self.modulate.a = 0.5
+	modelBannerSprite.modulate.a = 0.2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,3 +1,5 @@
+Control
+GridContainer
 TextureButton
 Node2D
 Sprite2D
@@ -8,7 +10,5 @@ Area2D
 AnimatedSprite2D
 CanvasModulate
 Node
-Control
 CanvasLayer
 TileMapLayer
-Parallax2D
