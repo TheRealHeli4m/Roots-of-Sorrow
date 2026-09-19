@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs2rmifr0o0dg" path="res://banner.gd" id="1_05pf3"]
 [ext_resource type="Texture2D" uid="uid://bo4eoxn3tyla0" path="res://Assets/Sewing/red_banner.png" id="2_05pf3"]
+[ext_resource type="Texture2D" uid="uid://cuaqko1noylc7" path="res://Assets/Sewing/banner_bg.png" id="2_v1jxp"]
 
 [node name="Banner" type="Control" unique_id=1961695673]
 layout_mode = 3
@@ -16,6 +17,11 @@ offset_right = 41.0
 offset_bottom = 38.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
+
+[node name="BannerPadder" type="Sprite2D" parent="." unique_id=1635280301]
+position = Vector2(193, 442)
+scale = Vector2(8, 8)
+texture = ExtResource("2_v1jxp")
 
 [node name="ModelBannerSprite" type="Sprite2D" parent="." unique_id=2052522543]
 modulate = Color(1, 1, 1, 0.47843137)

@@ -5,6 +5,7 @@ var activeColor = Color(1, 0, 0)
 var isPainting = false
 
 @onready var grid = $GridContainer
+@onready var padder = $BannerPadder
 @onready var modelSprite = $ModelBannerSprite
 
 # Called when the node enters the scene tree for the first time.
@@ -15,39 +16,51 @@ func generateGrid() -> void:
 	grid.columns = gridSize
 	
 	for i in range(gridSize * 120):
-		var cell = TextureButton.new()
+		var cell = ColorRect.new()
 		
 		cell.custom_minimum_size = Vector2(8, 8)
-		cell.stretch_mode = TextureButton.STRETCH_SCALE
-		cell.ignore_texture_size = true
-		cell.texture_normal = load("res://Assets/Sewing/white_cell.png")
 		
 		grid.add_child(cell)
 		
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			isPainting = true
-		
-		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and !event.is_pressed():
 			isPainting = false
 			
 	if isPainting:
-		var cellUnderMouse = getCellUnderMouse(get_viewport().get_mouse_position())
-		if cellUnderMouse:
-			cellUnderMouse.modulate = activeColor
+		var cellsUnderArea = getCellsUnderArea()
+		var cells = grid.get_children()
 		
-func getCellUnderMouse(mousePos: Vector2) -> TextureButton:
-	var buttons = grid.get_children()
-	for i in range(buttons.size()):
-		var cell = buttons[i]
-		var cellPos = cell.global_position
-		var cellSize = cell.custom_minimum_size
+		for i in range(cellsUnderArea.size()):
+			cells[cellsUnderArea[i]].modulate = activeColor
 		
-		if cellPos.x <= mousePos.x and mousePos.x <= cellPos.x + cellSize.x and cellPos.y <= mousePos.y and mousePos.y <= cellPos.y + cellSize.y:
-			return cell
+func getCellsUnderArea() -> Array: # problem here is that area2d requires a collision shape to detect
+	var cells = grid.get_children()
+	var cellsList = []
+	for i in range(cells.size()):
+		var cell = cells[i]
+		var isIn = checkCellInArea(cell)
+		if isIn:
+			cellsList.append(i)
 			
-	return null
+	return cellsList
+
+func checkCellInArea(cell: ColorRect) -> bool:
+	var mousePos = get_local_mouse_position()
+	var mpLeft = mousePos.x - 16
+	var mpRight = mousePos.x + 16
+	var mpUp = mousePos.y - 16
+	var mpDown = mousePos.y + 16
+	var cellPos = cell.position
+	
+	if mpLeft < cellPos.x and cellPos.x < mpRight:
+		if mpUp < cellPos.y and cellPos.y < mpDown:
+			print(mousePos, mpLeft, mpRight, mpUp, mpDown, cellPos)
+			return true
+
+	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwuuxjg6bpy60"
-path="res://.godot/imported/white_cell.png-22706479ff111d124f9e155433bb41b2.ctex"
+uid="uid://cuaqko1noylc7"
+path="res://.godot/imported/banner_bg.png-f4c2a70b8d9064437ef10e30c248a403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sewing/white_cell.png"
-dest_files=["res://.godot/imported/white_cell.png-22706479ff111d124f9e155433bb41b2.ctex"]
+source_file="res://Assets/Sewing/banner_bg.png"
+dest_files=["res://.godot/imported/banner_bg.png-f4c2a70b8d9064437ef10e30c248a403.ctex"]
 
 [params]
 
