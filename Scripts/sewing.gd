@@ -43,12 +43,14 @@ func onSewBoxPressed() -> void:
 func onMouseEnterSewbox() -> void:
 	if isFlipped: return
 	
+	hoverSprite.visible = true
+	hoverSprite.move_to_front()
 	var tween = create_tween()
-	tween.tween_property(hoverSprite, "modulate:a", 1.0, 0.2)
+	tween.tween_property(hoverSprite, "modulate:a", 0.5, 0.2)
 
 func onMouseExitSewbox() -> void:
 	if isFlipped: return
-	
+	hoverSprite.move_to_front()
 	var tween = create_tween()
 	tween.tween_property(hoverSprite, "modulate:a", 0.0, 0.2)
 
@@ -56,11 +58,12 @@ func onMouseExitSewbox() -> void:
 func onSewBoxOpenPressed() -> void:
 	if not isFlipped: return
 	
-	isFlipped = false
 	sewboxLid.move_to_front()
 	animatedSewboxLid.play_backwards("default")
 	
 	await animatedSewboxLid.animation_finished
+	isFlipped = false
+	hoverSprite.visible = true
 	scissors.hide()
 	needle.hide()
 	threads.hide()

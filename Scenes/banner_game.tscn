@@ -4,13 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bticf7m3iwqtv" path="res://Assets/Sewing/hightlighted_sewing_box.png" id="1_41hb5"]
 [ext_resource type="Texture2D" uid="uid://cql25b6op7e3j" path="res://Assets/Sewing/table.png" id="1_slxmv"]
 [ext_resource type="Texture2D" uid="uid://ds1ntdxausbg6" path="res://Assets/Sewing/open_sewing_box.png" id="3_0t2ny"]
+[ext_resource type="Texture2D" uid="uid://pvdevsqmgblu" path="res://Assets/Sewing/blue_bucket.png" id="3_5dgcm"]
+[ext_resource type="Script" uid="uid://clxgu7gn3m52f" path="res://Scenes/paint_buckets.gd" id="3_16quf"]
 [ext_resource type="Texture2D" uid="uid://bhysbwcvp1xo3" path="res://Assets/Sewing/scissors.png" id="3_f5sax"]
+[ext_resource type="Texture2D" uid="uid://d0pdcpe8b4tcs" path="res://Assets/Sewing/red_bucket.png" id="3_iqa4t"]
 [ext_resource type="Script" uid="uid://d24oj7ackavh" path="res://Scripts/sewing.gd" id="3_slxmv"]
+[ext_resource type="Texture2D" uid="uid://cok7qlrnwxbyh" path="res://Assets/Sewing/green_bucket.png" id="5_16quf"]
 [ext_resource type="Texture2D" uid="uid://bklcnliiqh4e6" path="res://Assets/Sewing/red_thread.png" id="6_6klv7"]
 [ext_resource type="Texture2D" uid="uid://csu8pu4hpcy2o" path="res://Assets/Sewing/sewbox_lid_flipping.png" id="6_dsrkm"]
 [ext_resource type="Texture2D" uid="uid://d0gi4bkwyyk8o" path="res://Assets/Sewing/sewing_box_pad.png" id="6_f2g3y"]
 [ext_resource type="Script" uid="uid://dctddinc1ge30" path="res://Scripts/scissors.gd" id="7_2rtjw"]
 [ext_resource type="Script" uid="uid://dcr621shaf6tf" path="res://Scripts/thread.gd" id="7_wj8u2"]
+[ext_resource type="Texture2D" uid="uid://chhl2o7l8ym6j" path="res://Assets/Sewing/bucket_overlay.png" id="7_xbrpe"]
 [ext_resource type="Texture2D" uid="uid://dtx7osrbnxvrj" path="res://Assets/Sewing/blue_thread.png" id="8_ptoy6"]
 [ext_resource type="Texture2D" uid="uid://br8mf3c11klxx" path="res://Assets/Sewing/scissors_overlay.png" id="8_vvrrx"]
 [ext_resource type="Texture2D" uid="uid://b4pa12l7vusiw" path="res://Assets/Sewing/needle.png" id="9_4t37s"]
@@ -78,6 +83,59 @@ script = ExtResource("1_0t2ny")
 position = Vector2(575, 299)
 scale = Vector2(8, 8)
 texture = ExtResource("1_slxmv")
+
+[node name="PaintBuckets" type="Control" parent="." unique_id=1977126215]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 40.0
+script = ExtResource("3_16quf")
+
+[node name="RedBucket" type="TextureButton" parent="PaintBuckets" unique_id=822845196]
+layout_mode = 0
+offset_left = 108.0
+offset_top = -164.0
+offset_right = 127.875
+offset_bottom = -141.0
+scale = Vector2(8, 8)
+texture_normal = ExtResource("3_iqa4t")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="RedOverlay" type="Sprite2D" parent="PaintBuckets/RedBucket" unique_id=1644889248]
+position = Vector2(10, 11.5)
+texture = ExtResource("7_xbrpe")
+
+[node name="BlueBucket" type="TextureButton" parent="PaintBuckets" unique_id=1842778779]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 33.0
+offset_right = 246.875
+offset_bottom = 57.625
+scale = Vector2(8, 8)
+texture_normal = ExtResource("3_5dgcm")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="BlueOverlay" type="Sprite2D" parent="PaintBuckets/BlueBucket" unique_id=365041419]
+position = Vector2(10, 12.25)
+texture = ExtResource("7_xbrpe")
+
+[node name="GreenBucket" type="TextureButton" parent="PaintBuckets" unique_id=609967459]
+layout_mode = 0
+offset_left = 340.0
+offset_top = -158.0
+offset_right = 362.0
+offset_bottom = -136.75
+scale = Vector2(8, 8)
+texture_normal = ExtResource("5_16quf")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="GreenOverlay" type="Sprite2D" parent="PaintBuckets/GreenBucket" unique_id=1136244831]
+position = Vector2(10.875, 10.625)
+texture = ExtResource("7_xbrpe")
 
 [node name="SewBox" type="Control" parent="." unique_id=1936898934]
 layout_mode = 3
@@ -229,6 +287,12 @@ offset_top = -91.0
 offset_right = 606.0
 offset_bottom = -91.0
 
+[connection signal="mouse_entered" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseEnterRed"]
+[connection signal="mouse_exited" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseExitRed"]
+[connection signal="mouse_entered" from="PaintBuckets/BlueBucket" to="PaintBuckets" method="onMouseEnterBlue"]
+[connection signal="mouse_exited" from="PaintBuckets/BlueBucket" to="PaintBuckets" method="onMouseExitBlue"]
+[connection signal="mouse_entered" from="PaintBuckets/GreenBucket" to="PaintBuckets" method="onMouseEnterGreen"]
+[connection signal="mouse_exited" from="PaintBuckets/GreenBucket" to="PaintBuckets" method="onMouseExitGreen"]
 [connection signal="mouse_entered" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="SewBox/Threads/BlueThread" to="SewBox/Threads/BlueThread" method="_on_mouse_entered"]

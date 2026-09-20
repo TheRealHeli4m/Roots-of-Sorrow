@@ -7,7 +7,7 @@ extends Node2D
 
 enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE}
 
-@onready var currentTool = tools.PAINTBRUSH
+@onready var currentTool = tools.NONE
 
 @onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
 @onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
@@ -44,6 +44,7 @@ func playOpeningAnim() -> void:
 	$Table.visible = true
 	$SewBox.visible = true
 	$Banner.visible = true
+	$PaintBuckets.visible = true
 	isTweening = true
 	
 	$Table.position.y = 1200
@@ -61,6 +62,12 @@ func playOpeningAnim() -> void:
 	$Banner.position.y = 1000
 	var bannertween = create_tween()
 	bannertween.tween_property($Banner, "position:y", -50, 1.0)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+		
+	$PaintBuckets.position.y = -500
+	var painttween = create_tween()
+	painttween.tween_property($PaintBuckets, "position:y", 0, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
@@ -88,9 +95,15 @@ func playClosingAnim() -> void:
 	bannertween.tween_property($Banner, "position:y", 1000, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
+		
+	var painttween = create_tween()
+	painttween.tween_property($PaintBuckets, "position:y", -500, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 	
 	await sewtween.finished
 	$Banner.visible = false
 	$Table.visible = false
 	$SewBox.visible = false
+	$PaintBuckets.visible = false
 	isTweening = false
