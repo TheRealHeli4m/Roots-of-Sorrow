@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://qkhidr2oeu81" path="res://Assets/Sewing/white_thread.png" id="10_5dgcm"]
 [ext_resource type="Texture2D" uid="uid://dng37jpvqwb5g" path="res://Assets/Sewing/needle_overlay.png" id="10_l8isq"]
 [ext_resource type="Texture2D" uid="uid://djtcpmgk7yx72" path="res://Assets/Sewing/golden_thread.png" id="11_hf5j2"]
+[ext_resource type="PackedScene" uid="uid://csg5uinmjuk6d" path="res://Scenes/banner.tscn" id="20_ptoy6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsrkm"]
 atlas = ExtResource("6_dsrkm")
@@ -194,6 +195,13 @@ position = Vector2(-5, 23)
 scale = Vector2(8, 8)
 texture = ExtResource("10_l8isq")
 
+[node name="SewBoxLidOpen" type="TextureButton" parent="SewBox" unique_id=1042753301]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 164.0
+offset_right = 452.0
+offset_bottom = 419.0
+
 [node name="SewBoxLid" type="TextureButton" parent="SewBox" unique_id=624127622]
 layout_mode = 0
 offset_left = 68.0
@@ -215,6 +223,12 @@ position = Vector2(260, 548)
 scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
 
+[node name="Banner" parent="." unique_id=1961695673 instance=ExtResource("20_ptoy6")]
+offset_left = 606.0
+offset_top = -91.0
+offset_right = 606.0
+offset_bottom = -91.0
+
 [connection signal="mouse_entered" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="SewBox/Threads/BlueThread" to="SewBox/Threads/BlueThread" method="_on_mouse_entered"]
@@ -231,6 +245,7 @@ texture = ExtResource("1_41hb5")
 [connection signal="mouse_entered" from="SewBox/Needle/TextureButton" to="SewBox/Needle" method="onMouseEnterNeedle"]
 [connection signal="mouse_exited" from="SewBox/Needle/TextureButton" to="SewBox/Needle" method="onMouseExitNeedle"]
 [connection signal="pressed" from="SewBox/Needle/TextureButton" to="SewBox/Needle" method="onNeedlePressed"]
+[connection signal="pressed" from="SewBox/SewBoxLidOpen" to="SewBox" method="onSewBoxOpenPressed"]
 [connection signal="mouse_entered" from="SewBox/SewBoxLid" to="SewBox" method="onMouseEnterSewbox"]
 [connection signal="mouse_exited" from="SewBox/SewBoxLid" to="SewBox" method="onMouseExitSewbox"]
 [connection signal="pressed" from="SewBox/SewBoxLid" to="SewBox" method="onSewBoxPressed"]

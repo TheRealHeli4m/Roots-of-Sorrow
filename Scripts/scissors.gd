@@ -20,6 +20,5 @@ func onMouseExitScissors() -> void:
 	var tween = create_tween()
 	tween.tween_property(scissorsOverlay, "modulate:a", 0.0, 0.25)
 
-
 func onScissorsSelected() -> void:
 	root.currentTool = root.tools.SCISSORS

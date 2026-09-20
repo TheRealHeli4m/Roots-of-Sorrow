@@ -3,3 +3,9 @@ res://Effects/Shaders/vignette.gdshader
 res://banner.gd
 res://Scenes/banner_game.tscn
 res://Scripts/banner_game.gd
+res://Scenes/banner.tscn
+res://Scripts/banner.gd
+res://Scripts/banner_coloring.gd
+res://Scripts/scissors.gd
+res://Scripts/sewing.gd
+res://Scenes/sewBoxLid.gd

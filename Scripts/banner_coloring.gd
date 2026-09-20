@@ -57,14 +57,6 @@ func checkCellInArea(cell: ColorRect) -> bool:
 	
 	if mpLeft < cellPos.x and cellPos.x < mpRight:
 		if mpUp < cellPos.y and cellPos.y < mpDown:
-			print(mousePos, mpLeft, mpRight, mpUp, mpDown, cellPos)
 			return true
 
 	return false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("scroll_banner_down"):
-		self.position.y -= 5
-	if Input.is_action_pressed("scroll_banner_up"):
-		self.position.y += 5

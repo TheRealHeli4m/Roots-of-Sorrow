@@ -5,13 +5,14 @@ extends Node2D
 @onready var player = get_node("/root/root/gameboy/Player")
 @onready var scissors = $SewBox/Scissors
 
-enum tools {SCISSORS, NEEDLE, NONE}
+enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE}
 
-@onready var currentTool = tools.NONE
+@onready var currentTool = tools.PAINTBRUSH
 
 @onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
 @onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
 @onready var needleCursor = load("res://Assets/Cursors/gameboy_needle.png")
+@onready var paintbrushCursor = load("res://Assets/Cursors/gameboy_paintbrush.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +32,9 @@ func determineCursor() -> void:
 			Input.set_custom_mouse_cursor(needleCursor)
 		tools.SCISSORS:
 			Input.set_custom_mouse_cursor(scissorsCursor)
+		tools.PAINTBRUSH:
+			Input.set_custom_mouse_cursor(paintbrushCursor)
+		
 	
 func playOpeningAnim() -> void:
 	if isTweening:
@@ -39,6 +43,7 @@ func playOpeningAnim() -> void:
 	isPlayingBannerGame = true
 	$Table.visible = true
 	$SewBox.visible = true
+	$Banner.visible = true
 	isTweening = true
 	
 	$Table.position.y = 1200
@@ -50,6 +55,12 @@ func playOpeningAnim() -> void:
 	$SewBox.position.y = 800
 	var sewtween = create_tween()
 	sewtween.tween_property($SewBox, "position:y", -50, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+		
+	$Banner.position.y = 1000
+	var bannertween = create_tween()
+	bannertween.tween_property($Banner, "position:y", -50, 1.0)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
@@ -72,8 +83,14 @@ func playClosingAnim() -> void:
 	sewtween.tween_property($SewBox, "position:y", 800, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
+		
+	var bannertween = create_tween()
+	bannertween.tween_property($Banner, "position:y", 1000, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 	
 	await sewtween.finished
+	$Banner.visible = false
 	$Table.visible = false
 	$SewBox.visible = false
 	isTweening = false
