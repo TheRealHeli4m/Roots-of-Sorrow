@@ -6,6 +6,7 @@ extends Node2D
 @onready var scissors = $SewBox/Scissors
 
 @onready var bannerGame = $Banner
+@onready var isPainting = true
 
 @onready var sewBox = $SewBox
 
@@ -25,9 +26,10 @@ enum threadColors {RED, GREEN, BLUE, GOLD, WHITE}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sewBox.visible = false
-	playOpeningAnim()
+	playOpeningAnim(isPainting)
 	
 func _process(delta: float) -> void:
+	isPainting = bannerGame.totalCellsPainted < 5760
 	determineCursor()
 	determineColor()
 		
@@ -39,7 +41,7 @@ func determineCursor() -> void:
 		tools.NONE:
 			Input.set_custom_mouse_cursor(gameboyCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.NEEDLE:
-			Input.set_custom_mouse_cursor(needleCursor, Input.CURSOR_ARROW, Vector2(16, 16))
+			Input.set_custom_mouse_cursor(needleCursor, Input.CURSOR_ARROW, Vector2(31, 31))
 		tools.SCISSORS:
 			Input.set_custom_mouse_cursor(scissorsCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.PAINTBRUSH:
@@ -57,24 +59,25 @@ func determineColor() -> void:
 	if currentTool == tools.NEEDLE:
 		match currentThreadColor:
 			threadColors.RED:
-				bannerGame.activeColor = Color(1, 0, 0)
+				bannerGame.activeColor = Color(0.75, 0, 0)
 			threadColors.BLUE:
-				bannerGame.activeColor = Color(0, 0, 1)
+				bannerGame.activeColor = Color(0, 0, 0.75)
 			threadColors.GREEN:
-				bannerGame.activeColor = Color(0, 1, 0)
+				bannerGame.activeColor = Color(0, 0.75, 0)
 			threadColors.GOLD:
 				bannerGame.activeColor = Color(255, 215, 0)
 			threadColors.WHITE:
 				bannerGame.activeColor = Color(1, 1, 1)
 	
-func playOpeningAnim() -> void:
+func playOpeningAnim(isPainting: bool) -> void:
 	if isTweening:
 		return
 	
 	isPlayingBannerGame = true
+	$SewBox.visible = false if isPainting else true
 	$Table.visible = true
 	$Banner.visible = true
-	$PaintBuckets.visible = true
+	$PaintBuckets.visible = true if isPainting else false
 	isTweening = true
 	
 	$Table.position.y = 1200

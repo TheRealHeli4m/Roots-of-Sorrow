@@ -7,12 +7,12 @@ var isPainting = false
 signal paintingFinished
 
 @onready var grid = $GridContainer
-@onready var padder = $BannerPadder
 @onready var modelSprite = $ModelBannerSprite
 
 @onready var currentBanner = modelSprite.bannerTexture
 
 @onready var totalCellsPainted = 0
+@onready var usingPaint = totalCellsPainted < 5760
 
 @onready var root = $".."
 
@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 	if isPainting:
 		var cells = grid.get_children()
 		if root.currentTool == root.tools.PAINTBRUSH:
-			var cellsUnderArea = getCellsUnderArea()
+			var cellsUnderArea = getCellsUnderArea(32)
 		
 			for i in range(cellsUnderArea.size()):
 				var currentcell = cells[cellsUnderArea[i]]
@@ -56,9 +56,11 @@ func _input(event: InputEvent) -> void:
 				modelSprite.checkCellForCorrectColor(currentcell)
 				
 		if root.currentTool == root.tools.NEEDLE:
-			var cellUnderMouse = getCellUnderMouse()
-			if cellUnderMouse:
-				cellUnderMouse.color = activeColor
+			var cellsUnderArea = getCellsUnderArea(8)
+			for i in range(cellsUnderArea.size()):
+				var currentcell = cells[cellsUnderArea[i]]
+				currentcell.modulate.a = 1
+				currentcell.color = activeColor
 		if root.currentTool == root.tools.SCISSORS:
 			var cellUnderMouse = getCellUnderMouse()
 			if cellUnderMouse:
@@ -77,23 +79,23 @@ func getCellUnderMouse() -> ColorRect:
 		
 	return null
 		
-func getCellsUnderArea() -> Array: # problem here is that area2d requires a collision shape to detect
+func getCellsUnderArea(size: int) -> Array: # problem here is that area2d requires a collision shape to detect
 	var cells = grid.get_children()
 	var cellsList = []
 	for i in range(cells.size()):
 		var cell = cells[i]
-		var isIn = checkCellInArea(cell)
+		var isIn = checkCellInArea(cell, size)
 		if isIn:
 			cellsList.append(i)
 			
 	return cellsList
 
-func checkCellInArea(cell: ColorRect) -> bool:
+func checkCellInArea(cell: ColorRect, size: int) -> bool:
 	var mousePos = get_local_mouse_position()
-	var mpLeft = mousePos.x - 16
-	var mpRight = mousePos.x + 16
-	var mpUp = mousePos.y - 16
-	var mpDown = mousePos.y + 16
+	var mpLeft = mousePos.x - size
+	var mpRight = mousePos.x + size
+	var mpUp = mousePos.y - size
+	var mpDown = mousePos.y + size
 	var cellPos = cell.position
 	
 	if mpLeft < cellPos.x and cellPos.x < mpRight:

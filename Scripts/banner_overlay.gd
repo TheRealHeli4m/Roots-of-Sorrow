@@ -4,13 +4,13 @@ extends Area2D
 @onready var UIcanvaslayer = $"../../UI"
 @onready var player = $"../../Player"
 @onready var isPlayerIn = false
-@onready var isSewing = false
+@onready var isSewing = false 
 var bannergame: Node2D
 const sewing = preload("res://Scenes/banner_game.tscn")
 
 var tween: Tween
 
-signal onBannerTaskClose
+signal onBannerTaskClose(isPainting: bool)
 signal onBannerTaskOpen
 
 func _ready() -> void:
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		if tween and tween.is_running():
 			tween.kill()
 			
-		self.onBannerTaskOpen.emit()
+		self.onBannerTaskOpen.emit(bannergame.isPainting if bannergame else true)
 		player.canMove = false
 		isSewing = true
 		

@@ -12,3 +12,5 @@ res://Scenes/sewBoxLid.gd
 res://Scenes/paint_buckets.gd
 res://Scripts/thread.gd
 res://Scenes/threads.gd
+res://Scripts/banner_overlay.gd
+res://Scenes/gameboy.tscn
