@@ -37,13 +37,13 @@ func determineCursor() -> void:
 	
 	match currentTool:
 		tools.NONE:
-			Input.set_custom_mouse_cursor(gameboyCursor)
+			Input.set_custom_mouse_cursor(gameboyCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.NEEDLE:
-			Input.set_custom_mouse_cursor(needleCursor)
+			Input.set_custom_mouse_cursor(needleCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.SCISSORS:
-			Input.set_custom_mouse_cursor(scissorsCursor)
+			Input.set_custom_mouse_cursor(scissorsCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.PAINTBRUSH:
-			Input.set_custom_mouse_cursor(paintbrushCursor)
+			Input.set_custom_mouse_cursor(paintbrushCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	
 func determineColor() -> void:
 	if currentTool == tools.PAINTBRUSH:
@@ -73,7 +73,6 @@ func playOpeningAnim() -> void:
 	
 	isPlayingBannerGame = true
 	$Table.visible = true
-	$SewBox.visible = true
 	$Banner.visible = true
 	$PaintBuckets.visible = true
 	isTweening = true
@@ -98,7 +97,7 @@ func playOpeningAnim() -> void:
 		
 	$PaintBuckets.position.y = -500
 	var painttween = create_tween()
-	painttween.tween_property($PaintBuckets, "position:y", 50, 1.25)\
+	painttween.tween_property($PaintBuckets, "position:y", 250, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
@@ -138,3 +137,19 @@ func playClosingAnim() -> void:
 	$SewBox.visible = false
 	$PaintBuckets.visible = false
 	isTweening = false
+
+
+func onPaintingFinished() -> void:
+	currentTool = tools.NONE
+	
+	$SewBox.visible = true
+	$SewBox.position.y = 800
+	var sewtween = create_tween()
+	sewtween.tween_property($SewBox, "position:y", -150, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+		
+	var painttween = create_tween()
+	painttween.tween_property($PaintBuckets, "position:y", -500, 1.25)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)

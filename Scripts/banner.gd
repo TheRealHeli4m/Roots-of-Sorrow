@@ -7,6 +7,7 @@ extends Node2D
 @onready var greenbanner = load("res://Assets/Sewing/green_banner.png")
 
 @onready var bannerlist = [redbanner, bluebanner, greenbanner]
+@onready var bannerTexture;
 
 var velo: float
 var acc: float
@@ -15,8 +16,8 @@ var acc: float
 func _ready() -> void:
 	velo = 0.0
 	acc = 0.0
-	var randomBannerTexture = bannerlist.pick_random()
-	self.texture = randomBannerTexture
+	bannerTexture = bannerlist.pick_random()
+	self.texture = bannerTexture
 	self.modulate.a = 0.2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,3 +32,17 @@ func _process(delta: float) -> void:
 	
 	acc = 0
 	velo /= 1.25
+	
+func checkCellForCorrectColor(cell: ColorRect) -> void:
+	var status = cell.get_meta("is_painted")
+	if not status:
+		if bannerTexture == redbanner and cell.color.is_equal_approx(Color(0.75, 0, 0)):
+			root.totalCellsPainted += 1
+			cell.set_meta("is_painted", true)
+		if bannerTexture == bluebanner and cell.color.is_equal_approx(Color(0, 0, 0.75)):
+			root.totalCellsPainted += 1
+			cell.set_meta("is_painted", true)
+		if bannerTexture == greenbanner and cell.color.is_equal_approx(Color(0, 0.75, 0)):
+			root.totalCellsPainted += 1
+			cell.set_meta("is_painted", true)
+		

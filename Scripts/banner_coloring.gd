@@ -4,15 +4,27 @@ const gridSize = 48
 var activeColor = Color(1, 0, 0)
 var isPainting = false
 
+signal paintingFinished
+
 @onready var grid = $GridContainer
 @onready var padder = $BannerPadder
 @onready var modelSprite = $ModelBannerSprite
+
+@onready var currentBanner = modelSprite.bannerTexture
+
+@onready var totalCellsPainted = 0
 
 @onready var root = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
+	
+func _process(delta: float) -> void:
+	if totalCellsPainted == 5760:
+		paintingFinished.emit()
+		totalCellsPainted += 1
+		
 
 func generateGrid() -> void:
 	grid.columns = gridSize
@@ -22,6 +34,7 @@ func generateGrid() -> void:
 		
 		cell.color = Color(1, 1, 1)
 		cell.custom_minimum_size = Vector2(8, 8)
+		cell.set_meta("is_painted", false)
 		
 		grid.add_child(cell)
 		
@@ -36,13 +49,20 @@ func _input(event: InputEvent) -> void:
 		var cells = grid.get_children()
 		if root.currentTool == root.tools.PAINTBRUSH:
 			var cellsUnderArea = getCellsUnderArea()
-			
+		
 			for i in range(cellsUnderArea.size()):
-				cells[cellsUnderArea[i]].modulate = activeColor
+				var currentcell = cells[cellsUnderArea[i]]
+				currentcell.color = activeColor
+				modelSprite.checkCellForCorrectColor(currentcell)
+				
 		if root.currentTool == root.tools.NEEDLE:
 			var cellUnderMouse = getCellUnderMouse()
 			if cellUnderMouse:
-				cellUnderMouse.modulate = activeColor
+				cellUnderMouse.color = activeColor
+		if root.currentTool == root.tools.SCISSORS:
+			var cellUnderMouse = getCellUnderMouse()
+			if cellUnderMouse:
+				cellUnderMouse.modulate.a = 0
 			
 func getCellUnderMouse() -> ColorRect:
 	var cells = grid.get_children()
