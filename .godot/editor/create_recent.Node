@@ -1,9 +1,9 @@
+CollisionShape2D
+Area2D
 Sprite2D
 TextureButton
 Control
 ColorRect
-CollisionShape2D
-Area2D
 GridContainer
 Node2D
 SpringBoneCollisionPlane3D

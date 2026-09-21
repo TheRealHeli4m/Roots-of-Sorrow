@@ -8,6 +8,8 @@ var isPainting = false
 @onready var padder = $BannerPadder
 @onready var modelSprite = $ModelBannerSprite
 
+@onready var root = $".."
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
@@ -18,6 +20,7 @@ func generateGrid() -> void:
 	for i in range(gridSize * 120):
 		var cell = ColorRect.new()
 		
+		cell.color = Color(1, 1, 1)
 		cell.custom_minimum_size = Vector2(8, 8)
 		
 		grid.add_child(cell)
@@ -30,11 +33,29 @@ func _input(event: InputEvent) -> void:
 			isPainting = false
 			
 	if isPainting:
-		var cellsUnderArea = getCellsUnderArea()
 		var cells = grid.get_children()
+		if root.currentTool == root.tools.PAINTBRUSH:
+			var cellsUnderArea = getCellsUnderArea()
+			
+			for i in range(cellsUnderArea.size()):
+				cells[cellsUnderArea[i]].modulate = activeColor
+		if root.currentTool == root.tools.NEEDLE:
+			var cellUnderMouse = getCellUnderMouse()
+			if cellUnderMouse:
+				cellUnderMouse.modulate = activeColor
+			
+func getCellUnderMouse() -> ColorRect:
+	var cells = grid.get_children()
+	for i in range(cells.size()):
+		var cell = cells[i]
+		var cellSize = cell.size
+		var cellPos = cell.position
+		var mousePos = get_local_mouse_position()
 		
-		for i in range(cellsUnderArea.size()):
-			cells[cellsUnderArea[i]].modulate = activeColor
+		if cellPos.x <= mousePos.x and mousePos.x <= cellPos.x + cellSize.x and cellPos.y <= mousePos.y and mousePos.y <= cellPos.y + cellSize.y:
+			return cell
+		
+	return null
 		
 func getCellsUnderArea() -> Array: # problem here is that area2d requires a collision shape to detect
 	var cells = grid.get_children()

@@ -10,3 +10,5 @@ res://Scripts/scissors.gd
 res://Scripts/sewing.gd
 res://Scenes/sewBoxLid.gd
 res://Scenes/paint_buckets.gd
+res://Scripts/thread.gd
+res://Scenes/threads.gd

@@ -36,6 +36,7 @@ func onSewBoxPressed() -> void:
 	needle.visible = true
 			
 	await animatedSewboxLid.animation_finished
+	sewboxLidOpen.mouse_filter = Control.MOUSE_FILTER_STOP
 	sewboxLidOpen.show()
 	move_child(scissors, get_child_count() - 1)
 	move_child(needle, get_child_count() - 1)
@@ -58,6 +59,7 @@ func onMouseExitSewbox() -> void:
 func onSewBoxOpenPressed() -> void:
 	if not isFlipped: return
 	
+	sewboxLidOpen.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	sewboxLid.move_to_front()
 	animatedSewboxLid.play_backwards("default")
 	

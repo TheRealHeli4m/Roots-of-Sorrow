@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cmfa4yyelklar" path="res://Scripts/needle.gd" id="9_m0f2c"]
 [ext_resource type="Texture2D" uid="uid://qkhidr2oeu81" path="res://Assets/Sewing/white_thread.png" id="10_5dgcm"]
 [ext_resource type="Texture2D" uid="uid://dng37jpvqwb5g" path="res://Assets/Sewing/needle_overlay.png" id="10_l8isq"]
+[ext_resource type="Script" uid="uid://c3qctoow2nte3" path="res://Scenes/threads.gd" id="11_d2tqt"]
 [ext_resource type="Texture2D" uid="uid://djtcpmgk7yx72" path="res://Assets/Sewing/golden_thread.png" id="11_hf5j2"]
 [ext_resource type="PackedScene" uid="uid://csg5uinmjuk6d" path="res://Scenes/banner.tscn" id="20_ptoy6"]
 
@@ -87,17 +88,19 @@ texture = ExtResource("1_slxmv")
 [node name="PaintBuckets" type="Control" parent="." unique_id=1977126215]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 5.0
-offset_right = 45.0
-offset_bottom = 40.0
+offset_left = 300.0
+offset_top = 95.0
+offset_right = 340.0
+offset_bottom = 135.0
+pivot_offset = Vector2(1, 0)
 script = ExtResource("3_16quf")
 
 [node name="RedBucket" type="TextureButton" parent="PaintBuckets" unique_id=822845196]
 layout_mode = 0
-offset_left = 108.0
-offset_top = -164.0
-offset_right = 127.875
-offset_bottom = -141.0
+offset_left = 40.0
+offset_top = 112.0
+offset_right = 59.875
+offset_bottom = 135.0
 scale = Vector2(8, 8)
 texture_normal = ExtResource("3_iqa4t")
 ignore_texture_size = true
@@ -109,32 +112,33 @@ texture = ExtResource("7_xbrpe")
 
 [node name="BlueBucket" type="TextureButton" parent="PaintBuckets" unique_id=1842778779]
 layout_mode = 0
-offset_left = 227.0
-offset_top = 33.0
-offset_right = 246.875
-offset_bottom = 57.625
+offset_left = -78.0
+offset_top = 151.0
+offset_right = -58.125
+offset_bottom = 175.625
 scale = Vector2(8, 8)
+pivot_offset = Vector2(12.25, 6.25)
 texture_normal = ExtResource("3_5dgcm")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="BlueOverlay" type="Sprite2D" parent="PaintBuckets/BlueBucket" unique_id=365041419]
-position = Vector2(10, 12.25)
+position = Vector2(9.875, 12.25)
 texture = ExtResource("7_xbrpe")
 
 [node name="GreenBucket" type="TextureButton" parent="PaintBuckets" unique_id=609967459]
 layout_mode = 0
-offset_left = 340.0
-offset_top = -158.0
-offset_right = 362.0
-offset_bottom = -136.75
+offset_left = -72.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = -28.75
 scale = Vector2(8, 8)
 texture_normal = ExtResource("5_16quf")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="GreenOverlay" type="Sprite2D" parent="PaintBuckets/GreenBucket" unique_id=1136244831]
-position = Vector2(10.875, 10.625)
+position = Vector2(11, 10.625)
 texture = ExtResource("7_xbrpe")
 
 [node name="SewBox" type="Control" parent="." unique_id=1936898934]
@@ -158,6 +162,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("3_0t2ny")
 
 [node name="Threads" type="Node2D" parent="SewBox" unique_id=1233279650]
+script = ExtResource("11_d2tqt")
 
 [node name="RedThread" type="TextureButton" parent="SewBox/Threads" unique_id=1102061418]
 offset_left = 100.0
@@ -289,20 +294,28 @@ offset_bottom = -91.0
 
 [connection signal="mouse_entered" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseEnterRed"]
 [connection signal="mouse_exited" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseExitRed"]
+[connection signal="pressed" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onRedPressed"]
 [connection signal="mouse_entered" from="PaintBuckets/BlueBucket" to="PaintBuckets" method="onMouseEnterBlue"]
 [connection signal="mouse_exited" from="PaintBuckets/BlueBucket" to="PaintBuckets" method="onMouseExitBlue"]
+[connection signal="pressed" from="PaintBuckets/BlueBucket" to="PaintBuckets" method="onBluePressed"]
 [connection signal="mouse_entered" from="PaintBuckets/GreenBucket" to="PaintBuckets" method="onMouseEnterGreen"]
 [connection signal="mouse_exited" from="PaintBuckets/GreenBucket" to="PaintBuckets" method="onMouseExitGreen"]
+[connection signal="pressed" from="PaintBuckets/GreenBucket" to="PaintBuckets" method="onGreenPressed"]
 [connection signal="mouse_entered" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/RedThread" to="SewBox/Threads/RedThread" method="_on_mouse_exited"]
+[connection signal="pressed" from="SewBox/Threads/RedThread" to="SewBox/Threads" method="onRedPressed"]
 [connection signal="mouse_entered" from="SewBox/Threads/BlueThread" to="SewBox/Threads/BlueThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/BlueThread" to="SewBox/Threads/BlueThread" method="_on_mouse_exited"]
+[connection signal="pressed" from="SewBox/Threads/BlueThread" to="SewBox/Threads" method="onBluePressed"]
 [connection signal="mouse_entered" from="SewBox/Threads/GreenThread" to="SewBox/Threads/GreenThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/GreenThread" to="SewBox/Threads/GreenThread" method="_on_mouse_exited"]
+[connection signal="pressed" from="SewBox/Threads/GreenThread" to="SewBox/Threads" method="onGreenPressed"]
 [connection signal="mouse_entered" from="SewBox/Threads/WhiteThread" to="SewBox/Threads/WhiteThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/WhiteThread" to="SewBox/Threads/WhiteThread" method="_on_mouse_exited"]
+[connection signal="pressed" from="SewBox/Threads/WhiteThread" to="SewBox/Threads" method="onWhitePressed"]
 [connection signal="mouse_entered" from="SewBox/Threads/GoldenThread" to="SewBox/Threads/GoldenThread" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SewBox/Threads/GoldenThread" to="SewBox/Threads/GoldenThread" method="_on_mouse_exited"]
+[connection signal="pressed" from="SewBox/Threads/GoldenThread" to="SewBox/Threads" method="onGoldPressed"]
 [connection signal="mouse_entered" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseEnterScissors"]
 [connection signal="mouse_exited" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onMouseExitScissors"]
 [connection signal="pressed" from="SewBox/Scissors/TextureButton" to="SewBox/Scissors" method="onScissorsSelected"]

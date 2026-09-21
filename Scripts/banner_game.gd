@@ -5,9 +5,17 @@ extends Node2D
 @onready var player = get_node("/root/root/gameboy/Player")
 @onready var scissors = $SewBox/Scissors
 
+@onready var bannerGame = $Banner
+
+@onready var sewBox = $SewBox
+
 enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE}
+enum paintBrushColors {RED, GREEN, BLUE}
+enum threadColors {RED, GREEN, BLUE, GOLD, WHITE}
 
 @onready var currentTool = tools.NONE
+@onready var currentPaintColor = paintBrushColors.RED
+@onready var currentThreadColor = threadColors.RED
 
 @onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
 @onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
@@ -16,10 +24,12 @@ enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	sewBox.visible = false
 	playOpeningAnim()
 	
 func _process(delta: float) -> void:
 	determineCursor()
+	determineColor()
 		
 func determineCursor() -> void:
 	if Global.currentScene == "room": return
@@ -34,7 +44,28 @@ func determineCursor() -> void:
 			Input.set_custom_mouse_cursor(scissorsCursor)
 		tools.PAINTBRUSH:
 			Input.set_custom_mouse_cursor(paintbrushCursor)
-		
+	
+func determineColor() -> void:
+	if currentTool == tools.PAINTBRUSH:
+		match currentPaintColor:
+			paintBrushColors.RED:
+				bannerGame.activeColor = Color(0.75, 0, 0)
+			paintBrushColors.BLUE:
+				bannerGame.activeColor = Color(0, 0, 0.75)
+			paintBrushColors.GREEN:
+				bannerGame.activeColor = Color(0, 0.75, 0)
+	if currentTool == tools.NEEDLE:
+		match currentThreadColor:
+			threadColors.RED:
+				bannerGame.activeColor = Color(1, 0, 0)
+			threadColors.BLUE:
+				bannerGame.activeColor = Color(0, 0, 1)
+			threadColors.GREEN:
+				bannerGame.activeColor = Color(0, 1, 0)
+			threadColors.GOLD:
+				bannerGame.activeColor = Color(255, 215, 0)
+			threadColors.WHITE:
+				bannerGame.activeColor = Color(1, 1, 1)
 	
 func playOpeningAnim() -> void:
 	if isTweening:
@@ -67,7 +98,7 @@ func playOpeningAnim() -> void:
 		
 	$PaintBuckets.position.y = -500
 	var painttween = create_tween()
-	painttween.tween_property($PaintBuckets, "position:y", 0, 1.25)\
+	painttween.tween_property($PaintBuckets, "position:y", 50, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
 		
