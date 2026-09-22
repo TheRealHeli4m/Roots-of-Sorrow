@@ -9,18 +9,30 @@ signal paintingFinished
 @onready var grid = $GridContainer
 @onready var modelSprite = $ModelBannerSprite
 
-@onready var currentBanner = modelSprite.bannerTexture
-
 @onready var totalCellsPainted = 0
+@onready var cellsCorrectlySewed = 0
 @onready var usingPaint = totalCellsPainted < 5760
 
 @onready var root = $".."
+
+@onready var redBanner = load("res://Assets/Sewing/red_banner_blueprint.png")
+@onready var blueBanner = load("res://Assets/Sewing/blue_banner_blueprint.png")
+@onready var greenBanner = load("res://Assets/Sewing/green_banner_blueprint.png")
+
+@onready var redBlueprint = load("res://Assets/Sewing/red_banner_blueprint.png")
+@onready var blueBlueprint = load("res://Assets/Sewing/blue_banner_blueprint.png")
+@onready var greenBlueprint = load("res://Assets/Sewing/green_banner_blueprint.png")
+
+@onready var bannerToBlueprintDict: Dictionary = {redBanner: redBlueprint, blueBanner: blueBlueprint, greenBanner: greenBlueprint}
+@onready var currentBanner = modelSprite.bannerTexture
+@onready var currentBlueprint = bannerToBlueprintDict.get(redBanner)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
 	
 func _process(delta: float) -> void:
+	print(cellsCorrectlySewed)
 	if totalCellsPainted == 5760:
 		paintingFinished.emit()
 		totalCellsPainted += 1
@@ -62,11 +74,15 @@ func _input(event: InputEvent) -> void:
 				currentcell.modulate.a = 1
 				currentcell.color = activeColor
 		if root.currentTool == root.tools.SCISSORS:
-			var cellUnderMouse = getCellUnderMouse()
+			var cellIndex = getCellUnderMouse()
+			var cellsList = grid.get_children()
+			var cellUnderMouse = cells[cellIndex]
+			if cellIndex:
+				checkCellCorrectColor(cellIndex, cellUnderMouse)
 			if cellUnderMouse:
 				cellUnderMouse.modulate.a = 0
 			
-func getCellUnderMouse() -> ColorRect:
+func getCellUnderMouse() -> int:
 	var cells = grid.get_children()
 	for i in range(cells.size()):
 		var cell = cells[i]
@@ -75,9 +91,9 @@ func getCellUnderMouse() -> ColorRect:
 		var mousePos = get_local_mouse_position()
 		
 		if cellPos.x <= mousePos.x and mousePos.x <= cellPos.x + cellSize.x and cellPos.y <= mousePos.y and mousePos.y <= cellPos.y + cellSize.y:
-			return cell
+			return i
 		
-	return null
+	return 0
 		
 func getCellsUnderArea(size: int) -> Array: # problem here is that area2d requires a collision shape to detect
 	var cells = grid.get_children()
@@ -103,3 +119,13 @@ func checkCellInArea(cell: ColorRect, size: int) -> bool:
 			return true
 
 	return false
+	
+func checkCellCorrectColor(index: int, cell: ColorRect) -> void:
+	var y: int = int(index / 48)
+	var x = index % 48
+	
+	var image = currentBlueprint.get_image()
+	var color = image.get_pixel(x, y)
+	
+	if color.a == 0.0 and root.currentTool == root.tools.SCISSORS:
+		cellsCorrectlySewed += 1
