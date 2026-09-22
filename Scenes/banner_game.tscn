@@ -327,3 +327,4 @@ offset_bottom = -91.0
 [connection signal="mouse_exited" from="SewBox/SewBoxLid" to="SewBox" method="onMouseExitSewbox"]
 [connection signal="pressed" from="SewBox/SewBoxLid" to="SewBox" method="onSewBoxPressed"]
 [connection signal="paintingFinished" from="Banner" to="." method="onPaintingFinished"]
+[connection signal="paintingFinished" from="Banner" to="Banner" method="onPaintingFinished"]
