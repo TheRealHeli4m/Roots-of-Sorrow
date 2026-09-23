@@ -10,7 +10,6 @@ signal paintingFinished
 @onready var modelSprite = $ModelBannerSprite
 
 @onready var totalCellsPainted = 0
-@onready var cellsCorrectlySewed = 0
 @onready var usingPaint = totalCellsPainted < 5760
 
 @onready var root = $".."
@@ -27,6 +26,10 @@ signal paintingFinished
 @onready var currentBanner;
 @onready var currentBlueprint;
 
+@onready var lastTool = root.tools.NONE
+@onready var lastPos = Vector2(0, 0)
+@onready var isDragging = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
@@ -34,10 +37,14 @@ func _ready() -> void:
 	currentBlueprint = bannerToBlueprintDict.get(currentBanner)
 	
 func _process(delta: float) -> void:
-	print(cellsCorrectlySewed)
 	if totalCellsPainted == 5760:
 		paintingFinished.emit()
 		totalCellsPainted += 1
+		
+	print(lastPos)
+	
+	if isDragging:
+		moveTowardsPosition(get_viewport().get_mouse_position() + Vector2(-192, 20))
 		
 func generateGrid() -> void:
 	grid.columns = gridSize
@@ -125,9 +132,6 @@ func checkCellInArea(cell: ColorRect, size: int) -> bool:
 	return false
 	
 func checkCellCorrectColor(index: int, cell: ColorRect) -> void:
-	if cell.get_meta("is_correct_color") == true:
-		return 
-	
 	var y: int = int(index / 48)
 	var x = index % 48
 	
@@ -136,20 +140,20 @@ func checkCellCorrectColor(index: int, cell: ColorRect) -> void:
 	
 	if root.currentTool == root.tools.SCISSORS:
 		if color.a == 0.0:
-			cellsCorrectlySewed += 1
-		else:
-			cellsCorrectlySewed -= 1
+			cell.set_meta("is_correct_color", true)
 	if root.currentTool == root.tools.NEEDLE:
 		if color.is_equal_approx(Color(1, 0, 0)) and root.currentThreadColor == 0:
-			cellsCorrectlySewed += 1
-		if color.is_equal_approx(Color(0, 1, 0)) and root.currentThreadColor == 1:
-			cellsCorrectlySewed += 1
-		if color.is_equal_approx(Color(0, 0, 1)) and root.currentThreadColor == 2:
-			cellsCorrectlySewed += 1
-		if color.is_equal_approx(Color(1, 1, 0)) and root.currentThreadColor == 3:
-			cellsCorrectlySewed += 1
-		if color.is_equal_approx(Color(1, 1, 1)) and root.currentThreadColor == 4:
-			cellsCorrectlySewed += 1
+			cell.set_meta("is_correct_color", true)
+		elif color.is_equal_approx(Color(0, 1, 0)) and root.currentThreadColor == 1:
+			cell.set_meta("is_correct_color", true)
+		elif color.is_equal_approx(Color(0, 0, 1)) and root.currentThreadColor == 2:
+			cell.set_meta("is_correct_color", true)
+		elif color.is_equal_approx(Color(1, 1, 0)) and root.currentThreadColor == 3:
+			cell.set_meta("is_correct_color", true)
+		elif color.is_equal_approx(Color(1, 1, 1)) and root.currentThreadColor == 4:
+			cell.set_meta("is_correct_color", true)
+		else:
+			cell.set_meta("is_correct_color", false)
 
 func onPaintingFinished() -> void:
 	checkAllCells()
@@ -170,6 +174,24 @@ func customIsEqualApprox(color1: Color, color2: Color, threshold: float) -> bool
 	var col2Vec = Vector3(color2.r, color2.g, color2.b)
 	
 	return col1Vec.distance_to(col2Vec) < threshold
-		
-		
+
+func onDragDown() -> void:
+	lastPos = self.position
+	root.currentTool = root.tools.HANDCLOSE
+	isDragging = true
+
+func onDragUp() -> void:
+	isDragging = false
+	root.currentTool = root.tools.HANDOPEN
+	self.position = lastPos
+
+func onDragEnter() -> void:
+	lastTool = root.currentTool
+	root.currentTool = root.tools.HANDOPEN
+
+func onDragExit() -> void:
+	root.currentTool = lastTool
 	
+func moveTowardsPosition(targetPos: Vector2) -> void:
+	var delta = get_process_delta_time()
+	self.position = self.position.lerp(targetPos, 10.0 * delta)

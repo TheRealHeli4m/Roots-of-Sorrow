@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var sewBox = $SewBox
 
-enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE}
+enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE, HANDOPEN, HANDCLOSE}
 enum paintBrushColors {RED, GREEN, BLUE}
 enum threadColors {RED, GREEN, BLUE, GOLD, WHITE}
 
@@ -22,6 +22,8 @@ enum threadColors {RED, GREEN, BLUE, GOLD, WHITE}
 @onready var scissorsCursor = load("res://Assets/Cursors/gameboy_scissors_cursor.png")
 @onready var needleCursor = load("res://Assets/Cursors/gameboy_needle.png")
 @onready var paintbrushCursor = load("res://Assets/Cursors/gameboy_paintbrush.png")
+@onready var handOpenCursor = load("res://Assets/Cursors/grab_open_cursor.png")
+@onready var handCloseCursor = load("res://Assets/Cursors/grab_close_cursor.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,6 +48,10 @@ func determineCursor() -> void:
 			Input.set_custom_mouse_cursor(scissorsCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 		tools.PAINTBRUSH:
 			Input.set_custom_mouse_cursor(paintbrushCursor, Input.CURSOR_ARROW, Vector2(16, 16))
+		tools.HANDOPEN:
+			Input.set_custom_mouse_cursor(handOpenCursor, Input.CURSOR_ARROW, Vector2(16, 16))
+		tools.HANDCLOSE:
+			Input.set_custom_mouse_cursor(handCloseCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	
 func determineColor() -> void:
 	if currentTool == tools.PAINTBRUSH:

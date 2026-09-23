@@ -1,14 +1,14 @@
+Node
+Button
+TextureButton
 CollisionShape2D
 Area2D
 Sprite2D
-TextureButton
 Control
 ColorRect
 GridContainer
 Node2D
 SpringBoneCollisionPlane3D
-Button
 AnimatedSprite2D
 CanvasModulate
-Node
 CanvasLayer

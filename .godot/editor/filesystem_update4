@@ -14,3 +14,5 @@ res://Scripts/thread.gd
 res://Scenes/threads.gd
 res://Scripts/banner_overlay.gd
 res://Scenes/gameboy.tscn
+res://Scenes/drag_button.gd
+res://Scripts/global.gd
