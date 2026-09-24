@@ -52,7 +52,7 @@ func generateGrid() -> void:
 	for i in range(gridSize * 120):
 		var cell = ColorRect.new()
 		
-		cell.color = Color(1, 1, 1)
+		cell.color = Color(0.5, 0.5, 0.5)
 		cell.custom_minimum_size = Vector2(8, 8)
 		cell.set_meta("is_painted", false)
 		cell.set_meta("is_correct_color", false)
@@ -80,16 +80,12 @@ func _input(event: InputEvent) -> void:
 			var cellsUnderArea = getCellsUnderArea(8)
 			for i in range(cellsUnderArea.size()):
 				var currentcell = cells[cellsUnderArea[i]]
-				if cellsUnderArea[i]:
-					checkCellCorrectColor(cellsUnderArea[i], currentcell)
 				currentcell.modulate.a = 1
 				currentcell.color = activeColor
 		if root.currentTool == root.tools.SCISSORS:
 			var cellIndex = getCellUnderMouse()
 			var cellsList = grid.get_children()
 			var cellUnderMouse = cells[cellIndex]
-			if cellIndex:
-				checkCellCorrectColor(cellIndex, cellUnderMouse)
 			if cellUnderMouse:
 				cellUnderMouse.modulate.a = 0
 			
@@ -130,33 +126,6 @@ func checkCellInArea(cell: ColorRect, size: int) -> bool:
 			return true
 
 	return false
-	
-func checkCellCorrectColor(index: int, cell: ColorRect) -> void:
-	var y: int = int(index / 48)
-	var x = index % 48
-	
-	var image = currentBlueprint.get_image()
-	var color = image.get_pixel(x, y)
-	
-	if root.currentTool == root.tools.SCISSORS:
-		if color.a == 0.0:
-			cell.set_meta("is_correct_color", true)
-	if root.currentTool == root.tools.NEEDLE:
-		if color.is_equal_approx(Color(1, 0, 0)) and root.currentThreadColor == 0:
-			cell.set_meta("is_correct_color", true)
-		elif color.is_equal_approx(Color(0, 1, 0)) and root.currentThreadColor == 1:
-			cell.set_meta("is_correct_color", true)
-		elif color.is_equal_approx(Color(0, 0, 1)) and root.currentThreadColor == 2:
-			cell.set_meta("is_correct_color", true)
-		elif color.is_equal_approx(Color(1, 1, 0)) and root.currentThreadColor == 3:
-			cell.set_meta("is_correct_color", true)
-		elif color.is_equal_approx(Color(1, 1, 1)) and root.currentThreadColor == 4:
-			cell.set_meta("is_correct_color", true)
-		else:
-			cell.set_meta("is_correct_color", false)
-
-func onPaintingFinished() -> void:
-	checkAllCells()
 
 func checkAllCells() -> void:
 	var cells = grid.get_children()
@@ -183,6 +152,7 @@ func onDragDown() -> void:
 func onDragUp() -> void:
 	var mouse = get_viewport().get_mouse_position()
 	if mouse.x > 1000 and mouse.y < 300:
+		checkAllCells()
 		refreshBanner(true)
 		return
 	elif mouse.x > 1000 and mouse.y > 500:
@@ -212,8 +182,9 @@ func refreshBanner(isSubmit: bool) -> void:
 		for i in range(cells.size()):
 			if cells[i].get_meta("is_correct_color") == true:
 				total += 1
+				cells[i].set_meta("is_correct_color", false)
 			
-			cells[i].color = Color(1, 1, 1, 1)
+			cells[i].queue_free()
 		
 		print(total)
 	
@@ -222,6 +193,9 @@ func refreshBanner(isSubmit: bool) -> void:
 	generateGrid()
 	totalCellsPainted = 0
 	modelSprite.newTexture()
+	currentBanner = modelSprite.bannerTexture
+	currentBlueprint = bannerToBlueprintDict.get(currentBanner)
+	
 	self.position = lastPos + Vector2(0, 1000)
 	var bannertween = create_tween()
 	bannertween.tween_property(self, "position", lastPos, 2.0)\
