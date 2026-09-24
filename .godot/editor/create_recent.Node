@@ -1,3 +1,6 @@
+Camera2D
+Parallax2D
+TileMapLayer
 TextureButton
 CollisionShape2D
 Area2D
@@ -10,5 +13,3 @@ GridContainer
 Node2D
 SpringBoneCollisionPlane3D
 AnimatedSprite2D
-CanvasModulate
-CanvasLayer

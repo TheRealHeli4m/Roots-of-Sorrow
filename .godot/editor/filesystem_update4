@@ -3,3 +3,4 @@ res://Effects/Shaders/vignette.gdshader
 res://Scripts/banner_coloring.gd
 res://Scenes/banner_game.tscn
 res://Scenes/banner.tscn
+res://Scenes/throne_room.tscn
