@@ -183,24 +183,10 @@ func onDragDown() -> void:
 func onDragUp() -> void:
 	var mouse = get_viewport().get_mouse_position()
 	if mouse.x > 1000 and mouse.y < 300:
-		var total = 0
-		var cells = grid.get_children()
-		for i in range(cells.size()):
-			if cells[i].get_meta("is_correct_color") == true:
-				total += 1
-		
-		isDragging = false
-		root.currentTool = root.tools.HANDOPEN
-		print(total)
-		generateGrid()
-		totalCellsPainted = 0
-		modelSprite.newTexture()
-		self.position = lastPos + Vector2(0, 1000)
-		var bannertween = create_tween()
-		bannertween.tween_property(self, "position", lastPos, 2.0)\
-			.set_trans(Tween.TRANS_CUBIC)\
-			.set_ease(Tween.EASE_OUT)
-			
+		refreshBanner(true)
+		return
+	elif mouse.x > 1000 and mouse.y > 500:
+		refreshBanner(false)
 		return
 		
 	isDragging = false
@@ -218,3 +204,26 @@ func onDragExit() -> void:
 func moveTowardsPosition(targetPos: Vector2) -> void:
 	var delta = get_process_delta_time()
 	self.position = self.position.lerp(targetPos, 10.0 * delta)
+	
+func refreshBanner(isSubmit: bool) -> void:
+	var total = 0
+	var cells = grid.get_children()
+	if isSubmit:
+		for i in range(cells.size()):
+			if cells[i].get_meta("is_correct_color") == true:
+				total += 1
+			
+			cells[i].color = Color(1, 1, 1, 1)
+		
+		print(total)
+	
+	isDragging = false
+	root.currentTool = root.tools.HANDOPEN
+	generateGrid()
+	totalCellsPainted = 0
+	modelSprite.newTexture()
+	self.position = lastPos + Vector2(0, 1000)
+	var bannertween = create_tween()
+	bannertween.tween_property(self, "position", lastPos, 2.0)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
