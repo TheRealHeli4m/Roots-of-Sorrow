@@ -1,10 +1,10 @@
-Node
-Button
 TextureButton
 CollisionShape2D
 Area2D
 Sprite2D
 Control
+Node
+Button
 ColorRect
 GridContainer
 Node2D

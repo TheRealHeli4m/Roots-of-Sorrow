@@ -32,6 +32,7 @@ offset_left = -46.0
 offset_top = -59.0
 offset_right = 434.0
 offset_bottom = -2.0
+mouse_filter = 1
 script = ExtResource("4_utj6e")
 
 [connection signal="button_down" from="DragButton" to="." method="onDragDown"]

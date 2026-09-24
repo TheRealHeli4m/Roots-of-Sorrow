@@ -16,9 +16,7 @@ var acc: float
 func _ready() -> void:
 	velo = 0.0
 	acc = 0.0
-	bannerTexture = bannerlist.pick_random()
-	self.texture = bannerTexture
-	self.modulate.a = 0.2
+	newTexture()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,6 +30,11 @@ func _process(delta: float) -> void:
 	
 	acc = 0
 	velo /= 1.25
+	
+func newTexture() -> void:
+	bannerTexture = bannerlist.pick_random()
+	self.texture = bannerTexture
+	self.modulate.a = 0.2
 	
 func checkCellForCorrectColor(cell: ColorRect) -> void:
 	var status = cell.get_meta("is_painted")

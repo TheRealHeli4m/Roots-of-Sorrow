@@ -9,6 +9,8 @@ extends Node2D
 @onready var isPainting = true
 
 @onready var sewBox = $SewBox
+@onready var targetPos;
+@onready var currentPos;
 
 enum tools {SCISSORS, NEEDLE, PAINTBRUSH, NONE, HANDOPEN, HANDCLOSE}
 enum paintBrushColors {RED, GREEN, BLUE}
@@ -27,11 +29,14 @@ enum threadColors {RED, GREEN, BLUE, GOLD, WHITE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	currentPos = self.position
+	targetPos = Vector2(self.position.x - 200, self.position.y)
 	sewBox.visible = false
 	playOpeningAnim(isPainting)
 	
 func _process(delta: float) -> void:
 	isPainting = bannerGame.totalCellsPainted < 5760
+	checkMouse(targetPos)
 	determineCursor()
 	determineColor()
 		
@@ -83,6 +88,8 @@ func playOpeningAnim(isPainting: bool) -> void:
 	$SewBox.visible = false if isPainting else true
 	$Table.visible = true
 	$Banner.visible = true
+	$TrashBin.visible = true
+	$BannerRack.visible = true
 	$PaintBuckets.visible = true if isPainting else false
 	isTweening = true
 	
@@ -117,6 +124,9 @@ func playOpeningAnim(isPainting: bool) -> void:
 func playClosingAnim() -> void:
 	if isTweening:
 		return
+		
+	$TrashBin.visible = false
+	$BannerRack.visible = false
 	
 	isPlayingBannerGame = false
 	isTweening = true
@@ -162,3 +172,12 @@ func onPaintingFinished() -> void:
 	painttween.tween_property($PaintBuckets, "position:y", -500, 1.25)\
 		.set_trans(Tween.TRANS_CUBIC)\
 		.set_ease(Tween.EASE_OUT)
+		
+func checkMouse(targetPos: Vector2) -> void:
+	var mousePos = get_viewport().get_mouse_position()
+	var delta = get_process_delta_time()
+
+	if mousePos.x > 1000:
+		self.position = self.position.lerp(targetPos, delta * 10.0)
+	else:
+		self.position = self.position.lerp(currentPos, delta * 10.0)

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bhysbwcvp1xo3" path="res://Assets/Sewing/scissors.png" id="3_f5sax"]
 [ext_resource type="Texture2D" uid="uid://d0pdcpe8b4tcs" path="res://Assets/Sewing/red_bucket.png" id="3_iqa4t"]
 [ext_resource type="Script" uid="uid://d24oj7ackavh" path="res://Scripts/sewing.gd" id="3_slxmv"]
+[ext_resource type="Texture2D" uid="uid://di38cu6ahftfm" path="res://Assets/Sewing/trash_bin.png" id="4_3ukne"]
 [ext_resource type="Texture2D" uid="uid://cok7qlrnwxbyh" path="res://Assets/Sewing/green_bucket.png" id="5_16quf"]
 [ext_resource type="Texture2D" uid="uid://bklcnliiqh4e6" path="res://Assets/Sewing/red_thread.png" id="6_6klv7"]
 [ext_resource type="Texture2D" uid="uid://csu8pu4hpcy2o" path="res://Assets/Sewing/sewbox_lid_flipping.png" id="6_dsrkm"]
@@ -26,6 +27,7 @@
 [ext_resource type="Script" uid="uid://c3qctoow2nte3" path="res://Scenes/threads.gd" id="11_d2tqt"]
 [ext_resource type="Texture2D" uid="uid://djtcpmgk7yx72" path="res://Assets/Sewing/golden_thread.png" id="11_hf5j2"]
 [ext_resource type="PackedScene" uid="uid://csg5uinmjuk6d" path="res://Scenes/banner.tscn" id="20_ptoy6"]
+[ext_resource type="Texture2D" uid="uid://naeyckr4yeqq" path="res://Assets/Sewing/banner_rack.png" id="27_amwj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsrkm"]
 atlas = ExtResource("6_dsrkm")
@@ -84,6 +86,36 @@ script = ExtResource("1_0t2ny")
 position = Vector2(575, 299)
 scale = Vector2(8, 8)
 texture = ExtResource("1_slxmv")
+
+[node name="BannerRack" type="Control" parent="." unique_id=1353141775]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1038.0
+offset_top = 388.0
+offset_right = 1078.0
+offset_bottom = 428.0
+
+[node name="TextureButton" type="TextureButton" parent="BannerRack" unique_id=176530383]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -362.0
+offset_right = 128.125
+offset_bottom = -318.0
+scale = Vector2(8, 8)
+texture_normal = ExtResource("27_amwj1")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="TrashBin" type="Control" parent="." unique_id=927902421]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite" type="Sprite2D" parent="TrashBin" unique_id=459322240]
+position = Vector2(1342, 628)
+scale = Vector2(8, 8)
+texture = ExtResource("4_3ukne")
 
 [node name="PaintBuckets" type="Control" parent="." unique_id=1977126215]
 layout_mode = 3
@@ -287,11 +319,13 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_41hb5")
 
 [node name="Banner" parent="." unique_id=1961695673 instance=ExtResource("20_ptoy6")]
-offset_left = 606.0
+offset_left = 581.0
 offset_top = -91.0
-offset_right = 606.0
+offset_right = 581.0
 offset_bottom = -91.0
 
+[connection signal="mouse_entered" from="BannerRack/TextureButton" to="Banner" method="onBannerRackMouseEnter"]
+[connection signal="mouse_exited" from="BannerRack/TextureButton" to="Banner" method="onBannerRackMouseExit"]
 [connection signal="mouse_entered" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseEnterRed"]
 [connection signal="mouse_exited" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onMouseExitRed"]
 [connection signal="pressed" from="PaintBuckets/RedBucket" to="PaintBuckets" method="onRedPressed"]

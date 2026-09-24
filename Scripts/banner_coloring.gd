@@ -30,6 +30,8 @@ signal paintingFinished
 @onready var lastPos = Vector2(0, 0)
 @onready var isDragging = false
 
+@onready var bannerRackArea = $"../BannerRack/Area2D"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
@@ -40,8 +42,6 @@ func _process(delta: float) -> void:
 	if totalCellsPainted == 5760:
 		paintingFinished.emit()
 		totalCellsPainted += 1
-		
-	print(lastPos)
 	
 	if isDragging:
 		moveTowardsPosition(get_viewport().get_mouse_position() + Vector2(-192, 20))
@@ -181,6 +181,28 @@ func onDragDown() -> void:
 	isDragging = true
 
 func onDragUp() -> void:
+	var mouse = get_viewport().get_mouse_position()
+	if mouse.x > 1000 and mouse.y < 300:
+		var total = 0
+		var cells = grid.get_children()
+		for i in range(cells.size()):
+			if cells[i].get_meta("is_correct_color") == true:
+				total += 1
+		
+		isDragging = false
+		root.currentTool = root.tools.HANDOPEN
+		print(total)
+		generateGrid()
+		totalCellsPainted = 0
+		modelSprite.newTexture()
+		self.position = lastPos + Vector2(0, 1000)
+		var bannertween = create_tween()
+		bannertween.tween_property(self, "position", lastPos, 2.0)\
+			.set_trans(Tween.TRANS_CUBIC)\
+			.set_ease(Tween.EASE_OUT)
+			
+		return
+		
 	isDragging = false
 	root.currentTool = root.tools.HANDOPEN
 	self.position = lastPos
@@ -190,6 +212,7 @@ func onDragEnter() -> void:
 	root.currentTool = root.tools.HANDOPEN
 
 func onDragExit() -> void:
+	if isDragging: return
 	root.currentTool = lastTool
 	
 func moveTowardsPosition(targetPos: Vector2) -> void:
