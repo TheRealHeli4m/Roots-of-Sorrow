@@ -4,3 +4,14 @@ res://Scripts/banner_coloring.gd
 res://Scenes/banner_game.tscn
 res://Scenes/banner.tscn
 res://Scenes/throne_room.tscn
+res://Scripts/gameboy.gd
+res://Scenes/hallway.tscn
+res://Scripts/global.gd
+res://Scenes/gameboy_player.tscn
+res://Scripts/gb_player_movement.gd
+res://Scripts/banner_overlay.gd
+res://Scripts/banner_game.gd
+res://Scenes/camera.gd
+res://Scenes/root.tscn
+res://Scripts/root.gd
+res://Scenes/camlock.gd

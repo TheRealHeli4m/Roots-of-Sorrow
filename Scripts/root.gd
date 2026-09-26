@@ -7,6 +7,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.currentRoom = Global.rooms.hallway
 	gameboyScene.hide()
 	canvas.show()
 	colorRect.modulate.a = 0
@@ -22,6 +23,9 @@ func _input(event: InputEvent) -> void:
 		gameboyScene.hide()
 		roomScene.show()
 		flash()
+		
+func fetchCorrectRoom() -> void:
+	pass
 
 func flash():
 	colorRect.modulate.a = 1.0

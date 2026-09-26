@@ -9,6 +9,9 @@ const JUMP_VELOCITY = -400.0
 @onready var coyoteTimer = $CoyoteTimer
 @onready var jBuffTimer = $JumpBufferingTimer
 
+func _ready() -> void:
+	Global.player = self
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta

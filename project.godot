@@ -24,6 +24,10 @@ Global="*uid://bl6m884w8xude"
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+player=""
+
 [input]
 
 switch_scenes={
