@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
+@onready var root = $".."
 @onready var was_on_floor = true
 @onready var canJump = true
 @onready var canMove = true
@@ -9,7 +10,17 @@ const JUMP_VELOCITY = -400.0
 @onready var coyoteTimer = $CoyoteTimer
 @onready var jBuffTimer = $JumpBufferingTimer
 
+@onready var lastOnGroundYPos = 420
+
+@onready var animPlayer = $"../CanvasLayer/AnimationPlayer"
+@onready var colRect = $"../CanvasLayer/ColorRect"
+
+@onready var currentScene = $"../Hallway"
+@onready var camera = $"../Camera2D"
+
 func _ready() -> void:
+	colRect.modulate.a = 0
+	Global.change_room.connect(change_room)
 	Global.player = self
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +28,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		canJump = false
 		if was_on_floor:
+			lastOnGroundYPos = self.position.y
 			coyoteTimer.start()
+		
 		
 	if animSprite.animation == "landing": # stops jumping when landing animation is playing to prevent bug
 		canJump = false
@@ -39,3 +52,22 @@ func _physics_process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 	if canMove:
 		move_and_slide()
+		
+func change_room(scene: PackedScene, pos: Vector2, fixedCam: bool) -> void:
+	animPlayer.play("change_room")
+	await get_tree().create_timer(0.5).timeout
+	
+	if fixedCam:
+		camera.fixedCam = true
+	else:
+		camera.fixedCam = false
+	
+	self.position = pos
+	camera.position = Vector2(-126, 289)
+	var instance = scene.instantiate()
+	currentScene.queue_free()
+	root.add_child(instance)
+	self.move_to_front()
+	currentScene = instance
+
+	

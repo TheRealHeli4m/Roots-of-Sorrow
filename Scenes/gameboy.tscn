@@ -4,6 +4,42 @@
 [ext_resource type="PackedScene" uid="uid://bhxye5gp1ys04" path="res://Scenes/gameboy_player.tscn" id="3_p6yij"]
 [ext_resource type="Script" uid="uid://db81j3kwgt617" path="res://Scenes/camera.gd" id="3_yyghm"]
 
+[sub_resource type="Animation" id="Animation_jaegf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yyghm"]
+resource_name = "change_room"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 0.8122524),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebx30"]
+_data = {
+&"RESET": SubResource("Animation_jaegf"),
+&"change_room": SubResource("Animation_yyghm")
+}
+
 [node name="root" type="Node2D" unique_id=53405422]
 
 [node name="Hallway" parent="." unique_id=40230138 instance=ExtResource("3_jaegf")]
@@ -14,5 +50,20 @@ position = Vector2(263, 331)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=631175954]
 script = ExtResource("3_yyghm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1742914798]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1226166229]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ebx30")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1061735107]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(14.560001, 8.160002)
+color = Color(0, 0, 0, 1)
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -212,7 +212,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wri8"]
-size = Vector2(5.75, 8.75)
+size = Vector2(5.75, 13.25)
 
 [sub_resource type="Animation" id="Animation_5wri8"]
 length = 0.001
@@ -488,6 +488,7 @@ collision_layer = 32769
 script = ExtResource("1_fex8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=427905482]
+light_mask = 2
 position = Vector2(0.25, 39.25)
 sprite_frames = SubResource("SpriteFrames_yy4o6")
 animation = &"idle"
@@ -495,7 +496,7 @@ frame = 1
 script = ExtResource("5_5wri8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575619970]
-position = Vector2(0.375, 41.875)
+position = Vector2(0.375, 39.625)
 shape = SubResource("RectangleShape2D_5wri8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=64308523]

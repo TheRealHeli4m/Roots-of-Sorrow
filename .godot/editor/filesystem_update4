@@ -15,3 +15,5 @@ res://Scenes/camera.gd
 res://Scenes/root.tscn
 res://Scripts/root.gd
 res://Scenes/camlock.gd
+res://Scenes/room_change.gd
+res://Scenes/room_change_throne.gd

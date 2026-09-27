@@ -1,7 +1,10 @@
-PointLight2D
+Camera2D
 CollisionShape2D
 Area2D
-Camera2D
+CanvasLayer
+ColorRect
+AnimationPlayer
+PointLight2D
 Parallax2D
 TileMapLayer
 TextureButton
@@ -9,7 +12,3 @@ Sprite2D
 Control
 Node
 Button
-ColorRect
-GridContainer
-Node2D
-SpringBoneCollisionPlane3D
