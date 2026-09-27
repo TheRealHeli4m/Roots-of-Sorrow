@@ -8,12 +8,13 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.position.y = 400
+	self.position.y = 325.0
 	targetXPos = player.position.x
 
 func _physics_process(delta: float) -> void:
+	print(self.position.y)
 	if Global.playerInCamlockArea:
-		self.position.y = lerp(self.position.y, 400.0, 5.0 * delta)
+		self.position.y = lerp(self.position.y, 325.0, 5.0 * delta)
 		return 
 		
 	if fixedCam: return

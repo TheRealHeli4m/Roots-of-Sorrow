@@ -15,7 +15,7 @@ const JUMP_VELOCITY = -400.0
 @onready var animPlayer = $"../CanvasLayer/AnimationPlayer"
 @onready var colRect = $"../CanvasLayer/ColorRect"
 
-@onready var currentScene = $"../Hallway"
+@onready var currentScene;
 @onready var camera = $"../Camera2D"
 
 func _ready() -> void:
@@ -64,8 +64,8 @@ func change_room(scene: PackedScene, pos: Vector2, fixedCam: bool) -> void:
 	
 	self.position = pos
 	camera.position = Vector2(-126, 289)
-	var instance = scene.instantiate()
 	currentScene.queue_free()
+	var instance = scene.instantiate()
 	root.add_child(instance)
 	self.move_to_front()
 	currentScene = instance

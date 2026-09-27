@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy2etdm7ke30l"]
 
-[ext_resource type="PackedScene" uid="uid://nfr8u40omtp4" path="res://Scenes/hallway.tscn" id="3_jaegf"]
+[ext_resource type="Script" uid="uid://by740ywjlcdgk" path="res://Scenes/gameboy.gd" id="1_yyghm"]
 [ext_resource type="PackedScene" uid="uid://bhxye5gp1ys04" path="res://Scenes/gameboy_player.tscn" id="3_p6yij"]
 [ext_resource type="Script" uid="uid://db81j3kwgt617" path="res://Scenes/camera.gd" id="3_yyghm"]
 
@@ -41,12 +41,10 @@ _data = {
 }
 
 [node name="root" type="Node2D" unique_id=53405422]
-
-[node name="Hallway" parent="." unique_id=40230138 instance=ExtResource("3_jaegf")]
-position = Vector2(102, 85)
+script = ExtResource("1_yyghm")
 
 [node name="Player" parent="." unique_id=1366060401 instance=ExtResource("3_p6yij")]
-position = Vector2(263, 331)
+position = Vector2(204, 115)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=631175954]
 script = ExtResource("3_yyghm")

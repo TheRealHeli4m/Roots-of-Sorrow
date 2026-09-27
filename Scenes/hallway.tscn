@@ -143,12 +143,12 @@ sources/0 = SubResource("TileSetAtlasSource_olnio")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvmas"]
 size = Vector2(6.6921926, 20)
 
-[sub_resource type="Gradient" id="Gradient_4c7va"]
+[sub_resource type="Gradient" id="Gradient_kvw4f"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kvw4f"]
-gradient = SubResource("Gradient_4c7va")
+gradient = SubResource("Gradient_kvw4f")
 fill = 1
 fill_from = Vector2(0.48076922, 0.47435898)
 fill_to = Vector2(0.20512821, 0.17735043)
