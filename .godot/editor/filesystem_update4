@@ -18,3 +18,6 @@ res://Scenes/camlock.gd
 res://Scenes/room_change.gd
 res://Scenes/room_change_throne.gd
 res://Scenes/gameboy.gd
+res://Scenes/right_tower.tscn
+res://Scenes/room_change_right_hallway.gd
+res://Scenes/room_change_top_hallway.gd

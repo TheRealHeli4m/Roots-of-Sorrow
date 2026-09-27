@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 @onready var root = $".."
 @onready var was_on_floor = true
 @onready var canJump = true
@@ -24,6 +24,7 @@ func _ready() -> void:
 	Global.player = self
 
 func _physics_process(delta: float) -> void:
+	print(self.position)
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
 		canJump = false
@@ -36,9 +37,9 @@ func _physics_process(delta: float) -> void:
 		canJump = false
 	 
 	# if pressed jump or jump buffering is still running, and can jump and coyotetimer is still running
-	if (Input.is_action_pressed("jump") or not jBuffTimer.is_stopped()) and (canJump or not coyoteTimer.is_stopped()):
+	if (Input.is_action_just_pressed("jump") or not jBuffTimer.is_stopped()) and (canJump or not coyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_pressed("jump") and not canJump:
+	elif Input.is_action_just_pressed("jump") and not canJump:
 		jBuffTimer.start()
 		
 	if Input.is_action_pressed("move_left"):
@@ -53,17 +54,17 @@ func _physics_process(delta: float) -> void:
 	if canMove:
 		move_and_slide()
 		
-func change_room(scene: PackedScene, pos: Vector2, fixedCam: bool) -> void:
+func change_room(scene: PackedScene, playerPos: Vector2, cameraPos: Vector2, yMovement: bool, xMovement: bool) -> void:
+	self.canMove = false
 	animPlayer.play("change_room")
 	await get_tree().create_timer(0.5).timeout
 	
-	if fixedCam:
-		camera.fixedCam = true
-	else:
-		camera.fixedCam = false
+	self.canMove = true
+	camera.moveY = true if yMovement else false
+	camera.moveX = true if xMovement else false
 	
-	self.position = pos
-	camera.position = Vector2(-126, 289)
+	self.position = playerPos
+	camera.position = cameraPos
 	currentScene.queue_free()
 	var instance = scene.instantiate()
 	root.add_child(instance)

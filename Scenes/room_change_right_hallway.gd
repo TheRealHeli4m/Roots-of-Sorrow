@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var throneRoom = load("res://Scenes/throne_room.tscn")
+@export var rightTower = load("res://Scenes/right_tower.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.change_room.emit(throneRoom, Vector2(-275, 300), true)
+		Global.change_room.emit(rightTower, Vector2(-250, -313), Vector2(125, -313), true, false)

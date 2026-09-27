@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="4_kvw4f"]
 [ext_resource type="Script" uid="uid://cr7s80p54pkw8" path="res://Scripts/banner_overlay.gd" id="5_wlew8"]
 [ext_resource type="Script" uid="uid://5y418vt8n0yg" path="res://Scenes/camlock.gd" id="7_4c7va"]
-[ext_resource type="Script" uid="uid://poh33orkixqc" path="res://Scenes/room_change.gd" id="8_kvw4f"]
+[ext_resource type="Script" uid="uid://poh33orkixqc" path="res://Scenes/room_change_top_hallway.gd" id="8_kvw4f"]
+[ext_resource type="Script" uid="uid://5i4qe77lhiul" path="res://Scenes/room_change_right_hallway.gd" id="8_wlew8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jaegf"]
 tile_data = PackedInt32Array(0, 1, 1, 65536, 1, 2, 1, 65537, 1, 65537, 65537, 2, 2, 131073, 1, 65538, 131073, 2)
@@ -214,7 +215,7 @@ texture = ExtResource("3_4c7va")
 sources/0 = SubResource("TileSetAtlasSource_u8tmr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lkww"]
-size = Vector2(611.5, 328)
+size = Vector2(567.75, 328)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c7va"]
 size = Vector2(126, 62)
@@ -300,8 +301,12 @@ script = ExtResource("7_4c7va")
 position = Vector2(1552.25, 346)
 shape = SubResource("RectangleShape2D_3lkww")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camlock" unique_id=1731590644]
+position = Vector2(-535, 357)
+shape = SubResource("RectangleShape2D_3lkww")
+
 [node name="RoomChangeRight" type="Area2D" parent="." unique_id=1349682441]
-script = ExtResource("8_kvw4f")
+script = ExtResource("8_wlew8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomChangeRight" unique_id=1304582611]
 position = Vector2(1836, 449)

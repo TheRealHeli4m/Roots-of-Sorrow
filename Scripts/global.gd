@@ -1,6 +1,6 @@
 extends Node
 
-signal change_room(scene: PackedScene, pos: Vector2, fixedCam: bool)
+signal change_room(scene: PackedScene, playerPos: Vector2, cameraPos: Vector2, yMovement: bool, xMovement: bool)
 
 enum rooms {throne, hallway, hall, steps_left, kitchen}
 
