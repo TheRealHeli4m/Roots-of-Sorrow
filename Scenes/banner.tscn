@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bs2rmifr0o0dg" path="res://Scripts/banner_coloring.gd" id="1_04otu"]
 [ext_resource type="Texture2D" uid="uid://bo4eoxn3tyla0" path="res://Assets/Sewing/red_banner.png" id="3_utj6e"]
 [ext_resource type="Script" uid="uid://6lnom4virhtt" path="res://Scripts/banner.gd" id="4_iya0c"]
-[ext_resource type="Script" uid="uid://dgpk4jrbuywvf" path="res://Scenes/drag_button.gd" id="4_utj6e"]
+[ext_resource type="Script" uid="uid://dgpk4jrbuywvf" path="res://Scripts/drag_button.gd" id="4_utj6e"]
 
 [node name="Banner" type="Control" unique_id=1961695673]
 layout_mode = 3

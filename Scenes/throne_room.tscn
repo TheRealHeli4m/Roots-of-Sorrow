@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cofi80lmcnnyp"]
 
-[ext_resource type="Script" uid="uid://br4032sw8h4it" path="res://Scenes/room_change_throne.gd" id="1_0tv6i"]
+[ext_resource type="Script" uid="uid://br4032sw8h4it" path="res://Scripts/room_change_throne.gd" id="1_0tv6i"]
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_rfd2a"]
 
 [sub_resource type="Gradient" id="Gradient_0tv6i"]
@@ -14,7 +14,7 @@ fill_from = Vector2(0.48076922, 0.47435898)
 fill_to = Vector2(0.20512821, 0.17735043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm7ok"]
-size = Vector2(126, 62)
+size = Vector2(126, 60.297775)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikiwo"]
 texture = ExtResource("1_rfd2a")
@@ -72,7 +72,9 @@ scale = Vector2(4, 4)
 script = ExtResource("1_0tv6i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomChange" unique_id=1061910665]
-position = Vector2(1857.75, 486.5)
+position = Vector2(1857.75, 487.09552)
+rotation = 3.1415925
+scale = Vector2(1.2343922, -0.6997118)
 shape = SubResource("RectangleShape2D_mm7ok")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=784946562]

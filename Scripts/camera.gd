@@ -13,9 +13,7 @@ func _ready() -> void:
 	targetXPos = player.position.x
 
 func _physics_process(delta: float) -> void:
-	print(self.position)
 	if Global.playerInCamlockArea:
-		self.position.y = lerp(self.position.y, 325.0, 5.0 * delta)
 		return 
 	
 	if moveY:

@@ -21,3 +21,10 @@ res://Scenes/gameboy.gd
 res://Scenes/right_tower.tscn
 res://Scenes/room_change_right_hallway.gd
 res://Scenes/room_change_top_hallway.gd
+res://Scripts/room_change_right_hallway.gd
+res://Scripts/room_change_left_right_tower.gd
+res://Scripts/camera.gd
+res://Scripts/room_change_left_hallway.gd
+res://Scenes/banner_room.tscn
+res://Scripts/animated_sprite_2d.gd
+res://Scenes/room_change_right_banner.gd
