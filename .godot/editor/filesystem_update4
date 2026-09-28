@@ -4,3 +4,24 @@ res://Scenes/room_change_left_banner.gd
 res://Scenes/room_change_top_left_tower.gd
 res://hall.tscn
 res://Scenes/room_change_bottom_left_tower.gd
+res://Scripts/global.gd
+res://Scripts/camera.gd
+res://Scripts/camlock.gd
+res://camlockx.gd
+res://camlocky.gd
+res://Scenes/gameboy_player.tscn
+res://Scripts/gb_player_movement.gd
+res://Scenes/gameboy.tscn
+res://room_change_left_hall.gd
+res://Scenes/throne_room.tscn
+res://Scenes/hallway.tscn
+res://Scenes/right_tower.tscn
+res://Scenes/banner_room.tscn
+res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd
+res://kitchen.tscn
+res://Scripts/Room Changes/room_change_right_hall.gd
+res://Scenes/hall.tscn
+res://Scripts/Room Changes/room_change_bottom_left_tower.gd
+res://Scenes/room_change_right_kitchen.gd
+res://Scenes/kitchen.tscn
+res://Scenes/room_change_left_kitchen.gd

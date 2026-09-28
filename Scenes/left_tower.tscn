@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_4g2mm"]
 [ext_resource type="Script" uid="uid://5y418vt8n0yg" path="res://Scripts/camlock.gd" id="2_tfwjq"]
-[ext_resource type="Script" uid="uid://cfksc406c7qaw" path="res://Scenes/room_change_top_left_tower.gd" id="3_tfwjq"]
-[ext_resource type="Script" uid="uid://1xhhwmk43otj" path="res://Scenes/room_change_bottom_left_tower.gd" id="4_qpbd5"]
+[ext_resource type="Script" uid="uid://cfksc406c7qaw" path="res://Scripts/Room Changes/room_change_top_left_tower.gd" id="3_tfwjq"]
+[ext_resource type="Script" uid="uid://1xhhwmk43otj" path="res://Scripts/Room Changes/room_change_bottom_left_tower.gd" id="4_qpbd5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3gws"]
 texture = ExtResource("1_4g2mm")

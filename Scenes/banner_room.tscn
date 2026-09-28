@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_tbevi"]
 [ext_resource type="Script" uid="uid://cr7s80p54pkw8" path="res://Scripts/banner_overlay.gd" id="2_tghgu"]
-[ext_resource type="Script" uid="uid://dabb2w2lr6oyw" path="res://Scenes/room_change_right_banner.gd" id="3_tghgu"]
-[ext_resource type="Script" uid="uid://cn0oga3hkyr53" path="res://Scenes/room_change_left_banner.gd" id="4_gv1iw"]
+[ext_resource type="Script" uid="uid://dabb2w2lr6oyw" path="res://Scripts/Room Changes/room_change_right_banner.gd" id="3_tghgu"]
+[ext_resource type="Script" uid="uid://cn0oga3hkyr53" path="res://Scripts/Room Changes/room_change_left_banner.gd" id="4_gv1iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv1iw"]
 texture = ExtResource("1_tbevi")
@@ -88,7 +88,7 @@ polygon = PackedVector2Array(0.19784546, -8, 8, -8, 8, 8, -8, 8, -8, -0.6924572,
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mp8o8"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -0.09892273, 8, 0, -0.09892273, -8, -0.19784546)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbevi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sggiw"]
 texture = ExtResource("1_tbevi")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4c7va")
@@ -118,7 +118,7 @@ texture = ExtResource("1_tbevi")
 [sub_resource type="TileSet" id="TileSet_tghgu"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_tbevi")
+sources/0 = SubResource("TileSetAtlasSource_sggiw")
 
 [sub_resource type="Gradient" id="Gradient_4c7va"]
 interpolation_mode = 2

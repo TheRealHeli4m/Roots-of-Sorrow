@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cofi80lmcnnyp"]
 
-[ext_resource type="Script" uid="uid://br4032sw8h4it" path="res://Scripts/room_change_throne.gd" id="1_0tv6i"]
+[ext_resource type="Script" uid="uid://br4032sw8h4it" path="res://Scripts/Room Changes/room_change_throne.gd" id="1_0tv6i"]
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_rfd2a"]
 
 [sub_resource type="Gradient" id="Gradient_0tv6i"]
@@ -41,7 +41,7 @@ texture = ExtResource("1_rfd2a")
 [sub_resource type="TileSet" id="TileSet_mm7ok"]
 sources/0 = SubResource("TileSetAtlasSource_ikiwo")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm7ok"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tv6i"]
 texture = ExtResource("1_rfd2a")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -55,7 +55,7 @@ texture = ExtResource("1_rfd2a")
 
 [sub_resource type="TileSet" id="TileSet_ikiwo"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_mm7ok")
+sources/0 = SubResource("TileSetAtlasSource_0tv6i")
 
 [node name="ThroneRoom" type="Node2D" unique_id=728689068]
 

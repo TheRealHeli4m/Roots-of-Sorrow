@@ -13,13 +13,11 @@ func _ready() -> void:
 	targetXPos = player.position.x
 
 func _physics_process(delta: float) -> void:
-	if Global.playerInCamlockArea:
-		return 
-	
-	if moveY:
+	print(self.position)
+	if moveY and not Global.playerInCamlockYArea:
 		self.position.y = lerp(self.position.y, player.position.y, 10.0 * delta)
 		
-	if moveX:
+	if moveX and not Global.playerInCamlockXArea:
 		var playerVelo = Global.player.velocity
 		if abs(playerVelo.x) >= 500.0:
 			targetOffset = sign(playerVelo.x) * xoffset

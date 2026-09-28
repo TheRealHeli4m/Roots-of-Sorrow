@@ -13,8 +13,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.playerInCamlockArea = true
+		Global.playerInCamlockXArea = true
+		Global.playerInCamlockYArea = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.playerInCamlockArea = false
+		Global.playerInCamlockXArea = false
+		Global.playerInCamlockYArea = false

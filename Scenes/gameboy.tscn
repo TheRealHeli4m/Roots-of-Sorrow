@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy2etdm7ke30l"]
 
-[ext_resource type="Script" uid="uid://by740ywjlcdgk" path="res://gameboy_main.gd" id="1_yyghm"]
+[ext_resource type="Script" uid="uid://by740ywjlcdgk" path="res://Scripts/gameboy_main.gd" id="1_yyghm"]
 [ext_resource type="PackedScene" uid="uid://bhxye5gp1ys04" path="res://Scenes/gameboy_player.tscn" id="3_p6yij"]
 [ext_resource type="Script" uid="uid://db81j3kwgt617" path="res://Scripts/camera.gd" id="3_yyghm"]
 
