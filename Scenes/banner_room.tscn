@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_tbevi"]
 [ext_resource type="Script" uid="uid://cr7s80p54pkw8" path="res://Scripts/banner_overlay.gd" id="2_tghgu"]
 [ext_resource type="Script" uid="uid://dabb2w2lr6oyw" path="res://Scenes/room_change_right_banner.gd" id="3_tghgu"]
+[ext_resource type="Script" uid="uid://cn0oga3hkyr53" path="res://Scenes/room_change_left_banner.gd" id="4_gv1iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv1iw"]
 texture = ExtResource("1_tbevi")
@@ -189,6 +190,15 @@ script = ExtResource("3_tghgu")
 position = Vector2(1181.5, 450)
 shape = SubResource("RectangleShape2D_gv1iw")
 
+[node name="RoomChangeLeft" type="Area2D" parent="." unique_id=1721989696]
+position = Vector2(-1204, 1)
+script = ExtResource("4_gv1iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomChangeLeft" unique_id=1577074440]
+position = Vector2(1181.5, 450)
+shape = SubResource("RectangleShape2D_gv1iw")
+
 [connection signal="body_entered" from="Walls/BannerMinigameInteractionArea" to="Walls/BannerMinigameInteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Walls/BannerMinigameInteractionArea" to="Walls/BannerMinigameInteractionArea" method="_on_body_exited"]
 [connection signal="body_entered" from="RoomChangeRight" to="RoomChangeRight" method="_on_body_entered"]
+[connection signal="body_entered" from="RoomChangeLeft" to="RoomChangeLeft" method="_on_body_entered"]
