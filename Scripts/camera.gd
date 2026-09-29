@@ -30,7 +30,3 @@ func _physics_process(delta: float) -> void:
 		self.position.x = lerp(self.position.x, targetXPos, 10.0 * delta)
 
 		targetOffset *= 0
-	
-	
-	
-	

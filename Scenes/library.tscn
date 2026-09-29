@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_0r5b0"]
 [ext_resource type="Script" uid="uid://isyn02sukeb0" path="res://room_change_top_library.gd" id="2_fd1gd"]
 [ext_resource type="Script" uid="uid://ks5yjdv4lary" path="res://room_change_bottom_library.gd" id="3_hrcop"]
-[ext_resource type="Script" uid="uid://5y418vt8n0yg" path="res://Scripts/camlock.gd" id="4_fd1gd"]
 [ext_resource type="Script" uid="uid://bgwfshmxhoyt1" path="res://Scripts/camlockx.gd" id="5_hrcop"]
 [ext_resource type="Texture2D" uid="uid://b8ggwyxig6rnl" path="res://Assets/painting.png" id="6_hp3p4"]
 
@@ -107,12 +106,12 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iuo7c")
 
-[sub_resource type="Gradient" id="Gradient_7itwf"]
+[sub_resource type="Gradient" id="Gradient_hp3p4"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2cia1"]
-gradient = SubResource("Gradient_7itwf")
+gradient = SubResource("Gradient_hp3p4")
 fill = 1
 fill_from = Vector2(0.48076922, 0.47435898)
 fill_to = Vector2(0.20512821, 0.17735043)
@@ -120,11 +119,14 @@ fill_to = Vector2(0.20512821, 0.17735043)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olk84"]
 size = Vector2(30, 130)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp3p4"]
+size = Vector2(427.5, 784)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4414"]
+size = Vector2(310.75, 1320)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrcop"]
 size = Vector2(420.5, 556)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp3p4"]
-size = Vector2(427.5, 782)
 
 [node name="Library" type="Node2D" unique_id=258268745]
 
@@ -174,19 +176,20 @@ script = ExtResource("3_hrcop")
 position = Vector2(2332, 517)
 shape = SubResource("RectangleShape2D_olk84")
 
-[node name="Camlock" type="Area2D" parent="." unique_id=98027917]
-script = ExtResource("4_fd1gd")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camlock" unique_id=742640564]
-position = Vector2(-466.25, -202)
-shape = SubResource("RectangleShape2D_hrcop")
-
 [node name="CamlockX" type="Area2D" parent="." unique_id=1054383377]
 script = ExtResource("5_hrcop")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CamlockX" unique_id=176769068]
 position = Vector2(-471.75, 517)
 shape = SubResource("RectangleShape2D_hp3p4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CamlockX" unique_id=2078688807]
+position = Vector2(734, 195)
+shape = SubResource("RectangleShape2D_y4414")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CamlockX" unique_id=742640564]
+position = Vector2(-466.25, -202)
+shape = SubResource("RectangleShape2D_hrcop")
 
 [node name="Lighting" type="PointLight2D" parent="." unique_id=1460588642]
 light_mask = 3
@@ -216,7 +219,5 @@ texture = ExtResource("6_hp3p4")
 
 [connection signal="body_entered" from="RoomChangeTop" to="RoomChangeTop" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomChangeBottom" to="RoomChangeBottom" method="_on_body_entered"]
-[connection signal="body_entered" from="Camlock" to="Camlock" method="_on_body_entered"]
-[connection signal="body_exited" from="Camlock" to="Camlock" method="_on_body_exited"]
 [connection signal="body_entered" from="CamlockX" to="CamlockX" method="_on_body_entered"]
 [connection signal="body_exited" from="CamlockX" to="CamlockX" method="_on_body_exited"]
