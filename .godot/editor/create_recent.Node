@@ -1,14 +1,14 @@
+Sprite2D
+ColorRect
+PointLight2D
 Area2D
 CollisionShape2D
 Camera2D
 CanvasLayer
-ColorRect
 AnimationPlayer
-PointLight2D
 Parallax2D
 TileMapLayer
 TextureButton
-Sprite2D
 Control
 Node
 Button

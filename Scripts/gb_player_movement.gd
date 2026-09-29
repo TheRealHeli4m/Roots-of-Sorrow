@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 		
 func change_room(scene: PackedScene, playerPos: Vector2, cameraPos: Vector2, yMovement: bool, xMovement: bool) -> void:
 	self.canMove = false
+	camera.isChangingRoom = true
 	animPlayer.play("change_room")
 	await get_tree().create_timer(0.5).timeout
 	
@@ -70,5 +71,8 @@ func change_room(scene: PackedScene, playerPos: Vector2, cameraPos: Vector2, yMo
 	root.add_child(instance)
 	self.move_to_front()
 	currentScene = instance
+	
+	await get_tree().process_frame
+	camera.isChangingRoom = false
 
 	

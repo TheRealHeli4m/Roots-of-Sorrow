@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://noj8rf7jsm6k" path="res://Scripts/Room Changes/room_change_top_left_right_tower.gd" id="3_y3gws"]
 [ext_resource type="Script" uid="uid://c43nf8a4wqrsc" path="res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd" id="4_y3gws"]
 [ext_resource type="Script" uid="uid://d260jo5virffy" path="res://Scripts/Room Changes/room_change_top_right_right_tower.gd" id="5_7itwf"]
-[ext_resource type="Script" uid="uid://coj0a1np65jtn" path="res://Scenes/room_change_bottom_right_right_hall.gd" id="6_bnci6"]
+[ext_resource type="Script" uid="uid://djrqbcev47uel" path="res://Scripts/Room Changes/room_change_bottom_right_right_hall.gd" id="6_bnci6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnci6"]
 texture = ExtResource("1_wipsc")

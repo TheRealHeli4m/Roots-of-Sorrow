@@ -7,12 +7,15 @@ extends Camera2D
 @onready var moveX = true
 @onready var moveY = false
 
+@onready var isChangingRoom = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.position.y = 325.0
 	targetXPos = player.position.x
 
 func _physics_process(delta: float) -> void:
+	if isChangingRoom: return
 	print(self.position)
 	if moveY and not Global.playerInCamlockYArea:
 		self.position.y = lerp(self.position.y, player.position.y, 10.0 * delta)
@@ -27,3 +30,7 @@ func _physics_process(delta: float) -> void:
 		self.position.x = lerp(self.position.x, targetXPos, 10.0 * delta)
 
 		targetOffset *= 0
+	
+	
+	
+	
