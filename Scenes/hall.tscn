@@ -176,7 +176,7 @@ fill_to = Vector2(0.20512821, 0.17735043)
 size = Vector2(510, 850)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubv8k"]
-size = Vector2(607, 1041)
+size = Vector2(607, 383.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wqyo"]
 size = Vector2(508.125, 198.5)
@@ -242,7 +242,7 @@ position = Vector2(227, 1586)
 shape = SubResource("RectangleShape2D_r5y8u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CamlockX" unique_id=1470093039]
-position = Vector2(2315.5, 1600)
+position = Vector2(2315.5, 1928.75)
 shape = SubResource("RectangleShape2D_ubv8k")
 
 [node name="CamlockY" type="Area2D" parent="." unique_id=994764401]

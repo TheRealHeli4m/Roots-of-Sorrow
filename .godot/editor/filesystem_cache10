@@ -1,6 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1790595609
+::res://::1790645075
 icon.svg::CompressedTexture2D::6988031295847126034::1787872057::1787873054::1::::<><><>0<>0<>a65a091b273ac8ce1e2f592e71271721<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+room_change_bottom_library.gd::GDScript::740912083128006370::1790640283::0::1::::<>Area2D<><>0<>0<><>::
+room_change_top_library.gd::GDScript::600151327462928731::1790640213::0::1::::<>Area2D<><>0<>0<><>::
 ::res://addons/::1789686331
 ::res://addons/previews/::1789686301
 ::res://Assets/::1790224501
@@ -55,21 +57,22 @@ transparent_cloud_tiles.png::CompressedTexture2D::1064606824007835596::178883403
 white_flasher.gd::GDScript::4538901266209711483::1787919214::0::1::::<>ColorRect<><>0<>0<><>::
 ::res://Effects/Shaders/::1790553600
 vignette.gdshader::Shader::8468621178460532676::1790553600::0::1::::<><><>0<>0<><>::
-::res://Scenes/::1790595609
+::res://Scenes/::1790645153
 3d_room.tscn::PackedScene::1852963270115518050::1788744838::0::1::::<><><>0<>0<><>::uid://burvib7xvmgr4::::res://Scripts/camera_rotation.gd
 banner.tscn::PackedScene::6050484485883544889::1790503211::0::1::::<><><>0<>0<><>::uid://bs2rmifr0o0dg::::res://Scripts/banner_coloring.gd<>uid://bo4eoxn3tyla0::::res://Assets/Sewing/red_banner.png<>uid://6lnom4virhtt::::res://Scripts/banner.gd<>uid://dgpk4jrbuywvf::::res://Scripts/drag_button.gd
 banner_game.tscn::PackedScene::5714652227877929919::1790503201::0::1::::<><><>0<>0<><>::uid://bvtehjvbocvd4::::res://Scripts/banner_game.gd<>uid://bticf7m3iwqtv::::res://Assets/Sewing/hightlighted_sewing_box.png<>uid://cql25b6op7e3j::::res://Assets/Sewing/table.png<>uid://ds1ntdxausbg6::::res://Assets/Sewing/open_sewing_box.png<>uid://pvdevsqmgblu::::res://Assets/Sewing/blue_bucket.png<>uid://clxgu7gn3m52f::::res://Scripts/paint_buckets.gd<>uid://bhysbwcvp1xo3::::res://Assets/Sewing/scissors.png<>uid://d0pdcpe8b4tcs::::res://Assets/Sewing/red_bucket.png<>uid://d24oj7ackavh::::res://Scripts/sewing.gd<>uid://di38cu6ahftfm::::res://Assets/Sewing/trash_bin.png<>uid://cok7qlrnwxbyh::::res://Assets/Sewing/green_bucket.png<>uid://bklcnliiqh4e6::::res://Assets/Sewing/red_thread.png<>uid://csu8pu4hpcy2o::::res://Assets/Sewing/sewbox_lid_flipping.png<>uid://d0gi4bkwyyk8o::::res://Assets/Sewing/sewing_box_pad.png<>uid://dctddinc1ge30::::res://Scripts/scissors.gd<>uid://dcr621shaf6tf::::res://Scripts/thread.gd<>uid://chhl2o7l8ym6j::::res://Assets/Sewing/bucket_overlay.png<>uid://dtx7osrbnxvrj::::res://Assets/Sewing/blue_thread.png<>uid://br8mf3c11klxx::::res://Assets/Sewing/scissors_overlay.png<>uid://b4pa12l7vusiw::::res://Assets/Sewing/needle.png<>uid://qt2kkay7jp23::::res://Assets/Sewing/green_thread.png<>uid://cmfa4yyelklar::::res://Scripts/needle.gd<>uid://qkhidr2oeu81::::res://Assets/Sewing/white_thread.png<>uid://dng37jpvqwb5g::::res://Assets/Sewing/needle_overlay.png<>uid://c3qctoow2nte3::::res://Scripts/threads.gd<>uid://djtcpmgk7yx72::::res://Assets/Sewing/golden_thread.png<>uid://csg5uinmjuk6d::::res://Scenes/banner.tscn<>uid://naeyckr4yeqq::::res://Assets/Sewing/banner_rack.png
-banner_room.tscn::PackedScene::7277316753283914581::1790588823::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://cr7s80p54pkw8::::res://Scripts/banner_overlay.gd<>uid://dabb2w2lr6oyw::::res://Scripts/Room Changes/room_change_right_banner.gd<>uid://cn0oga3hkyr53::::res://Scripts/Room Changes/room_change_left_banner.gd
-gameboy.tscn::PackedScene::8899809473382144013::1790595590::0::1::::<><><>0<>0<><>::uid://by740ywjlcdgk::::res://Scripts/gameboy_main.gd<>uid://bhxye5gp1ys04::::res://Scenes/gameboy_player.tscn<>uid://db81j3kwgt617::::res://Scripts/camera.gd
-gameboy_player.tscn::PackedScene::2926689214191289207::1790589076::0::1::::<><><>0<>0<><>::uid://b4ywu5stomp4k::::res://Scripts/gb_player_movement.gd<>uid://dc6apd60u1d1f::::res://Assets/Player/player_idle.png<>uid://845j461vjpf3::::res://Assets/Player/player_jump.png<>uid://c4os2yehfvhmk::::res://Scripts/animated_sprite_2d.gd
-hall.tscn::PackedScene::5033457008253668723::1790595590::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://pfx6igq41amu::::res://Assets/Tiles/transparent_cloud_tiles.png<>uid://c4diwuxa7klr6::::res://Assets/Tiles/cloud_tiles.png<>uid://ch2448s5ybqny::::res://Assets/Tiles/foreground_tiles.png<>uid://bgwfshmxhoyt1::::res://Scripts/camlockx.gd<>uid://jajidk05caw1::::res://Scripts/Room Changes/room_change_left_hall.gd<>uid://dbk4e77u2uko1::::res://Scripts/camlocky.gd
-hallway.tscn::PackedScene::923869072562030727::1790588818::0::1::::<><><>0<>0<><>::uid://i084sjubh60x::::res://Scripts/gameboy.gd<>uid://pfx6igq41amu::::res://Assets/Tiles/transparent_cloud_tiles.png<>uid://c4diwuxa7klr6::::res://Assets/Tiles/cloud_tiles.png<>uid://ch2448s5ybqny::::res://Assets/Tiles/foreground_tiles.png<>uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://poh33orkixqc::::res://Scripts/room_change_top_hallway.gd<>uid://5i4qe77lhiul::::res://Scripts/room_change_right_hallway.gd<>uid://t0y4n8rix38w::::res://Scripts/room_change_left_hallway.gd
-kitchen.tscn::PackedScene::1161586885547322983::1790589182::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png
-left_tower.tscn::PackedScene::7206488434712139777::1790588823::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://cfksc406c7qaw::::res://Scripts/Room Changes/room_change_top_left_tower.gd<>uid://1xhhwmk43otj::::res://Scripts/Room Changes/room_change_bottom_left_tower.gd
-right_tower.tscn::PackedScene::7320913432805199909::1790595610::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://noj8rf7jsm6k::::res://Scripts/Room Changes/room_change_top_left_right_tower.gd<>uid://c43nf8a4wqrsc::::res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd
+banner_room.tscn::PackedScene::7277316753283914581::1790588823::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://cr7s80p54pkw8::::res://Scripts/banner_overlay.gd<>uid://dabb2w2lr6oyw::::res://Scenes/room_change_right_banner.gd<>uid://cn0oga3hkyr53::::res://Scenes/room_change_left_banner.gd
+gameboy.tscn::PackedScene::8899809473382144013::1790595590::0::1::::<><><>0<>0<><>::uid://by740ywjlcdgk::::res://Scripts/Room Changes/gameboy_main.gd<>uid://bhxye5gp1ys04::::res://Scenes/gameboy_player.tscn<>uid://db81j3kwgt617::::res://Scripts/camera.gd
+gameboy_player.tscn::PackedScene::2926689214191289207::1790595792::0::1::::<><><>0<>0<><>::uid://b4ywu5stomp4k::::res://Scripts/gb_player_movement.gd<>uid://dc6apd60u1d1f::::res://Assets/Player/player_idle.png<>uid://845j461vjpf3::::res://Assets/Player/player_jump.png<>uid://c4os2yehfvhmk::::res://Scripts/animated_sprite_2d.gd
+hall.tscn::PackedScene::5033457008253668723::1790596420::0::1::::<><><>0<>0<><>::uid://pfx6igq41amu::::res://Assets/Tiles/transparent_cloud_tiles.png<>uid://c4diwuxa7klr6::::res://Assets/Tiles/cloud_tiles.png<>uid://ch2448s5ybqny::::res://Assets/Tiles/foreground_tiles.png<>uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://bgwfshmxhoyt1::::res://Scripts/camlockx.gd<>uid://dbk4e77u2uko1::::res://Scripts/camlocky.gd<>uid://jajidk05caw1::::res://Scripts/Room Changes/room_change_left_hall.gd<>uid://cts2gu3s3k88x::::res://Scripts/Room Changes/room_change_right_hall.gd
+hallway.tscn::PackedScene::923869072562030727::1790588818::0::1::::<><><>0<>0<><>::uid://i084sjubh60x::::res://Scripts/gameboy.gd<>uid://pfx6igq41amu::::res://Assets/Tiles/transparent_cloud_tiles.png<>uid://c4diwuxa7klr6::::res://Assets/Tiles/cloud_tiles.png<>uid://ch2448s5ybqny::::res://Assets/Tiles/foreground_tiles.png<>uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://poh33orkixqc::::res://Scripts/Room Changes/room_change_top_hallway.gd<>uid://5i4qe77lhiul::::res://Scripts/Room Changes/room_change_right_hallway.gd<>uid://t0y4n8rix38w::::res://Scripts/Room Changes/room_change_left_hallway.gd
+kitchen.tscn::PackedScene::1161586885547322983::1790598940::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://bljk668y58txd::::res://Scenes/room_change_right_kitchen.gd<>uid://cgukq5nina5or::::res://Scenes/room_change_left_kitchen.gd
+left_tower.tscn::PackedScene::7206488434712139777::1790595807::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://cfksc406c7qaw::::res://Scripts/Room Changes/room_change_top_left_tower.gd<>uid://1xhhwmk43otj::::res://Scripts/Room Changes/room_change_bottom_left_tower.gd
+library.tscn::PackedScene::4309133018319748071::1790645042::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://isyn02sukeb0::::res://room_change_top_library.gd<>uid://ks5yjdv4lary::::res://room_change_bottom_library.gd
+right_tower.tscn::PackedScene::7320913432805199909::1790645153::0::1::::<><><>0<>0<><>::uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png<>uid://5y418vt8n0yg::::res://Scripts/camlock.gd<>uid://noj8rf7jsm6k::::res://Scripts/Room Changes/room_change_top_left_right_tower.gd<>uid://c43nf8a4wqrsc::::res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd<>uid://d260jo5virffy::::res://Scripts/Room Changes/room_change_top_right_right_tower.gd
 root.tscn::PackedScene::1504411683099151202::1790300660::0::1::::<><><>0<>0<><>::uid://dw4hbfnw1e8bl::::res://Scripts/root.gd<>uid://1nubfxun847w::::res://Scenes/3d_room.tscn<>uid://dy2etdm7ke30l::::res://Scenes/gameboy.tscn<>uid://dswi7ojqcl0ua::::res://Effects/Shaders/vignette.gdshader
-throne_room.tscn::PackedScene::5766353064854974395::1790588818::0::1::::<><><>0<>0<><>::uid://br4032sw8h4it::::res://Scripts/room_change_throne.gd<>uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png
-::res://Scripts/::1790595590
+throne_room.tscn::PackedScene::5766353064854974395::1790588818::0::1::::<><><>0<>0<><>::uid://br4032sw8h4it::::res://Scripts/Room Changes/room_change_throne.gd<>uid://b6txwej65yjvp::::res://Assets/Tiles/gameplay_tiles.png
+::res://Scripts/::1790595745
 animated_sprite_2d.gd::GDScript::6838361510816391318::1790508759::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
 banner.gd::GDScript::2199377306139335325::1790224822::0::1::::<>Node2D<><>0<>0<><>::
 banner_coloring.gd::GDScript::3706612115658399664::1790293882::0::1::::<>Control<><>0<>0<><>::
@@ -85,7 +88,7 @@ drag_button.gd::GDScript::7612020236214258695::1790224822::0::1::::<>Button<><>0
 gameboy.gd::GDScript::615176601974187757::1790505175::0::1::::<>Node2D<><>0<>0<><>::
 gameboy_main.gd::GDScript::4138819751743442370::1790480289::0::1::::<>Node2D<><>0<>0<><>::
 gameboy_player.gd::GDScript::2330154959494637743::1787965583::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
-gb_player_movement.gd::GDScript::4472815309401890496::1790589232::0::1::::<>CharacterBody2D<><>0<>0<><>::
+gb_player_movement.gd::GDScript::4472815309401890496::1790595745::0::1::::<>CharacterBody2D<><>0<>0<><>::
 global.gd::GDScript::3223282988313857922::1790561780::0::1::::<>Node<><>0<>0<><>::
 needle.gd::GDScript::5625482465668688189::1789546294::0::1::::<>Node2D<><>0<>0<><>::
 paint_buckets.gd::GDScript::5592801044227246163::1790224822::0::1::::<>Control<><>0<>0<><>::
@@ -96,16 +99,19 @@ sewing.gd::GDScript::268091046325566145::1790224822::0::1::::<>Control<><>0<>0<>
 table.gd::GDScript::3911793496585952297::1788912638::0::1::::<>Sprite2D<><>0<>0<><>::
 thread.gd::GDScript::7336665997117440911::1790224822::0::1::::<>TextureButton<><>0<>0<><>::
 threads.gd::GDScript::6771315155376148552::1790224822::0::1::::<>Node2D<><>0<>0<><>::
-::res://Scripts/Room Changes/::1790595590
-room_change_right_hall.gd::GDScript::6145239364227231181::1790595675::0::1::::<>Area2D<><>0<>0<><>::
-room_change_bottom_left_right_tower.gd::GDScript::6866920394496534058::1790589282::0::1::::<>Area2D<><>0<>0<><>::
-room_change_bottom_left_tower.gd::GDScript::1872829316984497847::1790563305::0::1::::<>Area2D<><>0<>0<><>::
+::res://Scripts/Room Changes/::1790645153
+room_change_bottom_left_right_tower.gd::GDScript::6866920394496534058::1790595835::0::1::::<>Area2D<><>0<>0<><>::
+room_change_bottom_left_tower.gd::GDScript::1872829316984497847::1790595807::0::1::::<>Area2D<><>0<>0<><>::
 room_change_left_banner.gd::GDScript::5737766574781176348::1790553686::0::1::::<>Area2D<><>0<>0<><>::
 room_change_left_hall.gd::GDScript::632260506222578454::1790568666::0::1::::<>Area2D<><>0<>0<><>::
 room_change_left_hallway.gd::GDScript::1386707203389874816::1790510228::0::1::::<>Area2D<><>0<>0<><>::
+room_change_left_kitchen.gd::GDScript::5235899323089587573::1790596642::0::1::::<>Area2D<><>0<>0<><>::
 room_change_right_banner.gd::GDScript::7161436560008726822::1790510606::0::1::::<>Area2D<><>0<>0<><>::
+room_change_right_hall.gd::GDScript::6145239364227231181::1790595892::0::1::::<>Area2D<><>0<>0<><>::
 room_change_right_hallway.gd::GDScript::2123969957662215739::1790503349::0::1::::<>Area2D<><>0<>0<><>::
+room_change_right_kitchen.gd::GDScript::3177741573370971909::1790596194::0::1::::<>Area2D<><>0<>0<><>::
 room_change_throne.gd::GDScript::3641067354436804511::1790498704::0::1::::<>Area2D<><>0<>0<><>::
 room_change_top_hallway.gd::GDScript::1082210457373197950::1790498563::0::1::::<>Area2D<><>0<>0<><>::
 room_change_top_left_right_tower.gd::GDScript::941962542072675128::1790510199::0::1::::<>Area2D<><>0<>0<><>::
 room_change_top_left_tower.gd::GDScript::5145527403784279574::1790554300::0::1::::<>Area2D<><>0<>0<><>::
+room_change_top_right_right_tower.gd::GDScript::9119891319282879486::1790645153::0::1::::<>Area2D<><>0<>0<><>::

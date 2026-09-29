@@ -1,7 +1,6 @@
 extends Area2D
 
-@export var hall = load("res://Scenes/hall.tscn")
-
+@export var library = load("res://Scenes/library.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,6 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.change_room.emit(hall, Vector2(2500, 1875), Vector2(2170, 1875), true, true)
+		Global.change_room.emit(library, Vector2(-594, 518), Vector2(-604, 518), true, true)

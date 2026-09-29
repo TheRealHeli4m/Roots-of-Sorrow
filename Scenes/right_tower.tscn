@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://5y418vt8n0yg" path="res://Scripts/camlock.gd" id="3_5w7wi"]
 [ext_resource type="Script" uid="uid://noj8rf7jsm6k" path="res://Scripts/Room Changes/room_change_top_left_right_tower.gd" id="3_y3gws"]
 [ext_resource type="Script" uid="uid://c43nf8a4wqrsc" path="res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd" id="4_y3gws"]
+[ext_resource type="Script" uid="uid://d260jo5virffy" path="res://Scripts/Room Changes/room_change_top_right_right_tower.gd" id="5_7itwf"]
+[ext_resource type="Script" uid="uid://coj0a1np65jtn" path="res://Scenes/room_change_bottom_right_right_hall.gd" id="6_bnci6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5w7wi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnci6"]
 texture = ExtResource("1_wipsc")
 0:0/0 = 0
 1:0/0 = 0
@@ -28,7 +30,7 @@ texture = ExtResource("1_wipsc")
 5:0/0/texture_origin = Vector2i(16, 0)
 
 [sub_resource type="TileSet" id="TileSet_7itwf"]
-sources/0 = SubResource("TileSetAtlasSource_5w7wi")
+sources/0 = SubResource("TileSetAtlasSource_bnci6")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wipsc"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -45,7 +47,7 @@ polygon = PackedVector2Array(8, -8, 0.09892273, -8, -0.29676628, -0.59353447, -8
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bnci6"]
 polygon = PackedVector2Array(8, 8, 0.09892273, 8, -0.09892273, 0, -8, -0.19784546, -8, -8, 8, -8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3gws"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olkvk"]
 texture = ExtResource("1_wipsc")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wipsc")
@@ -69,7 +71,7 @@ texture = ExtResource("1_wipsc")
 [sub_resource type="TileSet" id="TileSet_olkvk"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_y3gws")
+sources/0 = SubResource("TileSetAtlasSource_olkvk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3gws"]
 size = Vector2(895, 320)
@@ -77,12 +79,12 @@ size = Vector2(895, 320)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wipsc"]
 size = Vector2(906, 65.25)
 
-[sub_resource type="Gradient" id="Gradient_7itwf"]
+[sub_resource type="Gradient" id="Gradient_seuun"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wipsc"]
-gradient = SubResource("Gradient_7itwf")
+gradient = SubResource("Gradient_seuun")
 fill = 1
 fill_from = Vector2(0.48076922, 0.47435898)
 fill_to = Vector2(0.20512821, 0.17735043)
@@ -161,7 +163,25 @@ script = ExtResource("4_y3gws")
 position = Vector2(-304, -192)
 shape = SubResource("RectangleShape2D_7itwf")
 
+[node name="RoomChangeTopRight" type="Area2D" parent="." unique_id=1680914128]
+position = Vector2(876, -1)
+script = ExtResource("5_7itwf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomChangeTopRight" unique_id=1354347134]
+position = Vector2(-304, -192)
+shape = SubResource("RectangleShape2D_7itwf")
+
+[node name="RoomChangeBottomRight" type="Area2D" parent="." unique_id=1748168216]
+position = Vector2(882, 833)
+script = ExtResource("6_bnci6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomChangeBottomRight" unique_id=752865864]
+position = Vector2(-304, -192)
+shape = SubResource("RectangleShape2D_7itwf")
+
 [connection signal="body_entered" from="Camlock" to="Camlock" method="_on_body_entered"]
 [connection signal="body_exited" from="Camlock" to="Camlock" method="_on_body_exited"]
 [connection signal="body_entered" from="RoomChangeTopLeft" to="RoomChangeTopLeft" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomChangeBottomLeft" to="RoomChangeBottomLeft" method="_on_body_entered"]
+[connection signal="body_entered" from="RoomChangeTopRight" to="RoomChangeTopRight" method="_on_body_entered"]
+[connection signal="body_entered" from="RoomChangeBottomRight" to="RoomChangeBottomRight" method="_on_body_entered"]

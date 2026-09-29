@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://qsxfwib8w75l"]
 
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_23qos"]
-[ext_resource type="Script" uid="uid://bljk668y58txd" path="res://Scenes/room_change_right_kitchen.gd" id="2_lvc4q"]
-[ext_resource type="Script" uid="uid://cgukq5nina5or" path="res://Scenes/room_change_left_kitchen.gd" id="3_lvc4q"]
+[ext_resource type="Script" uid="uid://bljk668y58txd" path="res://Scripts/Room Changes/room_change_right_kitchen.gd" id="2_lvc4q"]
+[ext_resource type="Script" uid="uid://cgukq5nina5or" path="res://Scripts/Room Changes/room_change_left_kitchen.gd" id="3_lvc4q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipk1y"]
 texture = ExtResource("1_23qos")
