@@ -1,14 +1,14 @@
 Sprite2D
-ColorRect
+Node2D
+TileMapLayer
 PointLight2D
+ColorRect
 Area2D
 CollisionShape2D
 Camera2D
 CanvasLayer
 AnimationPlayer
 Parallax2D
-TileMapLayer
 TextureButton
 Control
 Node
-Button

@@ -33,3 +33,4 @@ res://Scenes/library.tscn
 res://Scenes/room_change_bottom_right_right_hall.gd
 res://Scripts/Room Changes/room_change_left_kitchen.gd
 res://Scripts/Room Changes/room_change_bottom_right_right_hall.gd
+res://Assets/Tiles/kitchen_tiles.png
