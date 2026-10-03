@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 500.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -550.0
 @onready var root = $".."
 @onready var was_on_floor = true
 @onready var canJump = true
