@@ -30,8 +30,6 @@ signal paintingFinished
 @onready var lastPos = Vector2(0, 0)
 @onready var isDragging = false
 
-@onready var bannerRackArea = $"../BannerRack/Area2D"
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateGrid()
@@ -155,7 +153,7 @@ func onDragUp() -> void:
 		checkAllCells()
 		refreshBanner(true)
 		return
-	elif mouse.x > 1000 and mouse.y > 500:
+	elif mouse.x > 1000	 and mouse.y > 500:
 		refreshBanner(false)
 		return
 		

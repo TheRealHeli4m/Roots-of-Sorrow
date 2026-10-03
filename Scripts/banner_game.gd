@@ -177,7 +177,7 @@ func checkMouse(targetPos: Vector2) -> void:
 	var mousePos = get_viewport().get_mouse_position()
 	var delta = get_process_delta_time()
 
-	if mousePos.x > 1000:
+	if mousePos.x > 1025:
 		self.position = self.position.lerp(targetPos, delta * 10.0)
 	else:
 		self.position = self.position.lerp(currentPos, delta * 10.0)

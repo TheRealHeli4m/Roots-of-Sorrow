@@ -212,7 +212,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wri8"]
-size = Vector2(5.75, 8.75)
+size = Vector2(5.75, 13.25)
 
 [sub_resource type="Animation" id="Animation_5wri8"]
 length = 0.001
@@ -482,20 +482,21 @@ states/Run/position = Vector2(569.5299, 99.96594)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ww6eb"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_agvw8"), "Jump", "Landing", SubResource("AnimationNodeStateMachineTransition_5wri8"), "Landing", "Idle", SubResource("AnimationNodeStateMachineTransition_bnqme"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ybl1d"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_tqnr0"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_cgl6j"), "Landing", "Run", SubResource("AnimationNodeStateMachineTransition_1qpso")]
 graph_offset = Vector2(-170.10017, -79.34228)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366060401]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366060401 groups=["player"]]
 scale = Vector2(4, 4)
 collision_layer = 32769
 script = ExtResource("1_fex8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=427905482]
-position = Vector2(144, 134.75)
+light_mask = 2
+position = Vector2(0.25, 39.25)
 sprite_frames = SubResource("SpriteFrames_yy4o6")
 animation = &"idle"
 frame = 1
 script = ExtResource("5_5wri8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575619970]
-position = Vector2(144.125, 137.375)
+position = Vector2(0.375, 39.625)
 shape = SubResource("RectangleShape2D_5wri8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=64308523]
@@ -518,10 +519,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="JumpBufferingTimer" type="Timer" parent="." unique_id=1148601792]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1057305851]
-position = Vector2(144, 95.75)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_animation_finished"]

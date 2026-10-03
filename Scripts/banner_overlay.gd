@@ -2,7 +2,6 @@ extends Area2D
 
 @onready var overlay = $"../SelectOverlay"
 @onready var UIcanvaslayer = $"../../UI"
-@onready var player = $"../../Player"
 @onready var isPlayerIn = false
 @onready var isSewing = false 
 var bannergame: Node2D
@@ -25,7 +24,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("escape") and not bannergame.isTweening:		
 		self.onBannerTaskClose.emit()
 		isSewing = false
-		player.canMove = true
+		Global.player.canMove = true
 	
 	if Input.is_action_just_pressed("interact") and isPlayerIn and not bannergame.isTweening:
 		if isSewing: return 
@@ -33,7 +32,7 @@ func _process(delta: float) -> void:
 			tween.kill()
 			
 		self.onBannerTaskOpen.emit(bannergame.isPainting if bannergame else true)
-		player.canMove = false
+		Global.player.canMove = false
 		isSewing = true
 		
 		if UIcanvaslayer.get_child_count() <= 0:

@@ -10,7 +10,6 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
 	if not player.canMove:
 		aTree["parameters/conditions/is_idle"] = true
 		aTree["parameters/conditions/is_running"] = false
@@ -35,6 +34,9 @@ func _process(_delta: float) -> void:
 		self.flip_h = false
 		
 	if player.is_on_floor() and not player.was_on_floor:
+		aTree["parameters/conditions/is_landing"] = true
+		aTree["parameters/conditions/is_jumping"] = false
+	if player.is_on_floor():
 		aTree["parameters/conditions/is_landing"] = true
 		aTree["parameters/conditions/is_jumping"] = false
 		
