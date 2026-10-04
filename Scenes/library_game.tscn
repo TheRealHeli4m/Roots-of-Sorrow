@@ -3,66 +3,129 @@
 [ext_resource type="Texture2D" uid="uid://17ecjkyy07bl" path="res://Assets/book1.png" id="1_2hv8o"]
 [ext_resource type="Script" uid="uid://bw3igifpfkgyn" path="res://Scenes/library_game.gd" id="1_jhprc"]
 [ext_resource type="Texture2D" uid="uid://dc3ll7g5lbrrg" path="res://Assets/book2.png" id="2_jhprc"]
+[ext_resource type="Texture2D" uid="uid://8jo2yk6sumgk" path="res://Assets/bookshelf.png" id="2_lbdd7"]
 [ext_resource type="Texture2D" uid="uid://btoou2e20sj00" path="res://Assets/book3.png" id="3_lbdd7"]
 [ext_resource type="Texture2D" uid="uid://ckpateu3t4xr6" path="res://Assets/book4.png" id="4_1l7ru"]
+[ext_resource type="Script" uid="uid://c1admbu1n8rng" path="res://Scenes/book_1.gd" id="4_cx5i8"]
+[ext_resource type="Texture2D" uid="uid://djrt8lhspp2wu" path="res://Assets/book1_highlight_overlay.png" id="5_145xn"]
 [ext_resource type="Texture2D" uid="uid://ryp1cgrfl0v2" path="res://Assets/book5.png" id="5_cx5i8"]
+[ext_resource type="Texture2D" uid="uid://dfes72qd7kh7e" path="res://Assets/book2_highlight_overlay.png" id="7_145xn"]
+[ext_resource type="Script" uid="uid://c5pg3p807jhxq" path="res://Scenes/book_2.gd" id="7_tyv5e"]
+[ext_resource type="Texture2D" uid="uid://bcnnereysjb15" path="res://Assets/book3_highlight_overlay.png" id="9_btn5p"]
+[ext_resource type="Script" uid="uid://t7vdajqe6a83" path="res://Scenes/book_3.gd" id="10_c6gbh"]
+[ext_resource type="Texture2D" uid="uid://c4b2g027s44nn" path="res://Assets/book4_highlight_overlay.png" id="11_1vgp3"]
+[ext_resource type="Texture2D" uid="uid://bd1t317eixnd5" path="res://Assets/book5_highlight_overlay.png" id="13_1vgp3"]
+[ext_resource type="Script" uid="uid://48jkbhhnxros" path="res://Scenes/book_4.gd" id="13_8jhbj"]
+[ext_resource type="Script" uid="uid://cy8tn2xaecylp" path="res://Scenes/book_5.gd" id="16_e1ykm"]
 
 [node name="LibraryGame" type="Node2D" unique_id=104190085]
-position = Vector2(-25, -7)
+position = Vector2(157, 105)
 script = ExtResource("1_jhprc")
 
+[node name="Shelf" type="Sprite2D" parent="." unique_id=226981637]
+position = Vector2(326, 339)
+scale = Vector2(8, 8)
+texture = ExtResource("2_lbdd7")
+
 [node name="Book1" type="TextureButton" parent="." unique_id=730698681]
-offset_left = 64.0
-offset_top = 1.0
-offset_right = 104.0
-offset_bottom = 61.0
-scale = Vector2(4, 4)
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 25.0
+offset_bottom = 59.0
+scale = Vector2(8, 8)
 texture_normal = ExtResource("1_2hv8o")
+script = ExtResource("4_cx5i8")
+
+[node name="Highlight" type="Sprite2D" parent="Book1" unique_id=409334954]
+position = Vector2(7.875, 30)
+texture = ExtResource("5_145xn")
 
 [node name="Book2" type="TextureButton" parent="." unique_id=378443233]
-offset_left = 124.0
-offset_top = 1.0
-offset_right = 164.0
-offset_bottom = 61.0
-scale = Vector2(4, 4)
+offset_left = 129.0
+offset_top = -1.0
+offset_right = 145.0
+offset_bottom = 59.0
+scale = Vector2(8, 8)
 texture_normal = ExtResource("2_jhprc")
+script = ExtResource("7_tyv5e")
+
+[node name="Highlight" type="Sprite2D" parent="Book2" unique_id=747465014]
+position = Vector2(7.875, 30)
+texture = ExtResource("7_145xn")
 
 [node name="Book3" type="TextureButton" parent="." unique_id=898690990]
-offset_left = 184.0
-offset_top = 1.0
-offset_right = 224.0
-offset_bottom = 61.0
-scale = Vector2(4, 4)
+offset_left = 249.0
+offset_top = -1.0
+offset_right = 265.0
+offset_bottom = 59.0
+scale = Vector2(8, 8)
 texture_normal = ExtResource("3_lbdd7")
+script = ExtResource("10_c6gbh")
+
+[node name="Highlight" type="Sprite2D" parent="Book3" unique_id=254972039]
+position = Vector2(7.875, 30)
+texture = ExtResource("9_btn5p")
 
 [node name="Book4" type="TextureButton" parent="." unique_id=1701597688]
-offset_left = 244.0
-offset_top = 1.0
-offset_right = 284.0
-offset_bottom = 61.0
-scale = Vector2(4, 4)
+offset_left = 369.0
+offset_top = -1.0
+offset_right = 385.0
+offset_bottom = 59.0
+scale = Vector2(8, 8)
 texture_normal = ExtResource("4_1l7ru")
+script = ExtResource("13_8jhbj")
+
+[node name="Highlight" type="Sprite2D" parent="Book4" unique_id=1989664904]
+position = Vector2(7.875, 30)
+texture = ExtResource("11_1vgp3")
 
 [node name="Book5" type="TextureButton" parent="." unique_id=1869564282]
-offset_top = 1.0
-offset_right = 40.0
-offset_bottom = 61.0
-scale = Vector2(4, 4)
+offset_left = 489.0
+offset_top = -1.0
+offset_right = 505.0
+offset_bottom = 59.0
+scale = Vector2(8, 8)
 texture_normal = ExtResource("5_cx5i8")
+script = ExtResource("16_e1ykm")
+
+[node name="Highlight" type="Sprite2D" parent="Book5" unique_id=183873162]
+position = Vector2(7.875, 30)
+texture = ExtResource("13_1vgp3")
 
 [node name="Markers" type="Node2D" parent="." unique_id=1055900344]
 
 [node name="Marker2D" type="Marker2D" parent="Markers" unique_id=2062989403]
-position = Vector2(12, 5)
+position = Vector2(76, 218)
 
 [node name="Marker2D2" type="Marker2D" parent="Markers" unique_id=1296732195]
-position = Vector2(72, 5)
+position = Vector2(196, 218)
 
 [node name="Marker2D3" type="Marker2D" parent="Markers" unique_id=751064304]
-position = Vector2(132, 5)
+position = Vector2(316, 218)
 
 [node name="Marker2D4" type="Marker2D" parent="Markers" unique_id=338580657]
-position = Vector2(192, 5)
+position = Vector2(436, 218)
 
 [node name="Marker2D5" type="Marker2D" parent="Markers" unique_id=1155496449]
-position = Vector2(252, 5)
+position = Vector2(556, 218)
+
+[connection signal="button_down" from="Book1" to="Book1" method="_on_button_down"]
+[connection signal="button_up" from="Book1" to="Book1" method="_on_button_up"]
+[connection signal="mouse_entered" from="Book1" to="Book1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book1" to="Book1" method="_on_mouse_exited"]
+[connection signal="button_down" from="Book2" to="Book2" method="_on_button_down"]
+[connection signal="button_up" from="Book2" to="Book2" method="_on_button_up"]
+[connection signal="mouse_entered" from="Book2" to="Book2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book2" to="Book2" method="_on_mouse_exited"]
+[connection signal="button_down" from="Book3" to="Book3" method="_on_button_down"]
+[connection signal="button_up" from="Book3" to="Book3" method="_on_button_up"]
+[connection signal="mouse_entered" from="Book3" to="Book3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book3" to="Book3" method="_on_mouse_exited"]
+[connection signal="button_down" from="Book4" to="Book4" method="_on_button_down"]
+[connection signal="button_up" from="Book4" to="Book4" method="_on_button_up"]
+[connection signal="mouse_entered" from="Book4" to="Book4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book4" to="Book4" method="_on_mouse_exited"]
+[connection signal="button_down" from="Book5" to="Book5" method="_on_button_down"]
+[connection signal="button_up" from="Book5" to="Book5" method="_on_button_up"]
+[connection signal="mouse_entered" from="Book5" to="Book5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book5" to="Book5" method="_on_mouse_exited"]

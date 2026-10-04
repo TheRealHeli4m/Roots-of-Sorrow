@@ -1,8 +1,8 @@
+Sprite2D
 Marker2D
 Node2D
 TextureButton
 TileMapLayer
-Sprite2D
 CollisionShape2D
 Area2D
 PointLight2D
@@ -12,4 +12,3 @@ CanvasLayer
 AnimationPlayer
 Parallax2D
 Control
-Node

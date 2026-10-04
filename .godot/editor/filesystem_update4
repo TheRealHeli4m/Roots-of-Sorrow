@@ -1,3 +1,9 @@
 res://Effects/Shaders/vignette.gdshader
 res://Scenes/library_game.tscn
 res://Scenes/library_game.gd
+res://Assets/bookshelf.png
+res://Scenes/book_1.gd
+res://Scenes/book_2.gd
+res://Scenes/book_3.gd
+res://Scenes/book_5.gd
+res://Scenes/book_4.gd
