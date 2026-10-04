@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cc8h1v63gok1q"]
+
+[ext_resource type="Texture2D" uid="uid://17ecjkyy07bl" path="res://Assets/book1.png" id="1_2hv8o"]
+[ext_resource type="Script" uid="uid://bw3igifpfkgyn" path="res://Scenes/library_game.gd" id="1_jhprc"]
+[ext_resource type="Texture2D" uid="uid://dc3ll7g5lbrrg" path="res://Assets/book2.png" id="2_jhprc"]
+[ext_resource type="Texture2D" uid="uid://btoou2e20sj00" path="res://Assets/book3.png" id="3_lbdd7"]
+[ext_resource type="Texture2D" uid="uid://ckpateu3t4xr6" path="res://Assets/book4.png" id="4_1l7ru"]
+[ext_resource type="Texture2D" uid="uid://ryp1cgrfl0v2" path="res://Assets/book5.png" id="5_cx5i8"]
+
+[node name="LibraryGame" type="Node2D" unique_id=104190085]
+position = Vector2(-25, -7)
+script = ExtResource("1_jhprc")
+
+[node name="Book1" type="TextureButton" parent="." unique_id=730698681]
+offset_left = 64.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_2hv8o")
+
+[node name="Book2" type="TextureButton" parent="." unique_id=378443233]
+offset_left = 124.0
+offset_top = 1.0
+offset_right = 164.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_jhprc")
+
+[node name="Book3" type="TextureButton" parent="." unique_id=898690990]
+offset_left = 184.0
+offset_top = 1.0
+offset_right = 224.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_lbdd7")
+
+[node name="Book4" type="TextureButton" parent="." unique_id=1701597688]
+offset_left = 244.0
+offset_top = 1.0
+offset_right = 284.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_1l7ru")
+
+[node name="Book5" type="TextureButton" parent="." unique_id=1869564282]
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_cx5i8")
+
+[node name="Markers" type="Node2D" parent="." unique_id=1055900344]
+
+[node name="Marker2D" type="Marker2D" parent="Markers" unique_id=2062989403]
+position = Vector2(12, 5)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers" unique_id=1296732195]
+position = Vector2(72, 5)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers" unique_id=751064304]
+position = Vector2(132, 5)
+
+[node name="Marker2D4" type="Marker2D" parent="Markers" unique_id=338580657]
+position = Vector2(192, 5)
+
+[node name="Marker2D5" type="Marker2D" parent="Markers" unique_id=1155496449]
+position = Vector2(252, 5)
