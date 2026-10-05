@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://ryp1cgrfl0v2" path="res://Assets/book5.png" id="5_cx5i8"]
 [ext_resource type="Texture2D" uid="uid://d4he82k0v0aif" path="res://Assets/lantern.png" id="10_145xn"]
 [ext_resource type="Script" uid="uid://bduy5u0qkugw1" path="res://Scenes/lantern.gd" id="11_ftxpy"]
+[ext_resource type="Texture2D" uid="uid://do2f84ih8m7b1" path="res://Assets/mark1.png" id="12_btn5p"]
+[ext_resource type="Texture2D" uid="uid://dlbiugw5ej1fd" path="res://Assets/mark2.png" id="13_cw662"]
+[ext_resource type="Texture2D" uid="uid://dhien1xpouoxr" path="res://Assets/mark3.png" id="14_tyv5e"]
+[ext_resource type="Texture2D" uid="uid://xwwywlb3qhwh" path="res://Assets/mark4.png" id="15_c6gbh"]
+[ext_resource type="Texture2D" uid="uid://1ohabqvqxps7" path="res://Assets/mark5.png" id="16_8jhbj"]
 
 [sub_resource type="Gradient" id="Gradient_ftxpy"]
 offsets = PackedFloat32Array(0, 0.97839504)
@@ -22,8 +27,14 @@ fill = 1
 fill_from = Vector2(0.48931623, 0.5)
 fill_to = Vector2(0.33760685, 0.26495728)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cw662"]
+gradient = SubResource("Gradient_ftxpy")
+fill = 1
+fill_from = Vector2(0.48931623, 0.5)
+fill_to = Vector2(0, 0)
+
 [node name="LibraryGame" type="Node2D" unique_id=104190085]
-position = Vector2(256, 100)
+position = Vector2(268, 148)
 script = ExtResource("1_jhprc")
 
 [node name="Shelf" type="Sprite2D" parent="." unique_id=226981637]
@@ -141,6 +152,67 @@ offset_bottom = 14.5
 mouse_filter = 2
 color = Color(0, 0, 0, 0.23529412)
 
+[node name="BookMarkers" type="Node2D" parent="." unique_id=1055900344]
+
+[node name="Marker2D" type="Marker2D" parent="BookMarkers" unique_id=2062989403]
+position = Vector2(76, 218)
+
+[node name="Marker2D2" type="Marker2D" parent="BookMarkers" unique_id=1296732195]
+position = Vector2(196, 218)
+
+[node name="Marker2D3" type="Marker2D" parent="BookMarkers" unique_id=751064304]
+position = Vector2(316, 218)
+
+[node name="Marker2D4" type="Marker2D" parent="BookMarkers" unique_id=338580657]
+position = Vector2(436, 218)
+
+[node name="Marker2D5" type="Marker2D" parent="BookMarkers" unique_id=1155496449]
+position = Vector2(556, 218)
+
+[node name="PositionMarkers" type="Node2D" parent="." unique_id=1026899373]
+
+[node name="Marker2D" type="Marker2D" parent="PositionMarkers" unique_id=1493396246]
+position = Vector2(92, -83)
+
+[node name="Marker2D2" type="Marker2D" parent="PositionMarkers" unique_id=2056195681]
+position = Vector2(212, -83)
+
+[node name="Marker2D3" type="Marker2D" parent="PositionMarkers" unique_id=64824038]
+position = Vector2(333, -83)
+
+[node name="Marker2D4" type="Marker2D" parent="PositionMarkers" unique_id=570885489]
+position = Vector2(453, -83)
+
+[node name="Marker2D5" type="Marker2D" parent="PositionMarkers" unique_id=79463655]
+position = Vector2(573, -83)
+
+[node name="PositionMarkerSprites" type="Node2D" parent="." unique_id=903339795]
+
+[node name="1" type="Sprite2D" parent="PositionMarkerSprites" unique_id=259742016]
+position = Vector2(80, -93)
+scale = Vector2(8, 8)
+texture = ExtResource("12_btn5p")
+
+[node name="2" type="Sprite2D" parent="PositionMarkerSprites" unique_id=1832380771]
+position = Vector2(200, -93)
+scale = Vector2(8, 8)
+texture = ExtResource("13_cw662")
+
+[node name="3" type="Sprite2D" parent="PositionMarkerSprites" unique_id=186621024]
+position = Vector2(321, -93)
+scale = Vector2(8, 8)
+texture = ExtResource("14_tyv5e")
+
+[node name="4" type="Sprite2D" parent="PositionMarkerSprites" unique_id=280632729]
+position = Vector2(441, -93)
+scale = Vector2(8, 8)
+texture = ExtResource("15_c6gbh")
+
+[node name="5" type="Sprite2D" parent="PositionMarkerSprites" unique_id=2048698810]
+position = Vector2(561, -93)
+scale = Vector2(8, 8)
+texture = ExtResource("16_8jhbj")
+
 [node name="Lantern" type="TextureButton" parent="." unique_id=389185848]
 offset_left = 684.0
 offset_top = 147.0
@@ -157,22 +229,12 @@ position = Vector2(6.375, 14.5)
 range_layer_max = 100
 texture = SubResource("GradientTexture2D_btn5p")
 
-[node name="Markers" type="Node2D" parent="." unique_id=1055900344]
-
-[node name="Marker2D" type="Marker2D" parent="Markers" unique_id=2062989403]
-position = Vector2(76, 218)
-
-[node name="Marker2D2" type="Marker2D" parent="Markers" unique_id=1296732195]
-position = Vector2(196, 218)
-
-[node name="Marker2D3" type="Marker2D" parent="Markers" unique_id=751064304]
-position = Vector2(316, 218)
-
-[node name="Marker2D4" type="Marker2D" parent="Markers" unique_id=338580657]
-position = Vector2(436, 218)
-
-[node name="Marker2D5" type="Marker2D" parent="Markers" unique_id=1155496449]
-position = Vector2(556, 218)
+[node name="OverheadLight" type="PointLight2D" parent="." unique_id=2111785897]
+position = Vector2(343, 194.00002)
+scale = Vector2(18.9375, 10.625001)
+energy = 2.0
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_cw662")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1156112641]
 position = Vector2(0, 1)

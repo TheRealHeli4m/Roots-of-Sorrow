@@ -1,12 +1,12 @@
+Sprite2D
+Node2D
 ColorRect
 CanvasLayer
 PointLight2D
 TextureButton
-Sprite2D
 CanvasModulate
 CanvasGroup
 Marker2D
-Node2D
 TileMapLayer
 CollisionShape2D
 Area2D
