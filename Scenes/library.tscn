@@ -175,15 +175,15 @@ texture = ExtResource("1_0r5b0")
 [sub_resource type="TileSet" id="TileSet_hp3p4"]
 sources/0 = SubResource("TileSetAtlasSource_hrcop")
 
-[sub_resource type="Gradient" id="Gradient_hrcop"]
+[sub_resource type="Gradient" id="Gradient_hp3p4"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2cia1"]
-gradient = SubResource("Gradient_hrcop")
+gradient = SubResource("Gradient_hp3p4")
 fill = 1
 fill_from = Vector2(0.48076922, 0.47435898)
-fill_to = Vector2(0.20512821, 0.17735043)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olk84"]
 size = Vector2(30, 130)
@@ -255,13 +255,19 @@ position = Vector2(2332, 517)
 shape = SubResource("RectangleShape2D_olk84")
 
 [node name="CamlockX" type="Area2D" parent="." unique_id=1054383377]
+light_mask = 0
+visibility_layer = 0
 script = ExtResource("5_hrcop")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CamlockX" unique_id=176769068]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(-471.75, 517)
 shape = SubResource("RectangleShape2D_hp3p4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CamlockX" unique_id=2078688807]
+light_mask = 0
+visibility_layer = 0
 position = Vector2(734, 195)
 shape = SubResource("RectangleShape2D_y4414")
 
@@ -277,13 +283,17 @@ visible = false
 position = Vector2(164, -33.5)
 shape = SubResource("RectangleShape2D_jdjct")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=473767278]
+color = Color(0.101960786, 0.10980392, 0.16078432, 1)
+
 [node name="Lighting" type="PointLight2D" parent="." unique_id=1460588642]
 light_mask = 3
-position = Vector2(829, -385.00003)
-scale = Vector2(9.735215, 7.018692)
+position = Vector2(614.44006, -174.25255)
+scale = Vector2(11.537635, 8.789084)
 color = Color(0.6467941, 0.47737652, 0.112852536, 1)
 range_item_cull_mask = 3
 shadow_enabled = true
+shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_2cia1")
 texture_scale = 3.72
 
@@ -295,6 +305,7 @@ scale = Vector2(9.735215, 7.018692)
 color = Color(0.6467941, 0.47737652, 0.112852536, 1)
 range_item_cull_mask = 3
 shadow_enabled = true
+shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_2cia1")
 texture_scale = 3.72
 
