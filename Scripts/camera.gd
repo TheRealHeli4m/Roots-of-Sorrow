@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if isChangingRoom: return
-	print(self.position)
 	if moveY and not Global.playerInCamlockYArea:
 		self.position.y = lerp(self.position.y, player.position.y, 10.0 * delta)
 		

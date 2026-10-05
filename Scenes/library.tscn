@@ -316,6 +316,14 @@ texture = ExtResource("6_hp3p4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1784777726]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2146828512]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="body_entered" from="RoomChangeTop" to="RoomChangeTop" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomChangeBottom" to="RoomChangeBottom" method="_on_body_entered"]
 [connection signal="body_entered" from="CamlockX" to="CamlockX" method="_on_body_entered"]

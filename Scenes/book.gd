@@ -14,9 +14,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if self.position.distance_squared_to(light.position) < 100000:
-		blocker.hide()
+		var tween = create_tween()
+		tween.tween_property(blocker, "modulate:a", 0, 0.1)
 	else:
-		blocker.show()
+		var tween = create_tween()
+		tween.tween_property(blocker, "modulate:a", 0.2, 0.1)
 
 
 func _on_mouse_entered() -> void:

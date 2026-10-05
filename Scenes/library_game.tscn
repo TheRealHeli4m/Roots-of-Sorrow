@@ -51,7 +51,7 @@ offset_top = 5.375
 offset_right = 13.0
 offset_bottom = 14.5
 mouse_filter = 2
-color = Color(0, 0, 0, 0.49803922)
+color = Color(0, 0, 0, 0.23529412)
 
 [node name="Book2" type="TextureButton" parent="." unique_id=378443233]
 offset_left = 129.0
@@ -73,7 +73,7 @@ offset_top = 5.375
 offset_right = 13.0
 offset_bottom = 14.5
 mouse_filter = 2
-color = Color(0, 0, 0, 0.49803922)
+color = Color(0, 0, 0, 0.23529412)
 
 [node name="Book3" type="TextureButton" parent="." unique_id=898690990]
 offset_left = 249.0
@@ -95,7 +95,7 @@ offset_top = 5.375
 offset_right = 13.0
 offset_bottom = 14.5
 mouse_filter = 2
-color = Color(0, 0, 0, 0.49803922)
+color = Color(0, 0, 0, 0.23529412)
 
 [node name="Book4" type="TextureButton" parent="." unique_id=1701597688]
 offset_left = 369.0
@@ -117,7 +117,7 @@ offset_top = 5.375
 offset_right = 13.0
 offset_bottom = 14.5
 mouse_filter = 2
-color = Color(0, 0, 0, 0.49803922)
+color = Color(0, 0, 0, 0.23529412)
 
 [node name="Book5" type="TextureButton" parent="." unique_id=1869564282]
 offset_left = 489.0
@@ -139,7 +139,7 @@ offset_top = 5.375
 offset_right = 13.0
 offset_bottom = 14.5
 mouse_filter = 2
-color = Color(0, 0, 0, 0.49803922)
+color = Color(0, 0, 0, 0.23529412)
 
 [node name="Lantern" type="TextureButton" parent="." unique_id=389185848]
 offset_left = 684.0

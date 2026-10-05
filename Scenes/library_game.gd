@@ -4,6 +4,7 @@ extends Node2D
 @onready var posList: Array
 @onready var orderedBookList: Array = [$Book1, $Book2, $Book3, $Book4, $Book5]
 @onready var bookList = [$Book1, $Book2, $Book3, $Book4, $Book5]
+@onready var cMod = $CanvasModulate
 
 @onready var selectedArray: Array = []
 
@@ -42,5 +43,17 @@ func _process(delta: float) -> void:
 		selectedArray[1].tweenDown()
 		selectedArray.clear()
 		
-	if bookList == orderedBookList:
-		print("dones")
+func tweenIn() -> void:
+	cMod.show()
+	$Lantern.position = Vector2(700, 550)
+	var lanterntween = create_tween()
+	lanterntween.tween_property($Lantern, "position:y", 200, 1.0)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
+
+func tweenOut() -> void:
+	cMod.hide()
+	var lanterntween = create_tween()
+	lanterntween.tween_property($Lantern, "position:y", 550, 1.0)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)

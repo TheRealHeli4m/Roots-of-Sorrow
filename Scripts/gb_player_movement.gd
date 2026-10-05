@@ -24,7 +24,6 @@ func _ready() -> void:
 	Global.player = self
 
 func _physics_process(delta: float) -> void:
-	print(self.position)
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
 		canJump = false
