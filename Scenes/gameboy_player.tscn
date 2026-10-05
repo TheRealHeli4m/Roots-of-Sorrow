@@ -483,6 +483,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-170.10017, -79.34228)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1366060401 groups=["player"]]
+light_mask = 2
 scale = Vector2(4, 4)
 collision_layer = 32769
 script = ExtResource("1_fex8b")
@@ -496,6 +497,7 @@ frame = 1
 script = ExtResource("5_5wri8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575619970]
+light_mask = 524288
 position = Vector2(0.375, 39.625)
 shape = SubResource("RectangleShape2D_5wri8")
 

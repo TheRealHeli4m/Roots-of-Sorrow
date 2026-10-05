@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfes72qd7kh7e"
-path="res://.godot/imported/book2_highlight_overlay.png-53e3d1c5a4197baca4629815c41cf0d1.ctex"
+uid="uid://do2f84ih8m7b1"
+path="res://.godot/imported/mark1.png-1c89a69ed45fd88084bd6a071ef4695b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/book2_highlight_overlay.png"
-dest_files=["res://.godot/imported/book2_highlight_overlay.png-53e3d1c5a4197baca4629815c41cf0d1.ctex"]
+source_file="res://Assets/mark1.png"
+dest_files=["res://.godot/imported/mark1.png-1c89a69ed45fd88084bd6a071ef4695b.ctex"]
 
 [params]
 

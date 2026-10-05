@@ -8,3 +8,12 @@ res://Scenes/book_3.gd
 res://Scenes/book_5.gd
 res://Scenes/book_4.gd
 res://Scenes/book.gd
+res://Scenes/library.tscn
+res://Scenes/gameboy_player.tscn
+res://Scenes/lantern.gd
+res://Scripts/library_minigame_interaction_area.gd
+res://Scenes/banner_room.tscn
+res://Scenes/root.tscn
+res://Scripts/gb_player_movement.gd
+res://Scenes/gameboy.tscn
+res://Scripts/camera.gd
