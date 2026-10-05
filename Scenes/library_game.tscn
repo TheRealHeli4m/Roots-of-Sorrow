@@ -44,6 +44,15 @@ script = ExtResource("4_tyv5e")
 position = Vector2(8, 30)
 texture = ExtResource("5_145xn")
 
+[node name="ColorRect" type="ColorRect" parent="Book1" unique_id=299577665]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.375
+offset_right = 13.0
+offset_bottom = 14.5
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
+
 [node name="Book2" type="TextureButton" parent="." unique_id=378443233]
 offset_left = 129.0
 offset_top = -1.0
@@ -56,6 +65,15 @@ script = ExtResource("4_tyv5e")
 [node name="Highlight" type="Sprite2D" parent="Book2" unique_id=1177496784]
 position = Vector2(8, 30)
 texture = ExtResource("5_145xn")
+
+[node name="ColorRect" type="ColorRect" parent="Book2" unique_id=1398165810]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.375
+offset_right = 13.0
+offset_bottom = 14.5
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
 
 [node name="Book3" type="TextureButton" parent="." unique_id=898690990]
 offset_left = 249.0
@@ -70,6 +88,15 @@ script = ExtResource("4_tyv5e")
 position = Vector2(8, 30)
 texture = ExtResource("5_145xn")
 
+[node name="ColorRect" type="ColorRect" parent="Book3" unique_id=1671775427]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.375
+offset_right = 13.0
+offset_bottom = 14.5
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
+
 [node name="Book4" type="TextureButton" parent="." unique_id=1701597688]
 offset_left = 369.0
 offset_top = -1.0
@@ -82,6 +109,15 @@ script = ExtResource("4_tyv5e")
 [node name="Highlight" type="Sprite2D" parent="Book4" unique_id=1081148168]
 position = Vector2(8, 30)
 texture = ExtResource("5_145xn")
+
+[node name="ColorRect" type="ColorRect" parent="Book4" unique_id=528870188]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.375
+offset_right = 13.0
+offset_bottom = 14.5
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
 
 [node name="Book5" type="TextureButton" parent="." unique_id=1869564282]
 offset_left = 489.0
@@ -96,6 +132,15 @@ script = ExtResource("4_tyv5e")
 position = Vector2(8, 30)
 texture = ExtResource("5_145xn")
 
+[node name="ColorRect" type="ColorRect" parent="Book5" unique_id=1444345878]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.375
+offset_right = 13.0
+offset_bottom = 14.5
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49803922)
+
 [node name="Lantern" type="TextureButton" parent="." unique_id=389185848]
 offset_left = 684.0
 offset_top = 147.0
@@ -108,7 +153,8 @@ stretch_mode = 3
 script = ExtResource("11_ftxpy")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lantern" unique_id=2062427115]
-position = Vector2(6.375, 14.625)
+position = Vector2(6.375, 14.5)
+range_layer_max = 100
 texture = SubResource("GradientTexture2D_btn5p")
 
 [node name="Markers" type="Node2D" parent="." unique_id=1055900344]

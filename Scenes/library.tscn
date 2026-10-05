@@ -314,6 +314,8 @@ position = Vector2(772, -131)
 scale = Vector2(4, 4)
 texture = ExtResource("6_hp3p4")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1784777726]
+
 [connection signal="body_entered" from="RoomChangeTop" to="RoomChangeTop" method="_on_body_entered"]
 [connection signal="body_entered" from="RoomChangeBottom" to="RoomChangeBottom" method="_on_body_entered"]
 [connection signal="body_entered" from="CamlockX" to="CamlockX" method="_on_body_entered"]

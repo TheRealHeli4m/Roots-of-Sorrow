@@ -11,3 +11,6 @@ res://Scenes/book.gd
 res://Scenes/library.tscn
 res://Scenes/gameboy_player.tscn
 res://Scenes/lantern.gd
+res://Scripts/library_minigame_interaction_area.gd
+res://Scenes/banner_room.tscn
+res://Scenes/root.tscn

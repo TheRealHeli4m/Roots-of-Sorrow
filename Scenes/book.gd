@@ -2,7 +2,9 @@ extends TextureButton
 
 @onready var root = $".."
 @onready var highlight = $Highlight
+@onready var blocker = $ColorRect
 @onready var selected = false
+@onready var light = $"../Lantern"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if self.position.distance_squared_to(light.position) < 100000:
+		blocker.hide()
+	else:
+		blocker.show()
 
 
 func _on_mouse_entered() -> void:

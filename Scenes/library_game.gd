@@ -4,7 +4,6 @@ extends Node2D
 @onready var posList: Array
 @onready var orderedBookList: Array = [$Book1, $Book2, $Book3, $Book4, $Book5]
 @onready var bookList = [$Book1, $Book2, $Book3, $Book4, $Book5]
-@onready var bookOverlayTexture = load("res://Assets/Sewing/book_highlight_overlay.png")
 
 @onready var selectedArray: Array = []
 

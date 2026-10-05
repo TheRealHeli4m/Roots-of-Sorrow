@@ -1,3 +1,5 @@
+ColorRect
+CanvasLayer
 PointLight2D
 TextureButton
 Sprite2D
@@ -8,7 +10,5 @@ Node2D
 TileMapLayer
 CollisionShape2D
 Area2D
-ColorRect
 Camera2D
-CanvasLayer
 AnimationPlayer
