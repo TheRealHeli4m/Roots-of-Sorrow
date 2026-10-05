@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	var tween = create_tween()
-	tween.tween_property(highlight, "modulate:a", 0.75, 0.25)
+	tween.tween_property(highlight, "modulate:a", 1, 0.25)
 
 
 func _on_mouse_exited() -> void:

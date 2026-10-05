@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djrt8lhspp2wu"
-path="res://.godot/imported/book1_highlight_overlay.png-7d3347015c4a0f1d73111d75d05ef595.ctex"
+uid="uid://brq7vp36ougoe"
+path="res://.godot/imported/bookshelf.png-d85e9750df5252b796fa02b77cb149ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/book1_highlight_overlay.png"
-dest_files=["res://.godot/imported/book1_highlight_overlay.png-7d3347015c4a0f1d73111d75d05ef595.ctex"]
+source_file="res://Assets/Sewing/bookshelf.png"
+dest_files=["res://.godot/imported/bookshelf.png-d85e9750df5252b796fa02b77cb149ab.ctex"]
 
 [params]
 

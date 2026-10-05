@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4b2g027s44nn"
-path="res://.godot/imported/book4_highlight_overlay.png-c97d7e7bfba518c59edb901503184189.ctex"
+uid="uid://d4he82k0v0aif"
+path="res://.godot/imported/lantern.png-2e4fcf00f0429244abecc6026d1d44b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/book4_highlight_overlay.png"
-dest_files=["res://.godot/imported/book4_highlight_overlay.png-c97d7e7bfba518c59edb901503184189.ctex"]
+source_file="res://Assets/lantern.png"
+dest_files=["res://.godot/imported/lantern.png-2e4fcf00f0429244abecc6026d1d44b3.ctex"]
 
 [params]
 

@@ -22,7 +22,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if selectedArray.size() == 2:
-		
 		var index0 = bookList.find(selectedArray[0])
 		var index1 = bookList.find(selectedArray[1])
 		var book0pos = posList[index0]
@@ -43,3 +42,6 @@ func _process(delta: float) -> void:
 		selectedArray[1].selected = false
 		selectedArray[1].tweenDown()
 		selectedArray.clear()
+		
+	if bookList == orderedBookList:
+		print("dones")
