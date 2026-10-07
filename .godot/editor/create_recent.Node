@@ -1,6 +1,10 @@
-Sprite2D
 Node2D
 ColorRect
+OmniLight3D
+CSGBox3D
+SpotLight3D
+Node3D
+Sprite2D
 CanvasLayer
 PointLight2D
 TextureButton
@@ -8,7 +12,3 @@ CanvasModulate
 CanvasGroup
 Marker2D
 TileMapLayer
-CollisionShape2D
-Area2D
-Camera2D
-AnimationPlayer
