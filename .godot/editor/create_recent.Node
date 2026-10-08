@@ -1,7 +1,9 @@
-CanvasLayer
-Sprite2D
 ColorRect
+AnimationPlayer
+AnimationTree
 PointLight2D
+Sprite2D
+CanvasLayer
 Camera2D
 Marker2D
 Node2D
@@ -10,5 +12,3 @@ CSGBox3D
 SpotLight3D
 Node3D
 TextureButton
-CanvasModulate
-CanvasGroup

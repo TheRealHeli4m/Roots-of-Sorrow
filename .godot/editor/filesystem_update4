@@ -7,3 +7,4 @@ res://Scenes/root.tscn
 res://Scripts/root.gd
 res://Scenes/gameboy.gdshader
 res://Scripts/gameboy_main.gd
+res://Scenes/3d_room.gd

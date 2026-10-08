@@ -1,18 +1,93 @@
 [gd_scene format=3 uid="uid://1nubfxun847w"]
 
 [ext_resource type="Texture2D" uid="uid://dkr34bk241c76" path="res://Assets/room_window.png" id="1_gsalj"]
+[ext_resource type="Script" uid="uid://t1y8v5i32ydw" path="res://Scenes/3d_room.gd" id="1_ygyam"]
+[ext_resource type="Texture2D" uid="uid://bys0pnrfd2you" path="res://Assets/gameboy_handheld.png" id="2_kcs3x"]
+[ext_resource type="Shader" uid="uid://c8f470wldpv53" path="res://Scenes/static.gdshader" id="4_nf4k8"]
 
-[sub_resource type="Gradient" id="Gradient_gsalj"]
-offsets = PackedFloat32Array(0.012345679, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7a0x1"]
+shader = ExtResource("4_nf4k8")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.8
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 4.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 8.0
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.07
+shader_parameter/vignette_strength = 1.2
+shader_parameter/grain_strength = 0.25
+shader_parameter/tint_strength = 0.25
+shader_parameter/scanline_density = 240.0
+shader_parameter/scanline_strength = 0.15
+shader_parameter/glitch_strength = 0.12
+shader_parameter/glitch_speed = 3.0
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kcs3x"]
-gradient = SubResource("Gradient_gsalj")
-fill = 1
-fill_from = Vector2(0.49786323, 0.491453)
-fill_to = Vector2(0, 0)
+[sub_resource type="Animation" id="Animation_kcs3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gameboy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(582, 434)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gameboy:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_ygyam"]
+resource_name = "open_gameboy"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gameboy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.866067, 0.2332585),
+"update": 0,
+"values": [Vector2(583, 936), Vector2(582, 450.94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gameboy:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(3.0314329, 2.6390157),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(40, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf4k8"]
+_data = {
+&"RESET": SubResource("Animation_kcs3x"),
+&"open_gameboy": SubResource("Animation_ygyam")
+}
 
 [node name="3d_room" type="Node2D" unique_id=1799449156]
+script = ExtResource("1_ygyam")
 
 [node name="Window" type="Sprite2D" parent="." unique_id=2143188331]
 position = Vector2(576, 324)
@@ -22,7 +97,17 @@ texture = ExtResource("1_gsalj")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1189951278]
 position = Vector2(576, 302)
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1715815646]
-position = Vector2(577.5, 311.50003)
-scale = Vector2(15.171875, 8.109376)
-texture = SubResource("GradientTexture2D_kcs3x")
+[node name="Gameboy" type="Sprite2D" parent="." unique_id=1326338677]
+position = Vector2(582, 434)
+scale = Vector2(8, 8)
+texture = ExtResource("2_kcs3x")
+
+[node name="ColorRect" type="ColorRect" parent="Gameboy" unique_id=627488500]
+material = SubResource("ShaderMaterial_7a0x1")
+offset_left = -16.05
+offset_top = -21.673498
+offset_right = 16.949997
+offset_bottom = 5.001499
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1806167926]
+libraries/ = SubResource("AnimationLibrary_nf4k8")
