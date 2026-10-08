@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://1nubfxun847w"]
 
+[ext_resource type="Texture2D" uid="uid://dkr34bk241c76" path="res://Assets/room_window.png" id="1_gsalj"]
+
+[sub_resource type="Gradient" id="Gradient_gsalj"]
+offsets = PackedFloat32Array(0.012345679, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kcs3x"]
+gradient = SubResource("Gradient_gsalj")
+fill = 1
+fill_from = Vector2(0.49786323, 0.491453)
+fill_to = Vector2(0, 0)
+
 [node name="3d_room" type="Node2D" unique_id=1799449156]
+
+[node name="Window" type="Sprite2D" parent="." unique_id=2143188331]
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("1_gsalj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1189951278]
+position = Vector2(576, 302)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1715815646]
+position = Vector2(577.5, 311.50003)
+scale = Vector2(15.171875, 8.109376)
+texture = SubResource("GradientTexture2D_kcs3x")

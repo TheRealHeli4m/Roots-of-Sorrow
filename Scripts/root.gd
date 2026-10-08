@@ -5,23 +5,29 @@ extends Node
 @onready var roomScene = $"3d_room"
 @onready var gameboyScene = $gameboy
 
+@onready var gameboycam: Camera2D = get_node("gameboy/Camera2D")
+@onready var roomcam: Camera2D = get_node("3d_room/Camera2D")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.currentRoom = Global.rooms.hallway
 	gameboyScene.hide()
 	canvas.show()
 	colorRect.modulate.a = 0
+	roomcam.make_current()
 	
 func _input(event: InputEvent) -> void:
 	if Global.currentScene == "room" && event.is_action_pressed("switch_scenes"):
 		Global.currentScene = "gameboy"
 		gameboyScene.show()
 		roomScene.hide()
+		gameboycam.make_current()
 		flash()
 	elif  Global.currentScene == "gameboy" && event.is_action_pressed("switch_scenes"):
 		Global.currentScene = "room"
 		gameboyScene.hide()
 		roomScene.show()
+		roomcam.make_current() 
 		flash()
 		
 func fetchCorrectRoom() -> void:

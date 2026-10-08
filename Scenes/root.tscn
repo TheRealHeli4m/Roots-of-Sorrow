@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4g5cr"]
 shader = ExtResource("4_c3mwy")
-shader_parameter/alpha = 0.8
+shader_parameter/alpha = 0.5
 shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
@@ -17,10 +17,9 @@ script = ExtResource("1_8pvmw")
 [node name="gameboy" parent="." unique_id=53405422 instance=ExtResource("2_vnucn")]
 
 [node name="3d_room" parent="." unique_id=478958863 instance=ExtResource("2_c3mwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00189659, 8.428097e-05, -6.133318e-05)
+position = Vector2(-0.00189659, 8.428097e-05)
 
 [node name="Flash" type="CanvasLayer" parent="." unique_id=1481271743]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Flash" unique_id=198255796]
 offset_left = -4.0

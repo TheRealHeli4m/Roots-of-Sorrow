@@ -2,3 +2,8 @@ res://Scenes/3d_room.tscn
 res://Effects/Shaders/vignette.gdshader
 res://Scenes/static.gdshader
 res://Scenes/gameboy.tscn
+res://Scripts/gb_player_movement.gd
+res://Scenes/root.tscn
+res://Scripts/root.gd
+res://Scenes/gameboy.gdshader
+res://Scripts/gameboy_main.gd
