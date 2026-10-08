@@ -2,7 +2,7 @@ extends Node2D
 
 @export var hallway = load("res://Scenes/hallway.tscn")
 @onready var player = $Player
-@onready var effect = $CanvasLayer2/Static
+@onready var effect = $CanvasLayer2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

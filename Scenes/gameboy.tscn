@@ -88,6 +88,20 @@ color = Color(0, 0, 0, 1)
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=171849451]
 layer = 1000
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=2001961225]
+offset_left = -24.0
+offset_right = 51.0
+offset_bottom = 648.0
+scale = Vector2(1.5200024, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=2031741283]
+offset_left = 1039.0
+offset_right = 1114.0
+offset_bottom = 648.0
+scale = Vector2(1.5200024, 1)
+color = Color(0, 0, 0, 1)
+
 [node name="Static" type="ColorRect" parent="CanvasLayer2" unique_id=850891485]
 material = SubResource("ShaderMaterial_ebx30")
 anchors_preset = 15

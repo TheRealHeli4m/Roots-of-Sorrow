@@ -8,3 +8,16 @@ res://Scripts/root.gd
 res://Scenes/gameboy.gdshader
 res://Scripts/gameboy_main.gd
 res://Scenes/3d_room.gd
+res://Scenes/hallway.tscn
+res://Scenes/banner_room.tscn
+res://Scripts/Room Changes/room_change_right_banner.gd
+res://Scripts/Room Changes/room_change_left_banner.gd
+res://Scripts/Room Changes/room_change_left_hallway.gd
+res://Scenes/left_tower.tscn
+res://Scripts/Room Changes/room_change_top_left_tower.gd
+res://Scripts/Room Changes/room_change_bottom_left_tower.gd
+res://Scenes/hall.tscn
+res://Scenes/right_tower.tscn
+res://Scripts/Room Changes/room_change_top_left_right_tower.gd
+res://Scenes/kitchen.tscn
+res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd

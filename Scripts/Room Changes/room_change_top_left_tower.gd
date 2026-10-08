@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Global.change_room.emit(bannerroom, Vector2(50, 325), Vector2(575, 289), false, false)
+		Global.change_room.emit(bannerroom, Vector2(125, 325), Vector2(575, 289), false, false)
