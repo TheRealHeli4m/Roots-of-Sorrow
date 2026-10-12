@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dkr34bk241c76" path="res://Assets/room_window.png" id="1_gsalj"]
 [ext_resource type="Script" uid="uid://t1y8v5i32ydw" path="res://Scenes/3d_room.gd" id="1_ygyam"]
 [ext_resource type="Texture2D" uid="uid://bys0pnrfd2you" path="res://Assets/gameboy_handheld.png" id="2_kcs3x"]
+[ext_resource type="Script" uid="uid://d3vw2xwfl4231" path="res://Scenes/camera_2d.gd" id="3_7a0x1"]
+[ext_resource type="Texture2D" uid="uid://ub7oi4hqrwtj" path="res://Assets/room_door.png" id="3_1028l"]
 [ext_resource type="Shader" uid="uid://c8f470wldpv53" path="res://Scenes/static.gdshader" id="4_nf4k8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7a0x1"]
@@ -65,7 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1.866067, 0.2332585),
 "update": 0,
-"values": [Vector2(583, 936), Vector2(582, 450.94)]
+"values": [Vector2(40, 730), Vector2(40, 200)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,16 +88,59 @@ _data = {
 &"open_gameboy": SubResource("Animation_ygyam")
 }
 
+[sub_resource type="Animation" id="Animation_jaegf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yyghm"]
+resource_name = "change_room"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1, 0.8122524),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1028l"]
+_data = {
+&"RESET": SubResource("Animation_jaegf"),
+&"change_room": SubResource("Animation_yyghm")
+}
+
 [node name="3d_room" type="Node2D" unique_id=1799449156]
 script = ExtResource("1_ygyam")
 
 [node name="Window" type="Sprite2D" parent="." unique_id=2143188331]
-position = Vector2(576, 324)
+position = Vector2(35, 40)
 scale = Vector2(8, 8)
 texture = ExtResource("1_gsalj")
 
+[node name="Door" type="Sprite2D" parent="." unique_id=2059058776]
+position = Vector2(35, 40)
+scale = Vector2(8, 8)
+texture = ExtResource("3_1028l")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1189951278]
 position = Vector2(576, 302)
+script = ExtResource("3_7a0x1")
 
 [node name="Gameboy" type="Sprite2D" parent="." unique_id=1326338677]
 position = Vector2(582, 434)
@@ -111,3 +156,18 @@ offset_bottom = 5.001499
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1806167926]
 libraries/ = SubResource("AnimationLibrary_nf4k8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=898376065]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1233250094]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_1028l")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2145088079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(14.560001, 8.160002)
+color = Color(0, 0, 0, 1)

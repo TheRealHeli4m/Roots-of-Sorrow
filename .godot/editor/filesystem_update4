@@ -21,3 +21,5 @@ res://Scenes/right_tower.tscn
 res://Scripts/Room Changes/room_change_top_left_right_tower.gd
 res://Scenes/kitchen.tscn
 res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd
+res://Scenes/camera_2d.gd
+res://Scripts/global.gd

@@ -9,3 +9,5 @@ var currentRoom = rooms.throne
 var player: CharacterBody2D
 var playerInCamlockXArea: bool = false
 var playerInCamlockYArea: bool = false
+
+var sanity: int = 20

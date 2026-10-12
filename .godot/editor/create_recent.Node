@@ -1,8 +1,9 @@
+WorldEnvironment
+Sprite2D
 ColorRect
 AnimationPlayer
 AnimationTree
 PointLight2D
-Sprite2D
 CanvasLayer
 Camera2D
 Marker2D
