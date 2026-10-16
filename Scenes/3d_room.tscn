@@ -6,6 +6,19 @@
 [ext_resource type="Script" uid="uid://d3vw2xwfl4231" path="res://Scenes/camera_2d.gd" id="3_7a0x1"]
 [ext_resource type="Texture2D" uid="uid://ub7oi4hqrwtj" path="res://Assets/room_door.png" id="3_1028l"]
 [ext_resource type="Shader" uid="uid://c8f470wldpv53" path="res://Scenes/static.gdshader" id="4_nf4k8"]
+[ext_resource type="Script" uid="uid://d2cqus61coxfu" path="res://Scenes/cabinet.gd" id="5_fo3qj"]
+[ext_resource type="Texture2D" uid="uid://c8xsx0decxo6g" path="res://Assets/cabinet_highlight.png" id="5_j24a4"]
+[ext_resource type="Texture2D" uid="uid://bkuwedbxqha1o" path="res://Assets/cabinet.png" id="5_vth8y"]
+[ext_resource type="Texture2D" uid="uid://dwh7r623k5ax3" path="res://Assets/door.png" id="6_j24a4"]
+
+[sub_resource type="Gradient" id="Gradient_j24a4"]
+offsets = PackedFloat32Array(0.47993827, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fo3qj"]
+gradient = SubResource("Gradient_j24a4")
+fill = 1
+fill_from = Vector2(0.50213677, 0.4722222)
+fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7a0x1"]
 shader = ExtResource("4_nf4k8")
@@ -105,7 +118,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yyghm"]
 resource_name = "change_room"
-length = 0.2
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,7 +126,7 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 0.8122524),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -134,9 +147,32 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_gsalj")
 
 [node name="Door" type="Sprite2D" parent="." unique_id=2059058776]
-position = Vector2(35, 40)
+position = Vector2(34, 39)
 scale = Vector2(8, 8)
 texture = ExtResource("3_1028l")
+
+[node name="PointLight2D" type="PointLight2D" parent="Door" unique_id=1961675342]
+position = Vector2(30.625, 13.250001)
+scale = Vector2(0.7265625, 1.5929687)
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_fo3qj")
+
+[node name="Cabinet" type="TextureButton" parent="Door" unique_id=964874492]
+offset_left = -78.0
+offset_top = -45.25
+offset_right = -40.875
+offset_bottom = 44.75
+texture_normal = ExtResource("5_vth8y")
+script = ExtResource("5_fo3qj")
+
+[node name="CabinetHighlight" type="Sprite2D" parent="Door" unique_id=639825383]
+position = Vector2(-59.5, 0)
+texture = ExtResource("5_j24a4")
+
+[node name="Door" type="Sprite2D" parent="Door" unique_id=12406094]
+light_mask = 2
+position = Vector2(30.625, 6)
+texture = ExtResource("6_j24a4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1189951278]
 position = Vector2(576, 302)
@@ -170,4 +206,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(14.560001, 8.160002)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[connection signal="mouse_entered" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_exited"]

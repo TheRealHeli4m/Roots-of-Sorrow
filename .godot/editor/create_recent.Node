@@ -1,9 +1,10 @@
-WorldEnvironment
 Sprite2D
+TextureButton
+PointLight2D
+WorldEnvironment
 ColorRect
 AnimationPlayer
 AnimationTree
-PointLight2D
 CanvasLayer
 Camera2D
 Marker2D
@@ -11,5 +12,3 @@ Node2D
 OmniLight3D
 CSGBox3D
 SpotLight3D
-Node3D
-TextureButton

@@ -19,9 +19,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_left"):
+	if Input.is_action_just_pressed("move_left") and Global.currentScene == "room":
 		turnAnim.play("change_room")
-		turn()
+		turn(true)
+	if Input.is_action_just_pressed("move_right") and Global.currentScene == "room":
+		turnAnim.play("change_room")
+		turn(false)
 		
 	if isCurrentRoomDoor:
 		window.hide()
@@ -45,17 +48,30 @@ func closeGameboy() -> bool:
 	gameboy.hide()
 	return true
 	
-func turn() -> void:
+func turn(isLeft: bool) -> void:
 	isTurning = true
-	var tweenstart = create_tween()
-	tweenstart.tween_property(camera, "position", Vector2(-1000, 0), 0.1)
-	
-	await tweenstart.finished
-	
-	isCurrentRoomDoor = false if isCurrentRoomDoor else true
-	camera.position = Vector2(1000, 0)
-	var tweenend = create_tween()
-	tweenend.tween_property(camera, "position", camera.calculatedPos, 0.1)
-	
-	await tweenend.finished
+	if isLeft:
+		var tweenstart = create_tween()
+		tweenstart.tween_property(camera, "position", Vector2(-1000, 0), 0.2)
+		
+		await tweenstart.finished
+		
+		isCurrentRoomDoor = false if isCurrentRoomDoor else true
+		camera.position = Vector2(1000, 0)
+		var tweenend = create_tween()
+		tweenend.tween_property(camera, "position", camera.calculatedPos, 0.2)
+		
+		await tweenend.finished
+	else:
+		var tweenstart = create_tween()
+		tweenstart.tween_property(camera, "position", Vector2(1000, 0), 0.2)
+		
+		await tweenstart.finished
+		
+		isCurrentRoomDoor = false if isCurrentRoomDoor else true
+		camera.position = Vector2(-1000, 0)
+		var tweenend = create_tween()
+		tweenend.tween_property(camera, "position", camera.calculatedPos, 0.2)
+		
+		await tweenend.finished
 	isTurning = false
