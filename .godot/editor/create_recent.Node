@@ -1,8 +1,9 @@
+AnimatedSprite2D
 Sprite2D
+ColorRect
 TextureButton
 PointLight2D
 WorldEnvironment
-ColorRect
 AnimationPlayer
 AnimationTree
 CanvasLayer

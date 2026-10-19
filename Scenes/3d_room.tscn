@@ -8,8 +8,9 @@
 [ext_resource type="Shader" uid="uid://c8f470wldpv53" path="res://Scenes/static.gdshader" id="4_nf4k8"]
 [ext_resource type="Script" uid="uid://d2cqus61coxfu" path="res://Scenes/cabinet.gd" id="5_fo3qj"]
 [ext_resource type="Texture2D" uid="uid://c8xsx0decxo6g" path="res://Assets/cabinet_highlight.png" id="5_j24a4"]
-[ext_resource type="Texture2D" uid="uid://bkuwedbxqha1o" path="res://Assets/cabinet.png" id="5_vth8y"]
+[ext_resource type="Texture2D" uid="uid://b860t2d74as23" path="res://Assets/cabinet_animation.png" id="5_v6qe3"]
 [ext_resource type="Texture2D" uid="uid://dwh7r623k5ax3" path="res://Assets/door.png" id="6_j24a4"]
+[ext_resource type="Shader" uid="uid://c6olc2ea2bd6j" path="res://Scenes/3d_room.gdshader" id="11_v6qe3"]
 
 [sub_resource type="Gradient" id="Gradient_j24a4"]
 offsets = PackedFloat32Array(0.47993827, 1)
@@ -19,6 +20,42 @@ gradient = SubResource("Gradient_j24a4")
 fill = 1
 fill_from = Vector2(0.50213677, 0.4722222)
 fill_to = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p8vx"]
+atlas = ExtResource("5_v6qe3")
+region = Rect2(0, 0, 37, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd3ic"]
+atlas = ExtResource("5_v6qe3")
+region = Rect2(37, 0, 37, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e3bn"]
+atlas = ExtResource("5_v6qe3")
+region = Rect2(74, 0, 37, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akgf8"]
+atlas = ExtResource("5_v6qe3")
+region = Rect2(111, 0, 37, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvidp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p8vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd3ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e3bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akgf8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7a0x1"]
 shader = ExtResource("4_nf4k8")
@@ -138,6 +175,47 @@ _data = {
 &"change_room": SubResource("Animation_yyghm")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7p8vx"]
+shader = ExtResource("11_v6qe3")
+shader_parameter/intensity = 0.10000000475
+shader_parameter/speed = 5.0
+
+[sub_resource type="Animation" id="Animation_v6qe3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7p8vx"]
+resource_name = "change_room"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 0.8122524),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xd3ic"]
+_data = {
+&"RESET": SubResource("Animation_v6qe3"),
+&"change_room": SubResource("Animation_7p8vx")
+}
+
 [node name="3d_room" type="Node2D" unique_id=1799449156]
 script = ExtResource("1_ygyam")
 
@@ -162,8 +240,11 @@ offset_left = -78.0
 offset_top = -45.25
 offset_right = -40.875
 offset_bottom = 44.75
-texture_normal = ExtResource("5_vth8y")
 script = ExtResource("5_fo3qj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door/Cabinet" unique_id=13277494]
+position = Vector2(18.5, 45.125)
+sprite_frames = SubResource("SpriteFrames_mvidp")
 
 [node name="CabinetHighlight" type="Sprite2D" parent="Door" unique_id=639825383]
 position = Vector2(-59.5, 0)
@@ -209,5 +290,34 @@ scale = Vector2(14.560001, 8.160002)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="PanicIntensityShader" type="ColorRect" parent="CanvasLayer" unique_id=2126948047]
+material = SubResource("ShaderMaterial_7p8vx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1641422010]
+
+[node name="SwitchToCabinet" type="AnimationPlayer" parent="CanvasLayer2" unique_id=1196319950]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_xd3ic")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1072824901]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(14.560001, 8.160002)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
 [connection signal="mouse_entered" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_exited"]
+[connection signal="pressed" from="Door/Cabinet" to="Door/Cabinet" method="_on_pressed"]

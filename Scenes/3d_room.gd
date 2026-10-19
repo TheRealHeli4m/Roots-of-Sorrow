@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var animPlayer = $AnimationPlayer
 @onready var gameboy = $Gameboy
-@onready var isCurrentRoomDoor = true
+@onready var currentRoom = "door"
 @onready var camera = $Camera2D
 
 @onready var window = $Window
@@ -14,7 +14,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turnColRect.modulate.a = 0
-	isCurrentRoomDoor = true
+	currentRoom = "door"
 	gameboy.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		turnAnim.play("change_room")
 		turn(false)
 		
-	if isCurrentRoomDoor:
+	if currentRoom == "door":
 		window.hide()
 		door.show()
 	else:
@@ -56,7 +56,7 @@ func turn(isLeft: bool) -> void:
 		
 		await tweenstart.finished
 		
-		isCurrentRoomDoor = false if isCurrentRoomDoor else true
+		currentRoom = "door" if currentRoom == "window" else "window"
 		camera.position = Vector2(1000, 0)
 		var tweenend = create_tween()
 		tweenend.tween_property(camera, "position", camera.calculatedPos, 0.2)
@@ -68,7 +68,7 @@ func turn(isLeft: bool) -> void:
 		
 		await tweenstart.finished
 		
-		isCurrentRoomDoor = false if isCurrentRoomDoor else true
+		currentRoom = "door" if currentRoom == "window" else "window"
 		camera.position = Vector2(-1000, 0)
 		var tweenend = create_tween()
 		tweenend.tween_property(camera, "position", camera.calculatedPos, 0.2)
