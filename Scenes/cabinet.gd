@@ -33,5 +33,8 @@ func _on_pressed() -> void:
 	highlight.hide()
 	anim.play("default")
 	
+	await get_tree().create_timer(0.25).timeout
+	root.currentRoom = "cabinet"
+	
 	
 	

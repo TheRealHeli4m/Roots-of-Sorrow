@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c8xsx0decxo6g" path="res://Assets/cabinet_highlight.png" id="5_j24a4"]
 [ext_resource type="Texture2D" uid="uid://b860t2d74as23" path="res://Assets/cabinet_animation.png" id="5_v6qe3"]
 [ext_resource type="Texture2D" uid="uid://dwh7r623k5ax3" path="res://Assets/door.png" id="6_j24a4"]
+[ext_resource type="Texture2D" uid="uid://ynwxedmudfk8" path="res://Assets/cabinet_bg.png" id="8_xd3ic"]
+[ext_resource type="Texture2D" uid="uid://br1ytkdttcmph" path="res://Assets/cabinet_block_view.png" id="9_xd3ic"]
 [ext_resource type="Shader" uid="uid://c6olc2ea2bd6j" path="res://Scenes/3d_room.gdshader" id="11_v6qe3"]
 
 [sub_resource type="Gradient" id="Gradient_j24a4"]
@@ -52,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_akgf8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 20.0
 }]
@@ -197,6 +199,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7p8vx"]
 resource_name = "change_room"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -204,7 +207,7 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
 "transitions": PackedFloat32Array(1, 1, 0.8122524),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -254,6 +257,25 @@ texture = ExtResource("5_j24a4")
 light_mask = 2
 position = Vector2(30.625, 6)
 texture = ExtResource("6_j24a4")
+
+[node name="Cabinet" type="Node2D" parent="." unique_id=1867767201]
+
+[node name="CabinetBg" type="Parallax2D" parent="Cabinet" unique_id=594813727]
+scroll_scale = Vector2(2, 2)
+repeat_size = Vector2(1, 1)
+repeat_times = 5
+
+[node name="CabinetView" type="Sprite2D" parent="Cabinet/CabinetBg" unique_id=890237466]
+position = Vector2(208, 180)
+scale = Vector2(4, 4)
+texture = ExtResource("8_xd3ic")
+
+[node name="CabinetDoor" type="Parallax2D" parent="Cabinet" unique_id=1624694405]
+
+[node name="CabinetDoor" type="Sprite2D" parent="Cabinet/CabinetDoor" unique_id=165827358]
+position = Vector2(34, 42)
+scale = Vector2(8, 8)
+texture = ExtResource("9_xd3ic")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1189951278]
 position = Vector2(576, 302)

@@ -1,9 +1,6 @@
 res://Scenes/3d_room.tscn
 res://Scenes/static.gdshader
+res://Scenes/3d_room.gdshader
 res://Effects/Shaders/vignette.gdshader
 res://Scenes/3d_room.gd
-res://Assets/scream_paintingbg.png
-res://Assets/scream_painting.png
 res://Scenes/cabinet.gd
-res://Scenes/gameboy.tscn
-res://Scenes/3d_room.gdshader

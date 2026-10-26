@@ -27,6 +27,8 @@ func _ready() -> void:
 	roomcam.make_current()
 	
 func _input(event: InputEvent) -> void:
+	if roomScene.currentRoom == "cabinet": return;
+	
 	if Global.currentScene == "room" && event.is_action_pressed("switch_scenes"):
 		self.open.emit()
 		await roomScene.openGameboy()
@@ -37,7 +39,7 @@ func _input(event: InputEvent) -> void:
 		roomScene.hide()
 		gameboycam.make_current()
 		flash()
-	elif  Global.currentScene == "gameboy" && event.is_action_pressed("switch_scenes"):
+	elif Global.currentScene == "gameboy" && event.is_action_pressed("switch_scenes"):
 		Global.currentScene = "room"
 		shadMaterial.set_shader_parameter("alpha", 0.6)
 		gameboyScene.hide()
