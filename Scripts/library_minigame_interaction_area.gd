@@ -22,6 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not libraryGame.visible: return
 	if Input.is_action_just_pressed("escape"):
 		libraryGame.hide()
 		Global.player.canMove = true
@@ -47,7 +48,6 @@ func _process(delta: float) -> void:
 			UI.add_child(libraryGame)
 		libraryGame.show()
 		open.emit()
-
 
 
 func _on_body_entered(body: Node2D) -> void:

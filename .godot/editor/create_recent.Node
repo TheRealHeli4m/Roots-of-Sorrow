@@ -1,6 +1,10 @@
+CanvasLayer
+AudioStreamPlayer2D
 Node2D
-Parallax2D
+Node
 Sprite2D
+Timer
+Parallax2D
 AnimatedSprite2D
 ColorRect
 TextureButton
@@ -8,7 +12,3 @@ PointLight2D
 WorldEnvironment
 AnimationPlayer
 AnimationTree
-CanvasLayer
-Camera2D
-Marker2D
-OmniLight3D

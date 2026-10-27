@@ -10,6 +10,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if root.currentRoom == "cabinet": 
+		calculatedPos = get_viewport().get_mouse_position() / 32
+		self.position = calculatedPos
 	if not root.isTurning:
 		calculatedPos = get_viewport().get_mouse_position() / 16
 		self.position = calculatedPos

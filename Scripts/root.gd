@@ -5,17 +5,26 @@ extends Node
 @onready var roomScene = $"3d_room"
 @onready var gameboyScene = $gameboy
 @onready var vignette = $Vignette/ColorRect
+@onready var panicIntensityShader = $CanvasLayer/PanicIntensityShader
 
 @onready var gameboycam: Camera2D = get_node("gameboy/Camera2D")
 @onready var roomcam: Camera2D = get_node("3d_room/Camera2D")
 
+@onready var momTimer = $MomTimer
+@onready var eyeJumpscare = $Mom/CanvasLayer/EyeJumpscare
+
 @onready var shadMaterial: ShaderMaterial
+@onready var panicMaterial: ShaderMaterial
+@onready var audio = $AudioStreamPlayer2D
 
 signal open
 signal close
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	eyeJumpscare.hide()
+	panicMaterial = panicIntensityShader.material as ShaderMaterial
+	panicMaterial.set_shader_parameter("intensity", 0.1)
 	shadMaterial = vignette.material as ShaderMaterial
 	shadMaterial.set_shader_parameter("alpha", 0.6)
 	self.open.connect(roomScene.openGameboy)
@@ -59,5 +68,22 @@ func flash():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	changePanic()
 	if Global.currentScene == "room":
 		Input.set_custom_mouse_cursor(null)
+
+
+func _on_mom_timer_timeout() -> void:
+	eyeJumpscare.show()
+	eyeJumpscare.apply_shake()
+	audio.play()
+	
+	await get_tree().create_timer(1.0).timeout
+	roomScene.currentRoom = "window"
+	eyeJumpscare.hide()
+	audio.stop()
+	Global.sanity -= 30
+	
+func changePanic() -> void:
+	var panicIntensity: float = (100.0 - Global.sanity) / 100.0
+	panicMaterial.set_shader_parameter("intensity", panicIntensity)
