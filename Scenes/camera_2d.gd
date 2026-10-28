@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var root = $".."
 @onready var calculatedPos: Vector2
-@onready var mouseSprite = $"../Mouse"
+@onready var mouseSprite = $"../Mouse/Mouse"
 
 var randomStrength = 5.0
 var shakeFade = 5.0
@@ -16,16 +16,17 @@ var mousePos: Vector2
 func _ready() -> void:
 	mouseSprite.show()
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	mousePos = get_global_mouse_position()
+	mousePos = get_viewport().get_mouse_position()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	mousePos = get_global_mouse_position()
+	mousePos = get_viewport().get_mouse_position()
 	mouseSprite.position = mousePos
-	
 	if Global.inMomMinigame:
-		shakeStrength = lerpf(shakeStrength, 0, shakeFade * delta)
 		mouseSprite.offset = randomOffset()
+		self.offset = randomOffset()
+		if randf() < 0.005:
+			Input.warp_mouse(Vector2(randi_range(100, 1000), randi_range(100, 550)))
 		
 	if root.currentRoom == "cabinet": 
 		calculatedPos = get_viewport().get_mouse_position() / 32

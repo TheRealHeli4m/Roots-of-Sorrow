@@ -19,6 +19,7 @@ extends Node
 
 signal open
 signal close
+signal startMomMinigame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -73,12 +74,15 @@ func _process(_delta: float) -> void:
 	if Global.currentScene == "room":
 		Input.set_custom_mouse_cursor(null)
 
-
-func _on_mom_timer_timeout() -> void:
+func jumpscare() -> void:
+	audio.play()
 	eyeJumpscare.show()
 	eyeJumpscare.apply_shake()
+	
+func _on_mom_timer_timeout() -> void:
+	jumpscare()
 	Global.inMomMinigame = true
-	audio.play()
+	startMomMinigame.emit()
 	
 	await get_tree().create_timer(1.0).timeout
 	roomScene.currentRoom = "window"

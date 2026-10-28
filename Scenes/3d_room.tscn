@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dwh7r623k5ax3" path="res://Assets/door.png" id="6_j24a4"]
 [ext_resource type="Texture2D" uid="uid://ynwxedmudfk8" path="res://Assets/cabinet_bg.png" id="8_xd3ic"]
 [ext_resource type="Texture2D" uid="uid://br1ytkdttcmph" path="res://Assets/cabinet_block_view.png" id="9_xd3ic"]
+[ext_resource type="Script" uid="uid://dt4stipgjsdr4" path="res://Scenes/mom_minigame.gd" id="13_akgf8"]
 [ext_resource type="Texture2D" uid="uid://dfsx3q8a05gak" path="res://Assets/Cursors/gameboy_mouse_cursor.png" id="13_xd3ic"]
+[ext_resource type="Texture2D" uid="uid://bggemyl2ib0v5" path="res://Assets/hover_circle.png" id="14_6e3bn"]
 
 [sub_resource type="Gradient" id="Gradient_j24a4"]
 offsets = PackedFloat32Array(0.47993827, 1)
@@ -214,6 +216,9 @@ _data = {
 &"change_room": SubResource("Animation_7p8vx")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e3bn"]
+bg_color = Color(1, 1, 1, 0.5882353)
+
 [node name="3d_room" type="Node2D" unique_id=1799449156]
 script = ExtResource("1_ygyam")
 
@@ -324,9 +329,36 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Mouse" type="Sprite2D" parent="." unique_id=1494860296]
+[node name="MomMinigame" type="CanvasLayer" parent="." unique_id=379402171]
+script = ExtResource("13_akgf8")
+
+[node name="Hover" type="Sprite2D" parent="MomMinigame" unique_id=1239288089]
+modulate = Color(1, 0.39215687, 0.39215687, 0.39215687)
+position = Vector2(576, 478)
+scale = Vector2(2, 2)
+texture = ExtResource("14_6e3bn")
+
+[node name="Control" type="Control" parent="MomMinigame/Hover" unique_id=1745242495]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="MomMinigame" unique_id=33132904]
+offset_left = 187.0
+offset_top = 604.0
+offset_right = 970.0
+offset_bottom = 608.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_6e3bn")
+show_percentage = false
+
+[node name="Mouse" type="CanvasLayer" parent="." unique_id=443654039]
+
+[node name="Mouse" type="Sprite2D" parent="Mouse" unique_id=1494860296]
 texture = ExtResource("13_xd3ic")
 
 [connection signal="mouse_entered" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_exited"]
 [connection signal="pressed" from="Door/Cabinet" to="Door/Cabinet" method="_on_pressed"]
+[connection signal="mouse_entered" from="MomMinigame/Hover/Control" to="MomMinigame" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="MomMinigame/Hover/Control" to="MomMinigame" method="_on_control_mouse_exited"]

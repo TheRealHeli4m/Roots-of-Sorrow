@@ -4,6 +4,7 @@ extends Node2D
 @onready var gameboy = $Gameboy
 @onready var currentRoom = "door"
 @onready var camera = $Camera2D
+@onready var root = $".."
 
 @onready var window = $Window
 @onready var door = $Door
@@ -16,14 +17,31 @@ extends Node2D
 @onready var cabinetSprite = $Door/Cabinet/AnimatedSprite2D
 @onready var cabinetHighlight = $Door/CabinetHighlight
 
+@onready var progressBar = $MomMinigame/ProgressBar
+
+@onready var hover = $MomMinigame/Hover
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	root.startMomMinigame.connect(startMomMinigame)
 	turnColRect.modulate.a = 0
 	currentRoom = "door"
 	gameboy.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if progressBar.value == 100:
+		Global.inMomMinigame = false
+		progressBar.hide()
+		hover.hide()
+		animPlayer.play_backwards("open_gameboy")
+		await animPlayer.animation_finished
+		gameboy.hide()
+			
+	if progressBar.value == 0 and Global.inMomMinigame:
+		Global.inMomMinigame = false
+		root.jumpscare()
+			
 	if Global.inMomMinigame: 
 		window.show()
 		door.hide()
@@ -105,3 +123,7 @@ func turn(isLeft: bool) -> void:
 		
 		await tweenend.finished
 	isTurning = false
+	
+func startMomMinigame() -> void:
+	progressBar.value = 40
+	

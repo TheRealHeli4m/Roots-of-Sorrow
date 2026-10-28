@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var randomStrength = 100.0
+var randomStrength = 50.0
 var shakeFade = 5.0
 
 var rng = RandomNumberGenerator.new()
