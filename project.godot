@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Roots of Sorrow"
 run/main_scene="uid://vo0o8mi3rxyo"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -85,3 +85,4 @@ press={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+shading/overrides/force_vertex_shading=true
