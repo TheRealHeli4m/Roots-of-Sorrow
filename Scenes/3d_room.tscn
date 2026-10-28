@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dwh7r623k5ax3" path="res://Assets/door.png" id="6_j24a4"]
 [ext_resource type="Texture2D" uid="uid://ynwxedmudfk8" path="res://Assets/cabinet_bg.png" id="8_xd3ic"]
 [ext_resource type="Texture2D" uid="uid://br1ytkdttcmph" path="res://Assets/cabinet_block_view.png" id="9_xd3ic"]
+[ext_resource type="Texture2D" uid="uid://dfsx3q8a05gak" path="res://Assets/Cursors/gameboy_mouse_cursor.png" id="13_xd3ic"]
 
 [sub_resource type="Gradient" id="Gradient_j24a4"]
 offsets = PackedFloat32Array(0.47993827, 1)
@@ -322,6 +323,9 @@ scale = Vector2(14.560001, 8.160002)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Mouse" type="Sprite2D" parent="." unique_id=1494860296]
+texture = ExtResource("13_xd3ic")
 
 [connection signal="mouse_entered" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Door/Cabinet" to="Door/Cabinet" method="_on_mouse_exited"]

@@ -37,6 +37,7 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if roomScene.currentRoom == "cabinet": return;
+	if Global.inMomMinigame: return;
 	
 	if Global.currentScene == "room" && event.is_action_pressed("switch_scenes"):
 		self.open.emit()
@@ -76,6 +77,7 @@ func _process(_delta: float) -> void:
 func _on_mom_timer_timeout() -> void:
 	eyeJumpscare.show()
 	eyeJumpscare.apply_shake()
+	Global.inMomMinigame = true
 	audio.play()
 	
 	await get_tree().create_timer(1.0).timeout

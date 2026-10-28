@@ -1,29 +1,10 @@
-res://Scenes/3d_room.tscn
+res://Scenes/game_boy.tscn
 res://Scenes/static.gdshader
-res://Scenes/3d_room.gdshader
 res://Effects/Shaders/vignette.gdshader
+res://Scenes/3d_room.gdshader
 res://Scenes/3d_room.gd
-res://Scenes/cabinet.gd
-res://Scenes/gameboy_player.tscn
-res://Scripts/camera_rotation.gd
-res://Scripts/gb_player_movement.gd
-res://Scripts/root.gd
-res://Scripts/animated_sprite_2d.gd
-res://Scenes/banner.tscn
-res://Scenes/banner_game.tscn
-res://Scenes/library_game.tscn
-res://Scripts/gameboy_main.gd
-res://Scripts/global.gd
-res://Scripts/Room Changes/room_change_bottom_left_right_tower.gd
-res://Scripts/Room Changes/room_change_bottom_left_tower.gd
-res://Scripts/Room Changes/room_change_left_hallway.gd
-res://Scripts/Room Changes/room_change_right_banner.gd
-res://Scripts/Room Changes/room_change_right_hall.gd
-res://Scripts/Room Changes/room_change_top_left_right_tower.gd
-res://Scripts/Room Changes/room_change_top_left_tower.gd
 res://Scenes/camera_2d.gd
-res://Scenes/library_game.gd
-res://Scenes/library.tscn
-res://Scripts/library_minigame_interaction_area.gd
-res://Scenes/root.tscn
 res://Scenes/eye_jumpscare.gd
+res://Scripts/root.gd
+res://Scenes/root.tscn
+res://Scenes/3d_room.tscn

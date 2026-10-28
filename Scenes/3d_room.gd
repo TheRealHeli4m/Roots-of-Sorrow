@@ -24,6 +24,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.inMomMinigame: 
+		window.show()
+		door.hide()
+		cabinet.hide()
+		gameboy.show()
+		gameboy.position = Vector2(40, 100)
+		gameboy.scale = Vector2(10, 10)
+		camera.apply_shake()
+		return;
 	if Global.currentScene == "room":
 		if currentRoom == "cabinet":
 			if Input.is_action_just_pressed("escape") or Input.is_action_just_pressed("scroll_banner_up"):
