@@ -1,11 +1,9 @@
-res://Scenes/game_boy.tscn
+res://Scenes/root.tscn
 res://Scenes/static.gdshader
 res://Effects/Shaders/vignette.gdshader
 res://Scenes/3d_room.gdshader
-res://Scenes/3d_room.gd
-res://Scenes/camera_2d.gd
-res://Scenes/eye_jumpscare.gd
-res://Scripts/root.gd
-res://Scenes/root.tscn
 res://Scenes/3d_room.tscn
-res://Scenes/mom_minigame.gd
+res://Scenes/3d_room.gd
+res://eye.tscn
+res://eye.gd
+res://Scripts/global.gd

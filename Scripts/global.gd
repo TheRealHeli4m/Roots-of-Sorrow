@@ -10,5 +10,6 @@ var player: CharacterBody2D
 var playerInCamlockXArea: bool = false
 var playerInCamlockYArea: bool = false
 var inMomMinigame: bool = false
+var eyeAmount = 0
 
 var sanity: int = 90.0

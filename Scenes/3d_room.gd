@@ -21,15 +21,42 @@ extends Node2D
 
 @onready var hover = $MomMinigame/Hover
 
+@onready var eye1 = preload("res://Assets/eye1.png")
+@onready var eye2 = preload("res://Assets/eye2.png")
+@onready var eye3 = preload("res://Assets/eye3.png")
+@onready var eye4 = preload("res://Assets/eye4.png")
+@onready var eyeNode = preload("res://eye.tscn")
+
+var eyeArray: Array
+var eyeSpawnRate = 0.01
+@onready var eyeSpawnRoot = $Window
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	eyeArray = [eye1, eye2, eye3, eye4]
 	root.startMomMinigame.connect(startMomMinigame)
 	turnColRect.modulate.a = 0
 	currentRoom = "door"
 	gameboy.hide()
+	
+func createEye() -> void:
+	randomize()
+	if randf() < eyeSpawnRate:
+		Global.eyeAmount += 1
+		if randf() > 0.5:
+			eyeSpawnRoot = $Window
+		else:
+			eyeSpawnRoot = $Door
+		var eye = eyeNode.instantiate()
+		eye.texture_normal = eyeArray.pick_random()
+		eyeSpawnRoot.add_child(eye)
+		eye.scale = Vector2(0.125, 0.125)
+		eye.position = Vector2(randi_range(-75, 75), randi_range(-40, 40))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(Global.eyeAmount)
+	createEye()
 	if progressBar.value == 100:
 		Global.inMomMinigame = false
 		progressBar.hide()

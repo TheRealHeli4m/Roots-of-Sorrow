@@ -1,15 +1,15 @@
+TextureButton
 Control
+Sprite2D
 ProgressBar
 TextureProgressBar
 CanvasLayer
 CanvasGroup
 CollisionShape2D
 Area2D
-Sprite2D
 Timer
 Node
 AudioStreamPlayer2D
 Node2D
 Parallax2D
 AnimatedSprite2D
-ColorRect

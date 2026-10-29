@@ -6,6 +6,7 @@ extends Camera2D
 
 var randomStrength = 5.0
 var shakeFade = 5.0
+var randomLimit = 1
 
 var rng = RandomNumberGenerator.new()
 
@@ -25,8 +26,11 @@ func _process(delta: float) -> void:
 	if Global.inMomMinigame:
 		mouseSprite.offset = randomOffset()
 		self.offset = randomOffset()
-		if randf() < 0.005:
-			Input.warp_mouse(Vector2(randi_range(100, 1000), randi_range(100, 550)))
+		randomLimit += 0.005
+		if randf() < randomLimit / 1000:
+			randomize()
+			Input.warp_mouse(Vector2(randi_range(300, 1800), randi_range(200, 1450)))
+			randomLimit -= 1
 		
 	if root.currentRoom == "cabinet": 
 		calculatedPos = get_viewport().get_mouse_position() / 32
