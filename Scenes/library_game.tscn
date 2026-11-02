@@ -214,9 +214,9 @@ scale = Vector2(8, 8)
 texture = ExtResource("16_8jhbj")
 
 [node name="Lantern" type="TextureButton" parent="." unique_id=389185848]
-offset_left = 684.0
+offset_left = 562.0
 offset_top = 147.0
-offset_right = 695.75
+offset_right = 573.75
 offset_bottom = 173.75
 scale = Vector2(8, 8)
 texture_normal = ExtResource("10_145xn")

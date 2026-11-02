@@ -28,7 +28,7 @@ extends Node2D
 @onready var eyeNode = preload("res://eye.tscn")
 
 var eyeArray: Array
-var eyeSpawnRate = 0.01
+var eyeSpawnRate = 0.001
 @onready var eyeSpawnRoot = $Window
 
 # Called when the node enters the scene tree for the first time.

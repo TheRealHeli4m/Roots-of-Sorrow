@@ -1,9 +1,10 @@
+res://Scenes/3d_room.gd
 res://Scenes/root.tscn
 res://Scenes/static.gdshader
 res://Effects/Shaders/vignette.gdshader
 res://Scenes/3d_room.gdshader
-res://Scenes/3d_room.tscn
-res://Scenes/3d_room.gd
-res://eye.tscn
-res://eye.gd
 res://Scripts/global.gd
+res://Scripts/root.gd
+res://Scenes/library_game.tscn
+res://Scenes/library_game.gd
+res://Scenes/banner_room.tscn

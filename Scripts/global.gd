@@ -12,4 +12,4 @@ var playerInCamlockYArea: bool = false
 var inMomMinigame: bool = false
 var eyeAmount = 0
 
-var sanity: int = 90.0
+var sanity = 90.0

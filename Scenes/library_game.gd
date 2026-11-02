@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 		
 func tweenIn() -> void:
 	cMod.show()
-	$Lantern.position = Vector2(700, 550)
+	$Lantern.position = Vector2(500, 550)
 	var lanterntween = create_tween()
 	lanterntween.tween_property($Lantern, "position:y", 200, 1.0)\
 		.set_trans(Tween.TRANS_CUBIC)\
@@ -82,6 +82,7 @@ func tweenOut() -> void:
 		.set_ease(Tween.EASE_OUT)
 		
 func reset() -> void:
+	Global.sanity += 10
 	orderedBookList.shuffle()
 	for i in range(orderedBookList.size()):
 		var marker = bookToMarkerHM.get(orderedBookList[i])

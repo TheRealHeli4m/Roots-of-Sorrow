@@ -1,3 +1,4 @@
+Timer
 TextureButton
 Control
 Sprite2D
@@ -7,9 +8,7 @@ CanvasLayer
 CanvasGroup
 CollisionShape2D
 Area2D
-Timer
 Node
 AudioStreamPlayer2D
 Node2D
 Parallax2D
-AnimatedSprite2D

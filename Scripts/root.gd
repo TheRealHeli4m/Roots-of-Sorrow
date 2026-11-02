@@ -70,6 +70,9 @@ func flash():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	print(Global.sanity)
+	if Global.sanity > 90.0:
+		Global.sanity = 90.0
 	changePanic()
 	if Global.currentScene == "room":
 		Input.set_custom_mouse_cursor(null)
@@ -93,3 +96,9 @@ func _on_mom_timer_timeout() -> void:
 func changePanic() -> void:
 	var panicIntensity: float = (100.0 - Global.sanity) / 100.0
 	panicMaterial.set_shader_parameter("intensity", panicIntensity)
+
+
+func _on_sanity_timer_timeout() -> void:
+	Global.sanity -= Global.eyeAmount
+	if Global.currentScene == "gameboy":
+		Global.sanity += 2
