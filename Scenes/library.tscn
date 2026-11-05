@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b2nm15w431ci6"]
 
 [ext_resource type="Texture2D" uid="uid://b6txwej65yjvp" path="res://Assets/Tiles/gameplay_tiles.png" id="1_0r5b0"]
-[ext_resource type="Script" uid="uid://isyn02sukeb0" path="res://room_change_top_library.gd" id="2_fd1gd"]
-[ext_resource type="Script" uid="uid://ks5yjdv4lary" path="res://room_change_bottom_library.gd" id="3_hrcop"]
+[ext_resource type="Script" uid="uid://isyn02sukeb0" path="res://Scripts/Room Changes/room_change_top_library.gd" id="2_fd1gd"]
+[ext_resource type="Script" uid="uid://ks5yjdv4lary" path="res://Scripts/Room Changes/room_change_bottom_library.gd" id="3_hrcop"]
 [ext_resource type="Script" uid="uid://dd5l4xk8hbvla" path="res://Scripts/library_minigame_interaction_area.gd" id="5_hp3p4"]
 [ext_resource type="Script" uid="uid://bgwfshmxhoyt1" path="res://Scripts/camlockx.gd" id="5_hrcop"]
 [ext_resource type="Texture2D" uid="uid://b8ggwyxig6rnl" path="res://Assets/painting.png" id="6_hp3p4"]
@@ -322,6 +322,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="RoomChangeTop" to="RoomChangeTop" method="_on_body_entered"]

@@ -25,14 +25,18 @@ extends Node2D
 @onready var eye2 = preload("res://Assets/eye2.png")
 @onready var eye3 = preload("res://Assets/eye3.png")
 @onready var eye4 = preload("res://Assets/eye4.png")
-@onready var eyeNode = preload("res://eye.tscn")
+@onready var eyeNode = preload("res://Scenes/eye.tscn")
 
 var eyeArray: Array
 var eyeSpawnRate = 0.001
 @onready var eyeSpawnRoot = $Window
+@onready var mouseSprite = $"../Mouse/Mouse"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mouseSprite.show()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	mousePos = get_viewport().get_mouse_position()
 	eyeArray = [eye1, eye2, eye3, eye4]
 	root.startMomMinigame.connect(startMomMinigame)
 	turnColRect.modulate.a = 0
@@ -55,6 +59,9 @@ func createEye() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	mouseSprite.visible = true if Global.showMouseSprite else false
+	
+	mouseMovements()
 	print(Global.eyeAmount)
 	createEye()
 	if progressBar.value == 100:
@@ -107,6 +114,7 @@ func _process(delta: float) -> void:
 		cabinet.show()
 		window.hide()
 		door.hide()
+		
 
 func openGameboy() -> bool:
 	gameboy.show()
@@ -153,4 +161,33 @@ func turn(isLeft: bool) -> void:
 	
 func startMomMinigame() -> void:
 	progressBar.value = 40
+	
+@onready var calculatedPos: Vector2
+
+var randomStrength = 5.0
+var shakeFade = 5.0
+var randomLimit = 1
+
+var rng = RandomNumberGenerator.new()
+
+var shakeStrength = 0.0
+var mousePos: Vector2
+	
+func mouseMovements() -> void:
+	mousePos = get_viewport().get_mouse_position()
+	mouseSprite.position = mousePos
+	if Global.inMomMinigame:
+		mouseSprite.offset = randomOffset()
+		self.offset = randomOffset()
+		randomLimit += 0.005
+		if randf() < randomLimit / 1000:
+			randomize()
+			Input.warp_mouse(Vector2(randi_range(300, 1800), randi_range(200, 1450)))
+			randomLimit -= 1
+			
+func apply_shake() -> void:
+	shakeStrength = randomStrength
+
+func randomOffset() -> Vector2:
+	return Vector2(rng.randf_range(-shakeStrength, shakeStrength), rng.randf_range(-shakeStrength, shakeStrength))
 	

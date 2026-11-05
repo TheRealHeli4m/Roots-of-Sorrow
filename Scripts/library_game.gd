@@ -16,6 +16,8 @@ extends Node2D
 
 @onready var selectedArray: Array = []
 
+@onready var gameboyCursor = load("res://Assets/Cursors/gameboy_mouse_cursor.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ovheadLight.energy = 0
@@ -67,6 +69,9 @@ func _process(delta: float) -> void:
 		print(bookList)
 		
 func tweenIn() -> void:
+	Global.showMouseSprite = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.set_custom_mouse_cursor(gameboyCursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	cMod.show()
 	$Lantern.position = Vector2(500, 550)
 	var lanterntween = create_tween()
@@ -75,6 +80,8 @@ func tweenIn() -> void:
 		.set_ease(Tween.EASE_OUT)
 
 func tweenOut() -> void:
+	Global.showMouseSprite = true
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	cMod.hide()
 	var lanterntween = create_tween()
 	lanterntween.tween_property($Lantern, "position:y", 550, 1.0)\

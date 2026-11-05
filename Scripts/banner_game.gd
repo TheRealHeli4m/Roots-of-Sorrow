@@ -81,6 +81,8 @@ func determineColor() -> void:
 				bannerGame.activeColor = Color(1, 1, 1)
 	
 func playOpeningAnim(isPainting: bool) -> void:
+	Global.showMouseSprite = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if isTweening:
 		return
 	
@@ -122,6 +124,8 @@ func playOpeningAnim(isPainting: bool) -> void:
 		
 		
 func playClosingAnim() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Global.showMouseSprite = true
 	if isTweening:
 		return
 		
